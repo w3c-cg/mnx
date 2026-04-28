@@ -288,6 +288,9 @@
         "duration": {
           "$ref": "#/$defs/note-value"
         },
+        "fermata": {
+          "$ref": "#/$defs/fermata"
+        },
         "kitNotes": {
           "$ref": "#/$defs/kit-notes"
         },
@@ -407,6 +410,59 @@
       "type": "object",
       "unevaluatedProperties": false
     },
+    "fermata": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "duration": {
+          "$ref": "#/$defs/fermata-duration"
+        },
+        "orient": {
+          "$ref": "#/$defs/fermata-orientation"
+        },
+        "symbol": {
+          "$ref": "#/$defs/fermata-symbol"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "fermata-duration": {
+      "enum": [
+        "auto",
+        "none",
+        "veryLong",
+        "long",
+        "normal",
+        "short",
+        "veryShort"
+      ],
+      "type": "string"
+    },
+    "fermata-orientation": {
+      "enum": [
+        "above",
+        "below",
+        "auto"
+      ],
+      "type": "string"
+    },
+    "fermata-symbol": {
+      "enum": [
+        "normal",
+        "angled",
+        "square",
+        "double-angled",
+        "double-square",
+        "double-dot",
+        "half-curve",
+        "curlew"
+      ],
+      "type": "string"
+    },
     "fifths": {
       "type": "integer"
     },
@@ -443,6 +499,9 @@
         }
       ],
       "properties": {
+        "fermata": {
+          "$ref": "#/$defs/fermata"
+        },
         "staffPosition": {
           "$ref": "#/$defs/staff-position"
         },
@@ -840,6 +899,9 @@
         },
         "ending": {
           "$ref": "#/$defs/ending"
+        },
+        "fermata": {
+          "$ref": "#/$defs/fermata"
         },
         "fine": {
           "$ref": "#/$defs/fine"
@@ -2221,7 +2283,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/7",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/8",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

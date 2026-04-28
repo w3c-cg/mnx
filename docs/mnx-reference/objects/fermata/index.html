@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>The full measure rest object | MNX specification</title>
+<title>The fermata object | MNX specification</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="../../../static/styles.css">
@@ -44,15 +44,17 @@
     <a href="../../../">MNX specification</a> &gt;
     <a href="../../">MNX reference</a> &gt;
     <a href="../">Objects</a> &gt;
-    full measure rest
+    fermata
 </p>
 
-<h1>The full measure rest object</h1>
+<h1>The fermata object</h1>
 
 <p><b>Type:</b> Dictionary</p>
 
 
 
+
+<p>Represents a fermata. All attributes are optional.</p>
 
 
 
@@ -70,36 +72,36 @@
 
 
 <tr>
-    <td><nobr><b>fermata</b></nobr></td>
+    <td><nobr><b>duration</b></nobr></td>
     <td>
         
-        <a href="../fermata/">fermata</a>
+        <a href="../fermata-duration/">fermata duration</a>
         
     </td>
     <td>No</td>
-    <td></td>
+    <td>The duration of the fermata's pause.<br><br>This is intentionally open-ended, as opposed to specifying precise amounts of time. We expect consuming applications will have their own internal mappings of how long a "normal" fermata should last versus a "long" one, etc.<br><br>If unspecified, the default value is "auto".</td>
 </tr>
 
 <tr>
-    <td><nobr><b>staffPosition</b></nobr></td>
+    <td><nobr><b>orient</b></nobr></td>
     <td>
         
-        <a href="../staff-position/">staff position</a>
+        <a href="../fermata-orientation/">fermata orientation</a>
         
     </td>
     <td>No</td>
-    <td>If provided, this specifies the vertical position of the rest on the staff. If not provided, the rest should be positioned automatically according to convention.<br><br>This vertical position is the "origin point" from which the rest symbol's SMuFL glyph is drawn. For example, a quarter rest is drawn from its vertical midpoint. See the <a href="https://w3c-cg.github.io/smufl/latest/tables/rests.html">SMuFL rests documentation</a> for more.</td>
+    <td>The visual orientation of this fermata's symbol.<br><br>If unspecified, the default value is "auto".</td>
 </tr>
 
 <tr>
-    <td><nobr><b>visualDuration</b></nobr></td>
+    <td><nobr><b>symbol</b></nobr></td>
     <td>
         
-        <a href="../note-value/">note value</a>
+        <a href="../fermata-symbol/">fermata symbol</a>
         
     </td>
     <td>No</td>
-    <td>Encodes the duration of the visual glyph used for this full-measure rest. For example, if a rest is visually represented by a whole note, this would get <code>"visualDuration": {"base": "whole"}</code>.<br><br>Note this doesn't necessarily match the time signature.<br><br>This is optional. If not provided, consuming applications are free to use their own algorithms to determine which glyph to use for this full-measure rest.</td>
+    <td>The visual symbol to use for this fermata.<br><br>(Note: this is deliberately not a SMuFL glyph name because that would be a bit too low-level. There are multiple glyphs for the same "symbol", such as the upside-down version of each fermata gyph.)<br><br>If unspecified, the default value is "normal".</td>
 </tr>
 
 
@@ -122,21 +124,16 @@
 
 <ul>
 
-<li><a href="../sequence/">sequence</a>: "fullMeasure"</li>
+<li><a href="../event/">event</a>: "fermata"</li>
+
+<li><a href="../full-measure-rest/">full measure rest</a>: "fermata"</li>
+
+<li><a href="../measure-global/">measure global</a>: "fermata"</li>
 
 </ul>
 
 
 
-
-<h2 id="examples">Examples</h2>
-
-<p>This object is used in the following examples:</p>
-<p>
-
-<nobr><a href="../../examples/full-measure-rests/">Full-measure rests</a></nobr>
-
-</p>
 
 
 

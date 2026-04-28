@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "7"
+        "version": "8"
     }
 },
 {
@@ -2449,6 +2449,58 @@
         "uses_global_attrs": true,
         "regex": "",
         "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 201,
+    "fields": {
+        "name": "fermata duration",
+        "slug": "fermata-duration",
+        "schema": 1,
+        "object_type": 3,
+        "uses_global_attrs": false,
+        "regex": "",
+        "description": "<p>These values represent the duration of a fermata's pause.</p>"
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 202,
+    "fields": {
+        "name": "fermata symbol",
+        "slug": "fermata-symbol",
+        "schema": 1,
+        "object_type": 3,
+        "uses_global_attrs": false,
+        "regex": "",
+        "description": "<p>The visual symbol used for a fermata.</p>"
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 203,
+    "fields": {
+        "name": "fermata orientation",
+        "slug": "fermata-orientation",
+        "schema": 1,
+        "object_type": 3,
+        "uses_global_attrs": false,
+        "regex": "",
+        "description": "<p>The visual orientation of a fermata glyph, with respect to its corresponding notation.</p>"
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 204,
+    "fields": {
+        "name": "fermata",
+        "slug": "fermata",
+        "schema": 1,
+        "object_type": 1,
+        "uses_global_attrs": true,
+        "regex": "",
+        "description": "<p>Represents a fermata. All attributes are optional.</p>"
     }
 },
 {
@@ -5635,6 +5687,88 @@
     }
 },
 {
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 319,
+    "fields": {
+        "parent": 204,
+        "child_key": "duration",
+        "child": 201,
+        "is_required": false,
+        "description": [
+            "The duration of the fermata's pause.",
+            "",
+            "This is intentionally open-ended, as opposed to specifying precise amounts of time. We expect consuming applications will have their own internal mappings of how long a \"normal\" fermata should last versus a \"long\" one, etc.",
+            "",
+            "If unspecified, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 320,
+    "fields": {
+        "parent": 204,
+        "child_key": "symbol",
+        "child": 202,
+        "is_required": false,
+        "description": [
+            "The visual symbol to use for this fermata.",
+            "",
+            "(Note: this is deliberately not a SMuFL glyph name because that would be a bit too low-level. There are multiple glyphs for the same \"symbol\", such as the upside-down version of each fermata gyph.)",
+            "",
+            "If unspecified, the default value is \"normal\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 321,
+    "fields": {
+        "parent": 204,
+        "child_key": "orient",
+        "child": 203,
+        "is_required": false,
+        "description": [
+            "The visual orientation of this fermata's symbol.",
+            "",
+            "If unspecified, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 322,
+    "fields": {
+        "parent": 26,
+        "child_key": "fermata",
+        "child": 204,
+        "is_required": false,
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 323,
+    "fields": {
+        "parent": 6,
+        "child_key": "fermata",
+        "child": 204,
+        "is_required": false,
+        "description": "Represents a fermata that's visually aligned with the barline at the end of this measure. This is traditionally rendered over the barline."
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 324,
+    "fields": {
+        "parent": 200,
+        "child_key": "fermata",
+        "child": 204,
+        "is_required": false,
+        "description": ""
+    }
+},
+{
     "model": "spectools.jsonobjectenum",
     "pk": 1,
     "fields": {
@@ -6596,6 +6730,168 @@
         "parent": 92,
         "name": "shortName",
         "description": "Use the <a href=\"../part/\">part</a>'s \"shortName\" attribute."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 105,
+    "fields": {
+        "parent": 201,
+        "name": "auto",
+        "description": "Consuming software is free to determine the duration according to its own algorithms."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 106,
+    "fields": {
+        "parent": 201,
+        "name": "none",
+        "description": "The fermata doesn't affect playback. (In other words, playback should proceed as if the fermata didn't exist.)"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 107,
+    "fields": {
+        "parent": 201,
+        "name": "veryLong",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 108,
+    "fields": {
+        "parent": 201,
+        "name": "long",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 109,
+    "fields": {
+        "parent": 201,
+        "name": "normal",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 110,
+    "fields": {
+        "parent": 201,
+        "name": "short",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 111,
+    "fields": {
+        "parent": 201,
+        "name": "veryShort",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 112,
+    "fields": {
+        "parent": 203,
+        "name": "above",
+        "description": "The fermata should be placed above its corresponding notation."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 113,
+    "fields": {
+        "parent": 203,
+        "name": "below",
+        "description": "The fermata should be placed below its corresponding notation."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 114,
+    "fields": {
+        "parent": 203,
+        "name": "auto",
+        "description": "Consuming applications are free to use their own algorithms to decide the fermata's vertical placement."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 115,
+    "fields": {
+        "parent": 202,
+        "name": "normal",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 116,
+    "fields": {
+        "parent": 202,
+        "name": "angled",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 117,
+    "fields": {
+        "parent": 202,
+        "name": "square",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 118,
+    "fields": {
+        "parent": 202,
+        "name": "double-angled",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 119,
+    "fields": {
+        "parent": 202,
+        "name": "double-square",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 120,
+    "fields": {
+        "parent": 202,
+        "name": "double-dot",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 121,
+    "fields": {
+        "parent": 202,
+        "name": "half-curve",
+        "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 122,
+    "fields": {
+        "parent": 202,
+        "name": "curlew",
+        "description": "<span class=\"smufl\"></span>"
     }
 },
 {

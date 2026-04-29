@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "14"
+        "version": "15"
     }
 },
 {
@@ -1886,13 +1886,17 @@
     "model": "spectools.jsonobject",
     "pk": 157,
     "fields": {
-        "name": "up or down",
-        "slug": "up-or-down",
+        "name": "up, down or auto",
+        "slug": "up-down-auto",
         "schema": 1,
         "object_type": 3,
         "uses_global_attrs": true,
         "regex": "",
-        "description": "<p>Describes the direction a musical symbol should be pointing. This is used for symbols that are allowed to point in multiple directions depending on musical context.</p>"
+        "description": [
+            "<p>Describes the direction a musical symbol should be pointing. This is used for symbols that are allowed to point in multiple directions depending on musical context.</p>",
+            "",
+            "<p>See also <a href=\"../up-down/\">up or down</a>, a more constrained data type that doesn't support the value \"auto\".</p>"
+        ]
     }
 },
 {
@@ -2488,6 +2492,40 @@
         "uses_global_attrs": true,
         "regex": "",
         "description": "<p>Represents a fermata. All attributes are optional.</p>"
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 205,
+    "fields": {
+        "name": "bow direction",
+        "slug": "bow-direction",
+        "schema": 1,
+        "object_type": 1,
+        "uses_global_attrs": true,
+        "regex": "",
+        "description": [
+            "<p>A bow direction marking. This can be either an up-bow or down-bow.</p>",
+            "",
+            "<p>This is used both for bowed instruments and for plectrum instruments (the picking direction).</p>"
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobject",
+    "pk": 206,
+    "fields": {
+        "name": "up or down",
+        "slug": "up-down",
+        "schema": 1,
+        "object_type": 3,
+        "uses_global_attrs": true,
+        "regex": "",
+        "description": [
+            "<p>A direction (either up or down).</p>",
+            "",
+            "<p>See also <a href=\"../up-down-auto/\">up, down or auto</a>, a slightly looser data type that also supports the value \"auto\".</p>"
+        ]
     }
 },
 {
@@ -5935,6 +5973,43 @@
     }
 },
 {
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 337,
+    "fields": {
+        "parent": 144,
+        "child_key": "bowDirection",
+        "child": 205,
+        "is_required": false,
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 338,
+    "fields": {
+        "parent": 205,
+        "child_key": "direction",
+        "child": 206,
+        "is_required": true,
+        "description": "Whether this is an up-bow or down-bow."
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 339,
+    "fields": {
+        "parent": 205,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
     "model": "spectools.jsonobjectenum",
     "pk": 1,
     "fields": {
@@ -7067,6 +7142,24 @@
         "parent": 115,
         "name": "auto",
         "description": "Consuming applications are free to use their own algorithms to determine orientation."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 127,
+    "fields": {
+        "parent": 206,
+        "name": "up",
+        "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 128,
+    "fields": {
+        "parent": 206,
+        "name": "down",
+        "description": ""
     }
 },
 {

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>The kit component ID object | MNX specification</title>
+<title>The bow direction object | MNX specification</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="../../../static/styles.css">
@@ -44,15 +44,64 @@
     <a href="../../../">MNX specification</a> &gt;
     <a href="../../">MNX reference</a> &gt;
     <a href="../">Objects</a> &gt;
-    kit component ID
+    bow direction
 </p>
 
-<h1>The kit component ID object</h1>
+<h1>The bow direction object</h1>
 
-<p><b>Type:</b> String</p>
+<p><b>Type:</b> Dictionary</p>
 
 
 
+
+<p>A bow direction marking. This can be either an up-bow or down-bow.</p>
+
+<p>This is used both for bowed instruments and for plectrum instruments (the picking direction).</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>direction</b></nobr></td>
+    <td>
+        
+        <a href="../up-down/">up or down</a>
+        
+    </td>
+    <td>Yes</td>
+    <td>Whether this is an up-bow or down-bow.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>orient</b></nobr></td>
+    <td>
+        
+        <a href="../orientation/">orientation</a>
+        
+    </td>
+    <td>No</td>
+    <td>Whether this marking is above or below the staff.<br><br>If omitted, the default value is "auto".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
 
 
 
@@ -66,7 +115,7 @@
 
 <ul>
 
-<li><a href="../kit-note/">kit note</a>: "kitComponent"</li>
+<li><a href="../event-markings/">event markings</a>: "bowDirection"</li>
 
 </ul>
 

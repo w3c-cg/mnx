@@ -134,6 +134,26 @@
       },
       "type": "array"
     },
+    "bow-direction": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/up-down"
+        },
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
+      "required": [
+        "direction"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
     "bpm": {
       "type": "integer"
     },
@@ -379,6 +399,9 @@
         "accent": {
           "$ref": "#/$defs/accent"
         },
+        "bowDirection": {
+          "$ref": "#/$defs/bow-direction"
+        },
         "breath": {
           "$ref": "#/$defs/breath-mark"
         },
@@ -427,7 +450,7 @@
           "$ref": "#/$defs/orientation"
         },
         "pointing": {
-          "$ref": "#/$defs/up-or-down"
+          "$ref": "#/$defs/up-down-auto"
         },
         "symbol": {
           "$ref": "#/$defs/fermata-symbol"
@@ -1971,7 +1994,7 @@
           "$ref": "#/$defs/orientation"
         },
         "pointing": {
-          "$ref": "#/$defs/up-or-down"
+          "$ref": "#/$defs/up-down-auto"
         }
       },
       "type": "object",
@@ -2271,7 +2294,14 @@
       "type": "object",
       "unevaluatedProperties": false
     },
-    "up-or-down": {
+    "up-down": {
+      "enum": [
+        "up",
+        "down"
+      ],
+      "type": "string"
+    },
+    "up-down-auto": {
       "enum": [
         "up",
         "down",
@@ -2321,7 +2351,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/14",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/15",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

@@ -6,11 +6,7 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {
-        "pointing": {
-          "$ref": "#/$defs/up-or-down"
-        }
-      },
+      "properties": {},
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -2283,7 +2279,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/8",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/9",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

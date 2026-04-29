@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "8"
+        "version": "9"
     }
 },
 {
@@ -4657,17 +4657,6 @@
         "child": 128,
         "is_required": true,
         "description": "The number of marks to use in this tremolo. Must be between 1 and 8, inclusive."
-    }
-},
-{
-    "model": "spectools.jsonobjectrelationship",
-    "pk": 235,
-    "fields": {
-        "parent": 146,
-        "child_key": "pointing",
-        "child": 157,
-        "is_required": false,
-        "description": "Specifies whether this accent should point upward or downward. If not provided, consuming applications should use their own automatic algorithms to determine this."
     }
 },
 {

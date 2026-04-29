@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "9"
+        "version": "10"
     }
 },
 {
@@ -1892,7 +1892,7 @@
         "object_type": 3,
         "uses_global_attrs": true,
         "regex": "",
-        "description": ""
+        "description": "<p>Describes the direction a musical symbol should be pointing. This is used for symbols that are allowed to point in multiple directions depending on musical context.</p>"
     }
 },
 {
@@ -4667,7 +4667,13 @@
         "child_key": "pointing",
         "child": 157,
         "is_required": false,
-        "description": "Specifies whether this accent should point upward or downward. If not provided, consuming applications should use their own automatic algorithms to determine this."
+        "description": [
+            "Specifies whether this accent should point upward or downward.",
+            "",
+            "For example: a strong accent mark above the staff (i.e., in its standard orientation) has the value \"up\".",
+            "",
+            "If not provided, the default value is \"auto\"."
+        ]
     }
 },
 {
@@ -6123,7 +6129,7 @@
     "fields": {
         "parent": 157,
         "name": "up",
-        "description": ""
+        "description": "The symbol is pointing upward."
     }
 },
 {
@@ -6132,7 +6138,7 @@
     "fields": {
         "parent": 157,
         "name": "down",
-        "description": ""
+        "description": "The symbol is pointing downward."
     }
 },
 {
@@ -6881,6 +6887,15 @@
         "parent": 202,
         "name": "curlew",
         "description": "<span class=\"smufl\"></span>"
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 123,
+    "fields": {
+        "parent": 157,
+        "name": "auto",
+        "description": "Consuming applications are free to determine the symbol direction based on their own algorithms."
     }
 },
 {

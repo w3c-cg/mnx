@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "12"
+        "version": "13"
     }
 },
 {
@@ -5777,6 +5777,173 @@
             "For example: a standard fermata above the staff should have the value \"up\".",
             "",
             "If unspecified, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 326,
+    "fields": {
+        "parent": 146,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 327,
+    "fields": {
+        "parent": 152,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 328,
+    "fields": {
+        "parent": 155,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 329,
+    "fields": {
+        "parent": 150,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 330,
+    "fields": {
+        "parent": 149,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 331,
+    "fields": {
+        "parent": 145,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 332,
+    "fields": {
+        "parent": 153,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 333,
+    "fields": {
+        "parent": 147,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 334,
+    "fields": {
+        "parent": 148,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 335,
+    "fields": {
+        "parent": 156,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\".",
+            "",
+            "Note that single-note tremolos are displayed over a note's stem, so generally the default value of \"auto\" is sufficient. The main reason to specify a custom \"orient\" for a single-note tremolo is for stemless notes."
+        ]
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 336,
+    "fields": {
+        "parent": 154,
+        "child_key": "orient",
+        "child": 115,
+        "is_required": false,
+        "description": [
+            "Whether this marking is above or below the staff.",
+            "",
+            "If omitted, the default value is \"auto\"."
         ]
     }
 },

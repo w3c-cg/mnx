@@ -6,7 +6,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -140,6 +144,9 @@
         }
       ],
       "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        },
         "symbol": {
           "$ref": "#/$defs/breath-mark-symbol"
         }
@@ -1689,7 +1696,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1746,7 +1757,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1756,7 +1771,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1766,7 +1785,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1929,7 +1952,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1943,6 +1970,9 @@
         }
       ],
       "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        },
         "pointing": {
           "$ref": "#/$defs/up-or-down"
         }
@@ -2062,7 +2092,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -2163,6 +2197,9 @@
       "properties": {
         "marks": {
           "$ref": "#/$defs/positive-integer"
+        },
+        "orient": {
+          "$ref": "#/$defs/orientation"
         }
       },
       "required": [
@@ -2229,7 +2266,11 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "properties": {},
+      "properties": {
+        "orient": {
+          "$ref": "#/$defs/orientation"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -2283,7 +2324,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/12",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/13",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

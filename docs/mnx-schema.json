@@ -454,10 +454,10 @@
         "normal",
         "angled",
         "square",
-        "double-angled",
-        "double-square",
-        "double-dot",
-        "half-curve",
+        "doubleAngled",
+        "doubleSquare",
+        "doubleDot",
+        "halfCurve",
         "curlew"
       ],
       "type": "string"
@@ -2283,7 +2283,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/11",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/12",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "11"
+        "version": "12"
     }
 },
 {
@@ -6866,7 +6866,7 @@
     "pk": 118,
     "fields": {
         "parent": 202,
-        "name": "double-angled",
+        "name": "doubleAngled",
         "description": "<span class=\"smufl\"></span>"
     }
 },
@@ -6875,7 +6875,7 @@
     "pk": 119,
     "fields": {
         "parent": 202,
-        "name": "double-square",
+        "name": "doubleSquare",
         "description": "<span class=\"smufl\"></span>"
     }
 },
@@ -6884,7 +6884,7 @@
     "pk": 120,
     "fields": {
         "parent": 202,
-        "name": "double-dot",
+        "name": "doubleDot",
         "description": "<span class=\"smufl\"></span>"
     }
 },
@@ -6893,7 +6893,7 @@
     "pk": 121,
     "fields": {
         "parent": 202,
-        "name": "half-curve",
+        "name": "halfCurve",
         "description": "<span class=\"smufl\"></span>"
     }
 },

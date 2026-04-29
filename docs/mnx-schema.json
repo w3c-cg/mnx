@@ -424,7 +424,7 @@
           "$ref": "#/$defs/fermata-duration"
         },
         "orient": {
-          "$ref": "#/$defs/fermata-orientation"
+          "$ref": "#/$defs/orientation"
         },
         "pointing": {
           "$ref": "#/$defs/up-or-down"
@@ -445,14 +445,6 @@
         "normal",
         "short",
         "veryShort"
-      ],
-      "type": "string"
-    },
-    "fermata-orientation": {
-      "enum": [
-        "above",
-        "below",
-        "auto"
       ],
       "type": "string"
     },
@@ -1160,6 +1152,11 @@
       "type": "integer"
     },
     "orientation": {
+      "enum": [
+        "above",
+        "below",
+        "auto"
+      ],
       "type": "string"
     },
     "ottava": {
@@ -2324,7 +2321,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/13",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/14",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

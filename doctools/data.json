@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "13"
+        "version": "14"
     }
 },
 {
@@ -1367,7 +1367,7 @@
         "object_type": 3,
         "uses_global_attrs": true,
         "regex": "",
-        "description": ""
+        "description": "<p>Represents vertical orientation with respect to the staff.</p>"
     }
 },
 {
@@ -2475,19 +2475,6 @@
         "uses_global_attrs": false,
         "regex": "",
         "description": "<p>The visual symbol used for a fermata.</p>"
-    }
-},
-{
-    "model": "spectools.jsonobject",
-    "pk": 203,
-    "fields": {
-        "name": "fermata orientation",
-        "slug": "fermata-orientation",
-        "schema": 1,
-        "object_type": 3,
-        "uses_global_attrs": false,
-        "regex": "",
-        "description": "<p>The visual orientation of a fermata glyph, with respect to its corresponding notation.</p>"
     }
 },
 {
@@ -5721,10 +5708,10 @@
     "fields": {
         "parent": 204,
         "child_key": "orient",
-        "child": 203,
+        "child": 115,
         "is_required": false,
         "description": [
-            "The visual orientation of this fermata's symbol.",
+            "The vertical orientation of this fermata's symbol with respect to the staff.",
             "",
             "If unspecified, the default value is \"auto\"."
         ]
@@ -6976,33 +6963,6 @@
 },
 {
     "model": "spectools.jsonobjectenum",
-    "pk": 112,
-    "fields": {
-        "parent": 203,
-        "name": "above",
-        "description": "The fermata should be placed above its corresponding notation."
-    }
-},
-{
-    "model": "spectools.jsonobjectenum",
-    "pk": 113,
-    "fields": {
-        "parent": 203,
-        "name": "below",
-        "description": "The fermata should be placed below its corresponding notation."
-    }
-},
-{
-    "model": "spectools.jsonobjectenum",
-    "pk": 114,
-    "fields": {
-        "parent": 203,
-        "name": "auto",
-        "description": "Consuming applications are free to use their own algorithms to decide the fermata's vertical placement."
-    }
-},
-{
-    "model": "spectools.jsonobjectenum",
     "pk": 115,
     "fields": {
         "parent": 202,
@@ -7080,6 +7040,33 @@
         "parent": 157,
         "name": "auto",
         "description": "Consuming applications are free to determine the symbol direction based on their own algorithms."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 124,
+    "fields": {
+        "parent": 115,
+        "name": "above",
+        "description": "Above the staff."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 125,
+    "fields": {
+        "parent": 115,
+        "name": "below",
+        "description": "Below the staff."
+    }
+},
+{
+    "model": "spectools.jsonobjectenum",
+    "pk": 126,
+    "fields": {
+        "parent": 115,
+        "name": "auto",
+        "description": "Consuming applications are free to use their own algorithms to determine orientation."
     }
 },
 {

@@ -1367,7 +1367,7 @@
         "object_type": 3,
         "uses_global_attrs": true,
         "regex": "",
-        "description": "<p>Represents vertical orientation with respect to the staff.</p>"
+        "description": "<p>Represents a symbol's vertical orientation.</p>"
     }
 },
 {
@@ -5814,7 +5814,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5829,7 +5829,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5844,7 +5844,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5859,7 +5859,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5874,7 +5874,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5889,7 +5889,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5904,7 +5904,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5919,7 +5919,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5934,7 +5934,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -5949,7 +5949,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\".",
             "",
@@ -5966,7 +5966,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -6003,7 +6003,7 @@
         "child": 115,
         "is_required": false,
         "description": [
-            "Whether this marking is above or below the staff.",
+            "Whether this marking is displayed above or below the associated event.",
             "",
             "If omitted, the default value is \"auto\"."
         ]
@@ -7123,7 +7123,7 @@
     "fields": {
         "parent": 115,
         "name": "above",
-        "description": "Above the staff."
+        "description": ""
     }
 },
 {
@@ -7132,7 +7132,7 @@
     "fields": {
         "parent": 115,
         "name": "below",
-        "description": "Below the staff."
+        "description": ""
     }
 },
 {

@@ -419,6 +419,9 @@
         "orient": {
           "$ref": "#/$defs/fermata-orientation"
         },
+        "pointing": {
+          "$ref": "#/$defs/up-or-down"
+        },
         "symbol": {
           "$ref": "#/$defs/fermata-symbol"
         }
@@ -2280,7 +2283,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/10",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/11",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

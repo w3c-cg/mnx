@@ -24,7 +24,7 @@
         "name": "MNX",
         "slug": "mnx",
         "is_json": true,
-        "version": "10"
+        "version": "11"
     }
 },
 {
@@ -5761,6 +5761,23 @@
         "child": 204,
         "is_required": false,
         "description": ""
+    }
+},
+{
+    "model": "spectools.jsonobjectrelationship",
+    "pk": 325,
+    "fields": {
+        "parent": 204,
+        "child_key": "pointing",
+        "child": 157,
+        "is_required": false,
+        "description": [
+            "The direction that this fermata symbol points.",
+            "",
+            "For example: a standard fermata above the staff should have the value \"up\".",
+            "",
+            "If unspecified, the default value is \"auto\"."
+        ]
     }
 },
 {

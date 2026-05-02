@@ -1,0 +1,143 @@
+{
+    "mnx": {
+        "version": 1
+    },
+    "global": {
+        "measures": [
+            {
+                "key": {
+                    "fifths": 3
+                },
+                "time": {
+                    "count": 4,
+                    "unit": 4
+                }
+            },
+            {
+                "key": {
+                    "fifths": 5
+                }
+            },
+            {
+                "key": {
+                    "fifths": 6
+                }
+            }
+        ]
+    },
+    "parts": [
+        {
+            "id": "concert",
+            "name": "Concert",
+            "measures": [
+                {
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2
+                            }
+                        }
+                    ],
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        },
+        {
+            "id": "bflat-flipat-5",
+            "name": "in B♭ +5",
+            "transposition": {
+                "interval": {
+                    "halfSteps": 2,
+                    "staffDistance": 1
+                },
+                "keyFifthsFlipAt": 5
+            },
+            "measures": [
+                {
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2
+                            }
+                        }
+                    ],
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        },
+        {
+            "id": "bflat-flipat-7",
+            "name": "in B♭ +7",
+            "transposition": {
+                "interval": {
+                    "halfSteps": 2,
+                    "staffDistance": 1
+                },
+                "keyFifthsFlipAt": 7
+            },
+            "measures": [
+                {
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2
+                            }
+                        }
+                    ],
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        },
+        {
+            "id": "bflat-flipat-8",
+            "name": "in B♭ +8",
+            "transposition": {
+                "interval": {
+                    "halfSteps": 2,
+                    "staffDistance": 1
+                },
+                "keyFifthsFlipAt": 8
+            },
+            "measures": [
+                {
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2
+                            }
+                        }
+                    ],
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        }
+    ]
+}

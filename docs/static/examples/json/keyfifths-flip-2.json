@@ -1,0 +1,104 @@
+{
+    "mnx": {
+        "version": 1
+    },
+    "global": {
+        "measures": [
+            {
+                "barline": {
+                    "type": "double"
+                },
+                "key": {
+                    "fifths": 4
+                },
+                "time": {
+                    "count": 4,
+                    "unit": 4
+                }
+            },
+            {
+                "key": {
+                    "fifths": 6
+                }
+            }
+        ]
+    },
+    "parts": [
+        {
+            "id": "concert",
+            "name": "Concert",
+            "measures": [
+                {
+                    "sequences": [],
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2,
+                                "glyph": "gClef"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        },
+        {
+            "id": "eflat-flipat-7",
+            "name": "in Eb +7",
+            "transposition": {
+                "interval": {
+                    "halfSteps": 9,
+                    "staffDistance": 5
+                },
+                "keyFifthsFlipAt": 7
+            },
+            "measures": [
+                {
+                    "sequences": [],
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2,
+                                "glyph": "gClef"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        },
+        {
+            "id": "eflat-flipat-none",
+            "name": "in Eb (no flip)",
+            "transposition": {
+                "interval": {
+                    "halfSteps": 9,
+                    "staffDistance": 5
+                }
+            },
+            "measures": [
+                {
+                    "sequences": [],
+                    "clefs": [
+                        {
+                            "clef": {
+                                "sign": "G",
+                                "staffPosition": -2,
+                                "glyph": "gClef"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "sequences": []
+                }
+            ]
+        }
+    ]
+}

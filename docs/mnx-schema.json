@@ -1509,6 +1509,12 @@
             "$ref": "#/$defs/sequence"
           },
           "type": "array"
+        },
+        "staffConfigs": {
+          "items": {
+            "$ref": "#/$defs/positioned-staff-config"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -1599,6 +1605,29 @@
       },
       "required": [
         "clef"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "positioned-staff-config": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/staff-config"
+        },
+        "position": {
+          "$ref": "#/$defs/rhythmic-position"
+        },
+        "staff": {
+          "$ref": "#/$defs/staff-number"
+        }
+      },
+      "required": [
+        "config"
       ],
       "type": "object",
       "unevaluatedProperties": false
@@ -2012,6 +2041,20 @@
         "sources",
         "type"
       ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "staff-config": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "lines": {
+          "$ref": "#/$defs/positive-integer"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },

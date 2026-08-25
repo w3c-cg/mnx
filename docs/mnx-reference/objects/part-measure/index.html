@@ -180,6 +180,20 @@
     <td></td>
 </tr>
 
+<tr>
+    <td><nobr><b>staffConfigs</b></nobr></td>
+    <td>
+        
+            An array of
+            
+            <a href="../positioned-staff-config/">positioned staff config objects</a>
+            
+        
+    </td>
+    <td>No</td>
+    <td>Encodes information about the staff changes that begin in this part measure. This is the number of staff lines and (in the future) other metadata about the staff itself.<br><br>For example: a part that uses a single-line staff should use {"staffConfigs": [{"config": {"lines": 1}}]} in the very first measure.<br><br>This "staffConfigs" value should be considered active until it's overridden by another one in a subsequent measure. In other words, it only needs to be encoded at the beginning.<br><br>In the vast majority of music, a part will only encode "staffConfigs" in its very first part measure. The only situation in which subsequent measures would change this value is music in which a part's staff changes (for example, from a five-line staff to a single-line staff).<br><br>If a part doesn't provide "staffConfigs" in any of its part measures, or there is no positioned staff config for a given staff number, consuming applications should assume the staff uses a standard five lines: {"lines": 5}.<br><br>Note: this value is an array in order to support multi-staff parts.</td>
+</tr>
+
 
 </table>
 

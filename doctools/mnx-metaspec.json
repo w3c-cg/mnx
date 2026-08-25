@@ -338,6 +338,24 @@
                         "sequence"
                     ],
                     "required": true
+                },
+                "staffConfigs": {
+                    "items": [
+                        "positioned-staff-config"
+                    ],
+                    "description": [
+                        "Encodes information about the staff changes that begin in this part measure. This is the number of staff lines and (in the future) other metadata about the staff itself.",
+                        "",
+                        "For example: a part that uses a single-line staff should use {\"staffConfigs\": [{\"config\": {\"lines\": 1}}]} in the very first measure.",
+                        "",
+                        "This \"staffConfigs\" value should be considered active until it's overridden by another one in a subsequent measure. In other words, it only needs to be encoded at the beginning.",
+                        "",
+                        "In the vast majority of music, a part will only encode \"staffConfigs\" in its very first part measure. The only situation in which subsequent measures would change this value is music in which a part's staff changes (for example, from a five-line staff to a single-line staff).",
+                        "",
+                        "If a part doesn't provide \"staffConfigs\" in any of its part measures, or there is no positioned staff config for a given staff number, consuming applications should assume the staff uses a standard five lines: {\"lines\": 5}.",
+                        "",
+                        "Note: this value is an array in order to support multi-staff parts."
+                    ]
                 }
             },
             "description": [
@@ -1578,6 +1596,46 @@
                 "<p>This number identifies a staff in context of a multi-staff part. Counting starts at 1 for the top staff.</p>",
                 "",
                 "<p>For example, consider piano music with a grand staff: two staves total. Staff number 1 refers to the top staff, and staff number 2 refers to the bottom one.</p>"
+            ]
+        },
+        "staff-config": {
+            "title": "staff config",
+            "kind": "dict",
+            "properties": {
+                "lines": {
+                    "type": "positive-integer",
+                    "description": [
+                        "The number of staff lines. If not provided, the default is 5."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Describes a single staff: its number of staff lines and other metadata.</p>"
+            ]
+        },
+        "positioned-staff-config": {
+            "title": "positioned staff config",
+            "kind": "dict",
+            "properties": {
+                "config": {
+                    "type": "staff-config",
+                    "required": true
+                },
+                "position": {
+                    "type": "rhythmic-position",
+                    "description": [
+                        "If this position isn't provided, it's assumed to be the start of the bar."
+                    ]
+                },
+                "staff": {
+                    "type": "staff-number",
+                    "description": [
+                        "In a multi-staff part, this specifies which staff the config applies to. If unspecified, this should be interpreted as 1."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Represents a staff config as positioned at a specific location within a measure.</p>"
             ]
         },
         "smufl-glyph": {

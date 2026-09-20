@@ -175,7 +175,7 @@
                 }
             },
             "description": [
-                "<p>The key object defines a key signature applicable to this and all following measures, until changed..</p>"
+                "<p>The key object defines a key signature applicable to this and all following measures, until changed.</p>"
             ]
         },
         "time": {

@@ -9,10 +9,10 @@ The main purpose of this repository is to host the MNX specification(s)
 and related documents. We use GitHub Pages for this; the fully rendered
 specs live at [https://w3c-cg.github.io/mnx/docs/](https://w3c-cg.github.io/mnx/docs/).
 
-That GitHub Pages site uses the content in our repo's `master` branch.
+That GitHub Pages site uses the content in our repo's `main` branch.
 
 Please note that it takes GitHub Pages a few moments to update each
-time `master` is updated.
+time `main` is updated.
 
 ## Issue reporting
 

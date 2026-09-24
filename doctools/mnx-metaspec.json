@@ -438,7 +438,9 @@
                         "",
                         "This is optional and is meant as a hint for consuming applications that structure their internal data differently depending on whether a voice is upper or lower. It can also be used as a hint for individual events' stem directions, if they're not explicitly encoded as <a href=\"../event/\">event.stemDirection</a>.",
                         "",
-                        "Note it's possible for multiple sequences within the same part measure to have the same directionHint value (for example, in the case of more than two sequences)."
+                        "Note it's possible for multiple sequences within the same part measure to have the same directionHint value (for example, in the case of more than two sequences).",
+                        "",
+                        "If omitted, the default value is \"auto\"."
                     ]
                 },
                 "fullMeasure": {

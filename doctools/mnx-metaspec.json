@@ -594,6 +594,12 @@
                         "* If useAccidentalDisplay is false, then this note's accidentalDisplay should be determined according to its own algorithms."
                     ]
                 },
+                "markings": {
+                    "type": "note-markings",
+                    "description": [
+                        "Various markings that apply to this note."
+                    ]
+                },
                 "perform": {
                     "type": "perform-options",
                     "description": [
@@ -2107,6 +2113,75 @@
                 "<p>In a two-line staff, position 0 represents the space between the two lines, position 1 represents the top line, and position -1 represents the bottom line.</p>"
             ]
         },
+        "note-markings": {
+            "title": "note markings",
+            "kind": "dict",
+            "properties": {
+                "slideIn": {
+                    "type": "slide-into-note"
+                },
+                "slideOut": {
+                    "type": "slide-out-of-note"
+                }
+            },
+            "description": [
+                "<p>\"Markings\" is a catch-all container for notations that apply to a specific note. See also <a href=\"../event-markings/\">event markings</a>.</p>"
+            ]
+        },
+        "slide-into-note": {
+            "title": "slide into note",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "type": "slide-into-note-type",
+                    "required": true,
+                    "description": [
+                        "The type of slide."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Encodes a slide into a note, including the specific type of slide.</p>"
+            ]
+        },
+        "slide-into-note-type": {
+            "kind": "string",
+            "values": {
+                "scoop": [
+                    "An indeterminate slide from below the target note."
+                ],
+                "plop": [
+                    "An indeterminate slide from above the target note."
+                ]
+            }
+        },
+        "slide-out-of-note": {
+            "title": "slide out of note",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "type": "slide-out-of-note-type",
+                    "required": true,
+                    "description": [
+                        "The type of slide."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Encodes a slide out of a note, including the specific type of slide.</p>"
+            ]
+        },
+        "slide-out-of-note-type": {
+            "kind": "string",
+            "values": {
+                "falloff": [
+                    "An indeterminate slide downward from the target note."
+                ],
+                "doit": [
+                    "An indeterminate slide upward from the target note."
+                ]
+            }
+        },
         "event-markings": {
             "title": "event markings",
             "kind": "dict",
@@ -2152,7 +2227,7 @@
                 }
             },
             "description": [
-                "<p>\"Markings\" is a catch-all container for notations that apply to an entire event, such as articulations and single-note tremolos.</p>"
+                "<p>\"Markings\" is a catch-all container for notations that apply to an entire event, such as articulations and single-note tremolos. See also <a href=\"../note-markings/\">note markings</a>.</p>"
             ]
         },
         "staccato": {

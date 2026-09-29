@@ -1435,6 +1435,9 @@
         "accidentalDisplay": {
           "$ref": "#/$defs/accidental-display"
         },
+        "markings": {
+          "$ref": "#/$defs/note-markings"
+        },
         "perform": {
           "$ref": "#/$defs/perform-options"
         },
@@ -1454,6 +1457,23 @@
       "required": [
         "pitch"
       ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "note-markings": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "slideIn": {
+          "$ref": "#/$defs/slide-into-note"
+        },
+        "slideOut": {
+          "$ref": "#/$defs/slide-out-of-note"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -2044,6 +2064,54 @@
     },
     "simple-color": {
       "pattern": "^#[0-9a-f]{6}$",
+      "type": "string"
+    },
+    "slide-into-note": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/slide-into-note-type"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "slide-into-note-type": {
+      "enum": [
+        "scoop",
+        "plop"
+      ],
+      "type": "string"
+    },
+    "slide-out-of-note": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/slide-out-of-note-type"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "slide-out-of-note-type": {
+      "enum": [
+        "falloff",
+        "doit"
+      ],
       "type": "string"
     },
     "slur": {

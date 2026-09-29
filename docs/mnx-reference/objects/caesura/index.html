@@ -54,7 +54,12 @@
 
 
 
-<p>Defines a caesura. This is always encoded on the event <em>before</em> the caesura happens — generally the event that contains note(s) that are performed directly before the caesura.</p>
+<p>Defines a caesura. Note that MNX allows caesuras to be encoded in two distinct places:</p>
+
+<ol>
+<li>An <a href="../event/">event</a>. In this case, the caesura should be encoded on the event <em>before</em> the caesura happens — generally the event that contains note(s) that are performed directly before the caesura.</li>
+<li>A <a href="../measure-global/">measure global</a>. This is used for caesuras that are centered above barlines — i.e., not semantically associated with a specific event.</li>
+</ol>
 
 
 
@@ -114,6 +119,8 @@
 <ul>
 
 <li><a href="../event-markings/">event markings</a>: "caesura"</li>
+
+<li><a href="../measure-global/">measure global</a>: "caesura"</li>
 
 </ul>
 

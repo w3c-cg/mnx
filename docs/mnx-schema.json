@@ -1192,6 +1192,9 @@
         "barline": {
           "$ref": "#/$defs/barline"
         },
+        "caesura": {
+          "$ref": "#/$defs/caesura"
+        },
         "ending": {
           "$ref": "#/$defs/ending"
         },

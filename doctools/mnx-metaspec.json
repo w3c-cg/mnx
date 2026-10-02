@@ -1,5 +1,5 @@
 {
-    "version": 41,
+    "version": 42,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -2500,6 +2500,20 @@
                         "",
                         "If the value is false (or not provided), consuming software is expected to use its own beaming algorithm to determine beams."
                     ]
+                },
+                "useLyricExtenders": {
+                    "type": "boolean",
+                    "description": [
+                        "This answers the question \"Does every lyric syllable that has an extender line have extender set?\"",
+                        "",
+                        "If the value is true, any event lyric line that doesn't have extender should be interpreted as having {\"show\": false}, i.e., no extender line.",
+                        "",
+                        "If the value is false, consuming software is expected to use its own logic to determine whether an event lyric line without extender has an extender line, and how far it reaches.",
+                        "",
+                        "In either case, consuming software should honor any extender that is encoded. This lets a document encode the extender lines it knows about, without needing to encode all of them.",
+                        "",
+                        "If not provided, the default value is false."
+                    ]
                 }
             },
             "description": [
@@ -2531,6 +2545,16 @@
             "title": "event lyric line",
             "kind": "dict",
             "properties": {
+                "extender": {
+                    "type": "event-lyric-line-extender",
+                    "description": [
+                        "Specifies that this syllable has an extender line (also called a word extension), indicating that the syllable is sustained beyond this event.",
+                        "",
+                        "To explicitly specify that this syllable has no extender line, use {\"show\": false}.",
+                        "",
+                        "If not provided, the meaning depends on the document's <a href=\"../support/\">useLyricExtenders</a> value. If useLyricExtenders is true, this should be interpreted as {\"show\": false}. If it is false (the default), consuming software should determine whether the syllable has an extender line according to its own logic."
+                    ]
+                },
                 "text": {
                     "type": "string",
                     "required": true,
@@ -2553,6 +2577,39 @@
             },
             "description": [
                 "<p>This encodes a single lyric syllable within a single lyric line (i.e., a single verse).</p>"
+            ]
+        },
+        "event-lyric-line-extender": {
+            "title": "event lyric line extender",
+            "kind": "dict",
+            "properties": {
+                "show": {
+                    "type": "boolean",
+                    "description": [
+                        "Whether the syllable has an extender line. A value of false explicitly specifies that there is no extender line, even where one would normally be expected (for example, under a textless passage).",
+                        "",
+                        "If not provided, the default value is true."
+                    ]
+                },
+                "target": {
+                    "type": "id",
+                    "description": [
+                        "The ID of the last event under which this extender line extends, i.e., the final event of the melisma.",
+                        "",
+                        "The extender line covers the events from the event that starts it through the target event, including the full width of the target event. The target event should not have a syllable in the same lyric line (i.e., with the same lyric line ID).",
+                        "",
+                        "The exact horizontal end point is left to consuming software, because engraving conventions vary. For example, some conventions end the extender lines of all lyric lines at a common point.",
+                        "",
+                        "If not provided, consuming software should determine the extent of the extender line according to its own logic.",
+                        "",
+                        "This is ignored if show is false."
+                    ]
+                }
+            },
+            "description": [
+                "<p>This represents a lyric extender line (also called a word extension): a horizontal line after a syllable, indicating that the syllable is sustained across subsequent events.</p>",
+                "",
+                "<p>An extender line is encoded on the event lyric line of the syllable that starts it.</p>"
             ]
         },
         "event-lyric-line-type": {

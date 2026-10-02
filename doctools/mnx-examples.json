@@ -547,6 +547,26 @@
             ]
         },
         {
+            "slug": "jumps-ds-al-coda",
+            "name": "Jumps (D.S. al Coda)",
+            "blurb": [
+                "In this example, the bars are to be performed in this order: 1, 2, 3, 4, 5, 2, 3, 6.",
+                "",
+                "The \"tocoda\" jump at the end of bar 3 is ignored the first time through, because it only applies after the \"dsalcoda\" jump has been taken."
+            ],
+            "documentPath": "examples/json/jumps-ds-al-coda.json",
+            "featured": false
+        },
+        {
+            "slug": "jumps-dc-al-fine",
+            "name": "Jumps (D.C. al Fine)",
+            "blurb": [
+                "In this example, the bars are to be performed in this order: 1, 2, 3, 4, 1, 2."
+            ],
+            "documentPath": "examples/json/jumps-dc-al-fine.json",
+            "featured": false
+        },
+        {
             "slug": "grace-note",
             "name": "Grace note",
             "blurb": [],

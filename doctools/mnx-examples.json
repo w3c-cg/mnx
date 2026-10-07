@@ -793,6 +793,32 @@
             "documentPath": "examples/json/measure-repeats-counter.json",
             "imagePath": "examples/measure-repeats-counter.png",
             "featured": false
+        },
+        {
+            "slug": "key-signature-flips",
+            "name": "Key signature flips",
+            "blurb": [
+                "When a part is transposed, its key signature may need to \"flip\" enharmonically to avoid an overly large number of sharps or flats. This is controlled by \"keyFifthsFlipAt\" on the part's transposition.",
+                "",
+                "Each of the three B♭ parts here transposes up a major second, so the concert key signatures of 3, 5 and 6 sharps become written key signatures of 5, 7 and 8 sharps. Whenever the written key signature reaches the part's \"keyFifthsFlipAt\" value, 12 fifths are subtracted, so 5 sharps becomes 7 flats, 7 sharps becomes 5 flats and 8 sharps becomes 4 flats.",
+                "",
+                "With \"keyFifthsFlipAt\": 5, all three key signatures flip. With 7, only the last two flip. With 8, only the last one flips."
+            ],
+            "documentPath": "examples/json/keyfifths-flip.json",
+            "imagePath": "examples/keyfifths-flip.png",
+            "featured": false
+        },
+        {
+            "slug": "key-signature-flips-default",
+            "name": "Key signature flips (default behavior)",
+            "blurb": [
+                "If a part's transposition doesn't specify \"keyFifthsFlipAt\", the key signature never flips enharmonically, no matter how many sharps or flats result.",
+                "",
+                "Both E♭ parts here transpose up a major sixth, so the concert key signatures of 4 and 6 sharps become written key signatures of 7 and 9 sharps. The first part uses \"keyFifthsFlipAt\": 7, so these become 5 flats and 3 flats. The second part omits \"keyFifthsFlipAt\", so the second measure has 9 sharps, including two double sharps."
+            ],
+            "documentPath": "examples/json/keyfifths-flip-2.json",
+            "imagePath": "examples/keyfifths-flip-2.png",
+            "featured": false
         }
     ]
 }

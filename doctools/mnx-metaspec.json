@@ -1,5 +1,5 @@
 {
-    "version": 44,
+    "version": 45,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -99,6 +99,9 @@
                     "description": [
                         "Represents a caesura that's visually aligned with the barline at the end of this measure. This is traditionally rendered over the barline."
                     ]
+                },
+                "coda": {
+                    "type": "coda"
                 },
                 "ending": {
                     "type": "ending",
@@ -1198,6 +1201,33 @@
                 }
             }
         },
+        "coda": {
+            "kind": "dict",
+            "properties": {
+                "color": {
+                    "type": "color",
+                    "description": [
+                        "An optional color to be used when rendering this object and all child objects."
+                    ]
+                },
+                "glyph": {
+                    "type": "smufl-glyph",
+                    "description": [
+                        "A specific SMuFL glyph name to be used when rendering this coda sign."
+                    ]
+                },
+                "location": {
+                    "type": "rhythmic-position",
+                    "required": true,
+                    "description": [
+                        "The location of this coda sign within the bar."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Defines a coda sign, which marks the destination of a \"toCoda\" <a href=\"../jump/\">jump</a>.</p>"
+            ]
+        },
         "jump": {
             "kind": "dict",
             "properties": {
@@ -1212,14 +1242,40 @@
                     "type": "jump-type",
                     "required": true
                 }
-            }
+            },
+            "description": [
+                "<p>Defines a jump: a point in the score where performance continues somewhere other than the next measure in score order.</p>",
+                "",
+                "<p>A jump's destination is determined by its <code>type</code>. Destinations are encoded with separate objects: <a href=\"../segno/\">segno</a>, <a href=\"../coda/\">coda</a> and <a href=\"../fine/\">fine</a>. A jump whose type refers to one of these objects implies that the document contains exactly one such object.</p>"
+            ]
         },
         "jump-type": {
             "title": "jump type",
             "kind": "string",
             "values": {
-                "dsalfine": [],
-                "segno": []
+                "dc": [
+                    "Da Capo (\"D.C.\"). Performance continues from the beginning of the piece."
+                ],
+                "dcAlCoda": [
+                    "Da Capo al Coda (\"D.C. al Coda\"). Performance continues from the beginning of the piece until the \"toCoda\" jump, then continues from the <a href=\"../coda/\">coda</a> sign."
+                ],
+                "dcAlFine": [
+                    "Da Capo al Fine (\"D.C. al Fine\"). Performance continues from the beginning of the piece and ends at the <a href=\"../fine/\">fine</a>."
+                ],
+                "dsAlCoda": [
+                    "Dal Segno al Coda (\"D.S. al Coda\"). Performance continues from the <a href=\"../segno/\">segno</a> until the \"toCoda\" jump, then continues from the <a href=\"../coda/\">coda</a> sign."
+                ],
+                "dsAlFine": [
+                    "Dal Segno al Fine (\"D.S. al Fine\"). Performance continues from the <a href=\"../segno/\">segno</a> and ends at the <a href=\"../fine/\">fine</a>."
+                ],
+                "segno": [
+                    "Dal Segno (\"D.S.\"). Performance continues from the <a href=\"../segno/\">segno</a>."
+                ],
+                "toCoda": [
+                    "To Coda. Performance continues from the <a href=\"../coda/\">coda</a> sign.",
+                    "",
+                    "This jump is ignored until a \"dcAlCoda\" or \"dsAlCoda\" jump has been taken."
+                ]
             }
         },
         "fine": {
@@ -1238,7 +1294,12 @@
                         "The location of this fine direction within the bar."
                     ]
                 }
-            }
+            },
+            "description": [
+                "<p>Defines a fine direction, which marks where performance ends after a \"dcAlFine\" or \"dsAlFine\" <a href=\"../jump/\">jump</a>.</p>",
+                "",
+                "<p>The fine is ignored until one of those jumps has been taken.</p>"
+            ]
         },
         "staff-count": {
             "title": "staff count",

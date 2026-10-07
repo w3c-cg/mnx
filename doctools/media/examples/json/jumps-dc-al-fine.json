@@ -8,14 +8,6 @@
       {
         "_x": {
           "mnxdocs": {
-            "highlight": ["segno"]
-          }
-        },
-        "segno": {"location": {"fraction": [0, 1]}}
-      },
-      {
-        "_x": {
-          "mnxdocs": {
             "highlight": ["fine"]
           }
         },
@@ -28,7 +20,7 @@
             "highlight": ["jump"]
           }
         },
-        "jump": {"type": "dsAlFine", "location": {"fraction": [1, 1]}}
+        "jump": {"type": "dcAlFine", "location": {"fraction": [1, 1]}}
       }
     ]
   },
@@ -73,20 +65,6 @@
                 {
                   "duration": {"base": "whole"},
                   "notes": [
-                    {"pitch": {"step": "C", "octave": 5}}
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sequences": [
-            {
-              "content": [
-                {
-                  "duration": {"base": "whole"},
-                  "notes": [
                     {"pitch": {"step": "F", "octave": 5}}
                   ]
                 }
@@ -101,7 +79,7 @@
                 {
                   "duration": {"base": "whole"},
                   "notes": [
-                    {"pitch": {"step": "C", "octave": 5}}
+                    {"pitch": {"step": "D", "octave": 5}}
                   ]
                 }
               ]

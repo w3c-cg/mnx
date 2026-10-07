@@ -16,10 +16,10 @@
       {
         "_x": {
           "mnxdocs": {
-            "highlight": ["fine"]
+            "highlight": ["jump"]
           }
         },
-        "fine": {"location": {"fraction": [1, 1]}}
+        "jump": {"type": "toCoda", "location": {"fraction": [1, 1]}}
       },
       {},
       {
@@ -28,7 +28,15 @@
             "highlight": ["jump"]
           }
         },
-        "jump": {"type": "dsAlFine", "location": {"fraction": [1, 1]}}
+        "jump": {"type": "dsAlCoda", "location": {"fraction": [1, 1]}}
+      },
+      {
+        "_x": {
+          "mnxdocs": {
+            "highlight": ["coda"]
+          }
+        },
+        "coda": {"location": {"fraction": [0, 1]}}
       }
     ]
   },
@@ -73,7 +81,7 @@
                 {
                   "duration": {"base": "whole"},
                   "notes": [
-                    {"pitch": {"step": "C", "octave": 5}}
+                    {"pitch": {"step": "G", "octave": 5}}
                   ]
                 }
               ]
@@ -88,6 +96,20 @@
                   "duration": {"base": "whole"},
                   "notes": [
                     {"pitch": {"step": "F", "octave": 5}}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "notes": [
+                    {"pitch": {"step": "D", "octave": 5}}
                   ]
                 }
               ]

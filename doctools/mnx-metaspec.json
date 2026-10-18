@@ -1501,6 +1501,9 @@
             "kind": "string",
             "values": {
                 "bracket": [],
+                "square": [
+                    "A thin square bracket with short horizontal ends, commonly used to group staves for different players of the same instrument."
+                ],
                 "brace": [],
                 "noSymbol": []
             }

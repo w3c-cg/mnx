@@ -1,0 +1,145 @@
+{
+  "mnx": {
+    "version": 1
+  },
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      }
+    ]
+  },
+  "parts": [
+    {
+      "id": "flute",
+      "name": "Flute",
+      "measures": [
+        {
+          "clefs": [
+            {
+              "clef": {
+                "sign": "G",
+                "staffPosition": -2
+              }
+            }
+          ],
+          "sequences": [
+            {
+              "content": [],
+              "fullMeasure": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe1",
+      "name": "Oboe 1",
+      "measures": [
+        {
+          "clefs": [
+            {
+              "clef": {
+                "sign": "G",
+                "staffPosition": -2
+              }
+            }
+          ],
+          "sequences": [
+            {
+              "content": [],
+              "fullMeasure": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe2",
+      "name": "Oboe 2",
+      "measures": [
+        {
+          "clefs": [
+            {
+              "clef": {
+                "sign": "G",
+                "staffPosition": -2
+              }
+            }
+          ],
+          "sequences": [
+            {
+              "content": [],
+              "fullMeasure": {}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "id": "squareBracket",
+      "content": [
+        {
+          "_x": {
+            "mnxdocs": {
+              "highlight": ["symbol"]
+            }
+          },
+          "type": "group",
+          "symbol": "bracket",
+          "content": [
+            {
+              "type": "staff",
+              "labelref": "name",
+              "sources": [
+                {
+                  "part": "flute"
+                }
+              ]
+            },
+            {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["symbol"]
+                }
+              },
+              "type": "group",
+              "symbol": "square",
+              "content": [
+                {
+                  "type": "staff",
+                  "labelref": "name",
+                  "sources": [
+                    {
+                      "part": "oboe1"
+                    }
+                  ]
+                },
+                {
+                  "type": "staff",
+                  "labelref": "name",
+                  "sources": [
+                    {
+                      "part": "oboe2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scores": [
+    {
+      "name": "Full score",
+      "layout": "squareBracket"
+    }
+  ]
+}

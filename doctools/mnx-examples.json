@@ -7,6 +7,16 @@
     ],
     "examples": [
         {
+            "slug": "bracket-square",
+            "name": "Bracket (Square)",
+            "blurb": [
+                "Flute, Oboe 1, and Oboe 2 share a regular bracket. A square bracket groups the two oboe staves and is drawn outside (to the left of) the regular bracket. Each part contains one measure in 4/4 with a whole-measure rest."
+            ],
+            "documentPath": "examples/json/bracket-square.json",
+            "imagePath": "examples/bracket-square.png",
+            "featured": false
+        },
+        {
             "slug": "hello-world",
             "name": "“Hello world”",
             "blurb": [

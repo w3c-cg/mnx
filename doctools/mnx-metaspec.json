@@ -365,6 +365,14 @@
                         "",
                         "Note: this value is an array in order to support multi-staff parts."
                     ]
+                },
+                "text": {
+                    "items": [
+                        "positioned-text"
+                    ],
+                    "description": [
+                        "Text whose display begins in this part-measure."
+                    ]
                 }
             },
             "description": [
@@ -2113,6 +2121,112 @@
                 "",
                 "<p>If the position isn't encoded, the position is assumed to be the start of the measure.</p>"
             ]
+        },
+        "positioned-text": {
+            "title": "positioned text",
+            "kind": "dict",
+            "properties": {
+                "text": {
+                    "type": "formatted-text",
+                    "required": true,
+                    "description": [
+                        "The text itself. This is encoded as a heterogeneous array of chunks, which can contain a mixture of \"text chunks\" and \"SMuFL chunks.\""
+                    ]
+                },
+                "type": {
+                    "type": "text-type",
+                    "description": [
+                        "The type of text. If unspecified, this should be interpreted as \"general\"."
+                    ]
+                },
+                "position": {
+                    "type": "rhythmic-position",
+                    "description": [
+                        "If this position isn't provided, the text's position is assumed to be the start of the bar."
+                    ]
+                },
+                "staff": {
+                    "type": "staff-number",
+                    "description": [
+                        "In a multi-staff part, this specifies which staff the text is in. If unspecified, this should be interpreted as 1."
+                    ]
+                },
+                "placement": {
+                    "type": "placement",
+                    "description": [
+                        "Whether this text is displayed above or below the staff.",
+                        "",
+                        "If omitted, the default value is \"auto\"."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Represents text as positioned at a specific location within a measure.</p>",
+                "",
+                "<p>If the position isn't encoded, the position is assumed to be the start of the measure.</p>"
+            ]
+        },
+        "text-type": {
+            "title": "text type",
+            "kind": "string",
+            "values": {
+                "general": ["Text with no specified semantic meaning."]
+            }
+        },
+        "formatted-text": {
+            "title": "formatted text",
+            "kind": "array",
+            "extraJSONSchema": {
+                "minItems": 1
+            },
+            "items": [
+                "text-chunk-text",
+                "text-chunk-smufl"
+            ],
+            "description": [
+                "<p>A block of formatted text. Each inner \"chunk\" defines its own content and optional styling.</p>",
+                "<p>The inner chunks should be rendered together in the order provided.</p>"
+            ]
+        },
+        "text-chunk-text": {
+            "title": "text chunk (text)",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "const": "text",
+                    "description": [
+                        "Optional. This is used to disambiguate between text chunks of type=text vs. <a href=\"../text-chunk-smufl/\">type=smufl</a>. If a text chunk hasn't specified its type, then applications should assume type=text."
+                    ]
+                },
+                "text": {
+                    "type": "string",
+                    "required": true,
+                    "description": [
+                        "The text for this chunk."
+                    ]
+                }
+            }
+        },
+        "text-chunk-smufl": {
+            "title": "text chunk (SMuFL)",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "const": "smufl",
+                    "required": true,
+                    "description": [
+                        "This disambiguates from <a href=\"../text-chunk-text/\">chunks with type=text</a>."
+                    ]
+                },
+                "glyphs": {
+                    "items": [
+                        "smufl-glyph"
+                    ],
+                    "description": [
+                        "List of SMuFL glyphs to display, in order."
+                    ]
+                }
+            }
         },
         "rhythmic-position": {
             "title": "rhythmic position",

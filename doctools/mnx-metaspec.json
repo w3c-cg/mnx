@@ -2147,7 +2147,6 @@
                 },
                 "end": {
                     "type": "measure-rhythmic-position",
-                    "required": true,
                     "description": [
                         "The end position of the text. Applications can use this to encode how far the text is able to be drawn before word wrapping."
                     ]

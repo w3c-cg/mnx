@@ -1933,9 +1933,6 @@
         }
       ],
       "properties": {
-        "end": {
-          "$ref": "#/$defs/measure-rhythmic-position"
-        },
         "placement": {
           "$ref": "#/$defs/placement"
         },

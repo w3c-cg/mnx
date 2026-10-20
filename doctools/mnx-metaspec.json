@@ -100,6 +100,11 @@
                         "Represents a caesura that's visually aligned with the barline at the end of this measure. This is traditionally rendered over the barline."
                     ]
                 },
+                "chords": {
+                    "items": [
+                        "positioned-chord"
+                    ]
+                },
                 "coda": {
                     "type": "coda"
                 },
@@ -1301,6 +1306,78 @@
                 "<p>The fine is ignored until one of those jumps has been taken.</p>"
             ]
         },
+        "chord": {
+            "kind": "dict",
+            "properties": {
+                "simpleName": {
+                    "type": "string",
+                    "description": [
+                        "A text-only name of this chord. Examples: \"Am\", \"Cmaj7\", \"C#\", \"C♯\", \"G/A\", \"Bb-\".",
+                        "",
+                        "This provides a lowest-common-denominator way for applications to encode chord names without needing to deal with parsing \"root\". or \"kind\".",
+                        "",
+                        "Unicode characters are allowed (i.e., this isn't limited to ASCII), and there is no particular constraint on the data."
+                    ]
+                },
+                "root": {
+                    "type": "step-with-alter",
+                    "description": [
+                        "The chord's root."
+                    ]
+                },
+                "kind": {
+                    "type": "chord-kind",
+                    "description": [
+                        "The kind of chord, such as major, minor, dominant, etc."
+                    ]
+                },
+                "bass": {
+                    "type": "step-with-alter",
+                    "description": [
+                        "The chord's bass note. For example, in a \"G/C\" chord, the bass is \"C\"."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Represents a chord symbol (e.g., \"Am\" or \"G7\").</p>"
+            ]
+        },
+        "chord-kind": {
+            "kind": "string",
+            "values": {
+                "major": ["Triad: major third, perfect fifth."],
+                "minor": ["Triad: minor third, perfect fifth."],
+                "augmented": ["Triad: major third, augmented fifth."],
+                "diminished": ["Triad: minor third, diminished fifth."],
+                "dominant": ["Seventh: major triad, minor seventh."],
+                "majorSeventh": ["Seventh: major triad, major seventh."],
+                "minorSeventh": ["Seventh: minor triad, minor seventh."],
+                "diminishedSeventh": ["Seventh: diminished triad, diminished seventh."],
+                "augmentedSeventh": ["Seventh: augmented triad, minor seventh."],
+                "halfDiminished": ["Seventh: diminished triad, minor seventh."],
+                "majorMinor": ["Seventh: minor triad, major seventh."],
+                "majorSixth": ["Sixth: major triad, added sixth."],
+                "minorSixth": ["Sixth: minor triad, added sixth."],
+                "dominantNinth": ["Ninth: dominant, major ninth."],
+                "majorNinth": ["Ninth: major-seventh, major ninth."],
+                "minorNinth": ["Ninth: minor-seventh, major ninth."],
+                "dominant11th": ["11th: dominant-ninth, perfect 11th."],
+                "major11th": ["11th: major-ninth, perfect 11th."],
+                "minor11th": ["11th: minor-ninth, perfect 11th."],
+                "dominant13th": ["13th: dominant-11th, major 13th."],
+                "major13th": ["13th: major-11th, major 13th."],
+                "minor13th": ["13th: minor-11th, major 13th."],
+                "suspendedSecond": ["Suspended: major second, perfect fifth."],
+                "suspendedFourth": ["Suspended: perfect fourth, perfect fifth."],
+                "italian": ["Functional Italian sixth."],
+                "french": ["Functional French sixth."],
+                "german": ["Functional German sixth."],
+                "power": ["Perfect fifth."],
+                "tristan": ["Augmented fourth, augmented sixth, augmented ninth."],
+                "other": ["Used when the harmony is entirely composed of add elements."],
+                "none": ["Used to explicitly encode the absence of chords or functional harmony."]
+            }
+        },
         "staff-count": {
             "title": "staff count",
             "kind": "integer",
@@ -2058,6 +2135,25 @@
                 "<p>Describes the alteration to a note's pitch, as an integer in the range -3 to 3, inclusive.</p>"
             ]
         },
+        "step-with-alter": {
+            "title": "note step with alter",
+            "kind": "dict",
+            "properties": {
+                "step": {
+                    "type": "step",
+                    "required": true
+                },
+                "alter": {
+                    "type": "alter",
+                    "description": [
+                        "If not provided, the default value is 0."
+                    ]
+                }
+            },
+            "description": [
+                "<p>A step plus an optional alteration. This enables the encoding of B, Bb, C#, D, G, D##, etc.</p>"
+            ]
+        },
         "accidental-display": {
             "title": "accidental display",
             "kind": "dict",
@@ -2086,6 +2182,27 @@
                     ]
                 }
             }
+        },
+        "positioned-chord": {
+            "title": "positioned chord",
+            "kind": "dict",
+            "properties": {
+                "chord": {
+                    "type": "chord",
+                    "required": true
+                },
+                "position": {
+                    "type": "rhythmic-position",
+                    "description": [
+                        "If this position isn't provided, the chord's position is assumed to be the start of the bar."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Represents a chord symbol (e.g., \"Am\" or \"G7\") as positioned at a specific location within a measure.</p>",
+                "",
+                "<p>If the position isn't encoded, the position is assumed to be the start of the measure.</p>"
+            ]
         },
         "positioned-clef": {
             "title": "positioned clef",

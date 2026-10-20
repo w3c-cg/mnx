@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord-kind object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord-kind
+</p>
+
+<h1>The chord-kind object</h1>
+
+<p><b>Type:</b> String</p>
+
+
+
+
+
+
+
+
+<h2>Allowed values:</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Value</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+<tr>
+    <td><nobr><b>&quot;augmented&quot;</b></nobr></td>
+    <td>Triad: major third, augmented fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;augmentedSeventh&quot;</b></nobr></td>
+    <td>Seventh: augmented triad, minor seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;diminished&quot;</b></nobr></td>
+    <td>Triad: minor third, diminished fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;diminishedSeventh&quot;</b></nobr></td>
+    <td>Seventh: diminished triad, diminished seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;dominant&quot;</b></nobr></td>
+    <td>Seventh: major triad, minor seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;dominant11th&quot;</b></nobr></td>
+    <td>11th: dominant-ninth, perfect 11th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;dominant13th&quot;</b></nobr></td>
+    <td>13th: dominant-11th, major 13th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;dominantNinth&quot;</b></nobr></td>
+    <td>Ninth: dominant, major ninth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;french&quot;</b></nobr></td>
+    <td>Functional French sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;german&quot;</b></nobr></td>
+    <td>Functional German sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;halfDiminished&quot;</b></nobr></td>
+    <td>Seventh: diminished triad, minor seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;italian&quot;</b></nobr></td>
+    <td>Functional Italian sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;major&quot;</b></nobr></td>
+    <td>Triad: major third, perfect fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;major11th&quot;</b></nobr></td>
+    <td>11th: major-ninth, perfect 11th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;major13th&quot;</b></nobr></td>
+    <td>13th: major-11th, major 13th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;majorMinor&quot;</b></nobr></td>
+    <td>Seventh: minor triad, major seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;majorNinth&quot;</b></nobr></td>
+    <td>Ninth: major-seventh, major ninth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;majorSeventh&quot;</b></nobr></td>
+    <td>Seventh: major triad, major seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;majorSixth&quot;</b></nobr></td>
+    <td>Sixth: major triad, added sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minor&quot;</b></nobr></td>
+    <td>Triad: minor third, perfect fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minor11th&quot;</b></nobr></td>
+    <td>11th: minor-ninth, perfect 11th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minor13th&quot;</b></nobr></td>
+    <td>13th: minor-11th, major 13th.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minorNinth&quot;</b></nobr></td>
+    <td>Ninth: minor-seventh, major ninth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minorSeventh&quot;</b></nobr></td>
+    <td>Seventh: minor triad, minor seventh.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;minorSixth&quot;</b></nobr></td>
+    <td>Sixth: minor triad, added sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;neapolitan&quot;</b></nobr></td>
+    <td>Functional Neapolitan sixth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;none&quot;</b></nobr></td>
+    <td>Used to explicitly encode the absence of chords or functional harmony.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;other&quot;</b></nobr></td>
+    <td>Used when the harmony is entirely composed of add elements.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;pedal&quot;</b></nobr></td>
+    <td>Pedal-point bass.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;power&quot;</b></nobr></td>
+    <td>Perfect fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;suspendedFourth&quot;</b></nobr></td>
+    <td>Suspended: perfect fourth, perfect fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;suspendedSecond&quot;</b></nobr></td>
+    <td>Suspended: major second, perfect fifth.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;tristan&quot;</b></nobr></td>
+    <td>Augmented fourth, augmented sixth, augmented ninth.</td>
+</tr>
+
+</table>
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../chord/">chord</a>: "kind"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

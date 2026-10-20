@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord
+</p>
+
+<h1>The chord object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>Represents a chord symbol (e.g., "Am" or "G7").</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>simpleName</b></nobr></td>
+    <td>
+        
+        <a href="../string/">string</a>
+        
+    </td>
+    <td>No</td>
+    <td>A text-only name of this chord. Examples: "Am", "Cmaj7", "C#", "C♯", "G/A", "Bb-".<br><br>This provides a lowest-common-denominator way for applications to encode chord names without needing to deal with parsing "root". or "kind".<br><br>Unicode characters are allowed (i.e., this isn't limited to ASCII), and there is no particular constraint on the data.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>root</b></nobr></td>
+    <td>
+        
+        <a href="../step-with-alter/">note step with alter</a>
+        
+    </td>
+    <td>No</td>
+    <td>The chord's root.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>kind</b></nobr></td>
+    <td>
+        
+        <a href="../chord-kind/">chord-kind</a>
+        
+    </td>
+    <td>No</td>
+    <td>The kind of chord, such as major, minor, dominant, etc.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>bass</b></nobr></td>
+    <td>
+        
+        <a href="../step-with-alter/">note step with alter</a>
+        
+    </td>
+    <td>No</td>
+    <td>The chord's bass note. For example, in a "G/C" chord, the bass is "C".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../positioned-chord/">positioned chord</a>: "chord"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

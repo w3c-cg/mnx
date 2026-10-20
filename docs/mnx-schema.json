@@ -243,6 +243,67 @@
       ],
       "type": "string"
     },
+    "chord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "bass": {
+          "$ref": "#/$defs/step-with-alter"
+        },
+        "kind": {
+          "$ref": "#/$defs/chord-kind"
+        },
+        "root": {
+          "$ref": "#/$defs/step-with-alter"
+        },
+        "simpleName": {
+          "$ref": "#/$defs/string"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "chord-kind": {
+      "enum": [
+        "major",
+        "minor",
+        "augmented",
+        "diminished",
+        "dominant",
+        "majorSeventh",
+        "minorSeventh",
+        "diminishedSeventh",
+        "augmentedSeventh",
+        "halfDiminished",
+        "majorMinor",
+        "majorSixth",
+        "minorSixth",
+        "dominantNinth",
+        "majorNinth",
+        "minorNinth",
+        "dominant11th",
+        "major11th",
+        "minor11th",
+        "dominant13th",
+        "major13th",
+        "minor13th",
+        "suspendedSecond",
+        "suspendedFourth",
+        "neapolitan",
+        "italian",
+        "french",
+        "german",
+        "pedal",
+        "power",
+        "tristan",
+        "other",
+        "none"
+      ],
+      "type": "string"
+    },
     "clef": {
       "allOf": [
         {
@@ -1258,6 +1319,12 @@
         "caesura": {
           "$ref": "#/$defs/caesura"
         },
+        "chords": {
+          "items": {
+            "$ref": "#/$defs/positioned-chord"
+          },
+          "type": "array"
+        },
         "coda": {
           "$ref": "#/$defs/coda"
         },
@@ -1859,6 +1926,26 @@
         "auto"
       ],
       "type": "string"
+    },
+    "positioned-chord": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "chord": {
+          "$ref": "#/$defs/chord"
+        },
+        "position": {
+          "$ref": "#/$defs/rhythmic-position"
+        }
+      },
+      "required": [
+        "chord"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
     },
     "positioned-clef": {
       "allOf": [
@@ -2500,6 +2587,26 @@
         "G"
       ],
       "type": "string"
+    },
+    "step-with-alter": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "alter": {
+          "$ref": "#/$defs/alter"
+        },
+        "step": {
+          "$ref": "#/$defs/step"
+        }
+      },
+      "required": [
+        "step"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
     },
     "stress-marking": {
       "allOf": [

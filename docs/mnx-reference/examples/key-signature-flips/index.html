@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MNX example: Key signature flips | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+<style>
+.diff * { font-weight: bold; color: blue !important; }
+</style>
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../../objects/">Reference</a>
+    <ul>
+    <li><a href="../../objects/">Objects</a></li>
+    <li><a href="../">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Examples</a> &gt;
+    Key signature flips
+</p>
+
+<h1>Key signature flips</h1>
+
+
+<p><img src="../../../static/examples/keyfifths-flip.png"></p>
+
+
+
+<p>When a part is transposed, its key signature may need to &quot;flip&quot; enharmonically to avoid an overly large number of sharps or flats. This is controlled by &quot;keyFifthsFlipAt&quot; on the part&#x27;s transposition.<br><br>Each of the three B♭ parts here transposes up a major second, so the concert key signatures of 3, 5 and 6 sharps become written key signatures of 5, 7 and 8 sharps. Whenever the written key signature reaches the part&#x27;s &quot;keyFifthsFlipAt&quot; value, 12 fifths are subtracted, so 5 sharps becomes 7 flats, 7 sharps becomes 5 flats and 8 sharps becomes 4 flats.<br><br>With &quot;keyFifthsFlipAt&quot;: 5, all three key signatures flip. With 7, only the last two flip. With 8, only the last one flips.</p>
+
+
+
+
+<div class="xmlmarkup">{
+   <a class="tag" href="../../objects/root/">"mnx"</a>: {
+      <a class="tag" href="../../objects/mnx/">"version"</a>: <a class="tag" href="../../objects/version-number/">1</a>
+   },
+   <a class="tag" href="../../objects/root/">"global"</a>: {
+      <a class="tag" href="../../objects/global/">"measures"</a>: [
+         {
+            <a class="tag" href="../../objects/measure-global/">"key"</a>: {
+               <a class="tag" href="../../objects/key/">"fifths"</a>: <a class="tag" href="../../objects/fifths/">3</a>
+            },
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"key"</a>: {
+               <a class="tag" href="../../objects/key/">"fifths"</a>: <a class="tag" href="../../objects/fifths/">5</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"key"</a>: {
+               <a class="tag" href="../../objects/key/">"fifths"</a>: <a class="tag" href="../../objects/fifths/">6</a>
+            }
+         }
+      ]
+   },
+   <a class="tag" href="../../objects/root/">"parts"</a>: [
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"concert"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"Concert"</a>
+      },
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"bflat-flipat-5"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"in B♭ +5"</a>,
+         <a class="tag" href="../../objects/part/">"transposition"</a>: {
+            <a class="tag" href="../../objects/part-transposition/">"interval"</a>: {
+               <a class="tag" href="../../objects/interval/">"halfSteps"</a>: <a class="tag" href="../../objects/integer-signed/">2</a>,
+               <a class="tag" href="../../objects/interval/">"staffDistance"</a>: <a class="tag" href="../../objects/integer-signed/">1</a>
+            },
+            <b class="markuphl"><a class="tag" href="../../objects/part-transposition/">"keyFifthsFlipAt"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/integer-signed/">5</a></b>
+         }
+      },
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"bflat-flipat-7"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"in B♭ +7"</a>,
+         <a class="tag" href="../../objects/part/">"transposition"</a>: {
+            <a class="tag" href="../../objects/part-transposition/">"interval"</a>: {
+               <a class="tag" href="../../objects/interval/">"halfSteps"</a>: <a class="tag" href="../../objects/integer-signed/">2</a>,
+               <a class="tag" href="../../objects/interval/">"staffDistance"</a>: <a class="tag" href="../../objects/integer-signed/">1</a>
+            },
+            <b class="markuphl"><a class="tag" href="../../objects/part-transposition/">"keyFifthsFlipAt"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/integer-signed/">7</a></b>
+         }
+      },
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"bflat-flipat-8"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: []
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"in B♭ +8"</a>,
+         <a class="tag" href="../../objects/part/">"transposition"</a>: {
+            <a class="tag" href="../../objects/part-transposition/">"interval"</a>: {
+               <a class="tag" href="../../objects/interval/">"halfSteps"</a>: <a class="tag" href="../../objects/integer-signed/">2</a>,
+               <a class="tag" href="../../objects/interval/">"staffDistance"</a>: <a class="tag" href="../../objects/integer-signed/">1</a>
+            },
+            <b class="markuphl"><a class="tag" href="../../objects/part-transposition/">"keyFifthsFlipAt"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/integer-signed/">8</a></b>
+         }
+      }
+   ]
+}</div>
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

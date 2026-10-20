@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The positioned text object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    positioned text
+</p>
+
+<h1>The positioned text object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>Represents text as positioned at a specific location within a measure.</p>
+
+<p>If the position isn't encoded, the position is assumed to be the start of the measure.</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>text</b></nobr></td>
+    <td>
+        
+            An array of
+            
+            <a href="../text-chunk-text/">text chunk (text) objects</a>, 
+            
+            <a href="../text-chunk-smufl/">text chunk (SMuFL) objects</a>
+            
+        
+    </td>
+    <td>Yes</td>
+    <td>The text itself. This is encoded as a heterogeneous array of chunks, which can contain a mixture of "text chunks" and "SMuFL chunks."</td>
+</tr>
+
+<tr>
+    <td><nobr><b>type</b></nobr></td>
+    <td>
+        
+        <a href="../text-type/">text type</a>
+        
+    </td>
+    <td>No</td>
+    <td>The type of text. If unspecified, this should be interpreted as "general".</td>
+</tr>
+
+<tr>
+    <td><nobr><b>position</b></nobr></td>
+    <td>
+        
+        <a href="../rhythmic-position/">rhythmic position</a>
+        
+    </td>
+    <td>No</td>
+    <td>If this position isn't provided, the text's position is assumed to be the start of the bar.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>end</b></nobr></td>
+    <td>
+        
+        <a href="../measure-rhythmic-position/">measure rhythmic position</a>
+        
+    </td>
+    <td>Yes</td>
+    <td>The end position of the text. Applications can use this to encode how far the text is able to be drawn before word wrapping.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>staff</b></nobr></td>
+    <td>
+        
+        <a href="../staff-number/">staff number</a>
+        
+    </td>
+    <td>No</td>
+    <td>In a multi-staff part, this specifies which staff the text is in. If unspecified, this should be interpreted as 1.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>placement</b></nobr></td>
+    <td>
+        
+        <a href="../placement/">placement</a>
+        
+    </td>
+    <td>No</td>
+    <td>Whether this text is displayed above or below the staff.<br><br>If omitted, the default value is "auto".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../part-measure/">part measure</a>: "text"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

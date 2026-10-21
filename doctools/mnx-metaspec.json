@@ -609,6 +609,12 @@
                         "Various markings that apply to this note."
                     ]
                 },
+                "notehead": {
+                    "type": "notehead",
+                    "description": [
+                        "The shape and display settings for this note's notehead. If omitted, the consuming software decides these using its own algorithms."
+                    ]
+                },
                 "perform": {
                     "type": "perform-options",
                     "description": [
@@ -2980,6 +2986,12 @@
                         "The ID of this note's <a href=\"../kit-component/\">kit component</a>."
                     ]
                 },
+                "notehead": {
+                    "type": "notehead",
+                    "description": [
+                        "The shape and display settings for this note's notehead. If omitted, the shape is taken from the kit component and the notehead is neither hidden nor parenthesized. See <a href=\"../notehead/\">notehead</a> for shape selection and overrides."
+                    ]
+                },
                 "perform": {
                     "type": "perform-options",
                     "description": [
@@ -3004,6 +3016,93 @@
                 }
             }
         },
+        "kit-notehead": {
+            "title": "kit notehead",
+            "kind": "dict",
+            "properties": {
+                "durationVariant": {
+                    "type": "notehead-duration-variant",
+                    "description": [
+                        "The duration-related form of the notehead, selected independently of the event's duration. This changes only the head: stems, flags, beams, augmentation dots, rhythmic duration, and performance still follow the event. An explicit glyph overrides this selection.",
+                        "",
+                        "For this component, \"default\" selects the form appropriate to the displayed duration of each kit note's event.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                },
+                "glyph": {
+                    "type": "smufl-glyph",
+                    "description": [
+                        "An explicit SMuFL glyph for this notehead. An explicit shape is required when a glyph is supplied. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
+                        "",
+                        "The glyph overrides duration-dependent glyph selection, including \"durationVariant\". Per-note display settings still apply. The glyph does not change pitch, duration, or performance."
+                    ]
+                },
+                "pointing": {
+                    "type": "up-down",
+                    "description": [
+                        "The direction in which the tip of a triangular notehead points, independently of stem direction. This property is only allowed when shape is \"triangle\".",
+                        "",
+                        "If omitted, the default value is \"up\". An explicit glyph overrides the rendered appearance."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "up"
+                    }
+                },
+                "shape": {
+                    "type": "notehead-shape",
+                    "description": [
+                        "The semantic shape family for this kit component's noteheads. \"default\" lets consuming software determine the shape. An individual kit note can select another shape without changing this component.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                }
+            },
+            "extraJSONSchema": {
+                "dependentRequired": {
+                    "glyph": [
+                        "shape"
+                    ]
+                },
+                "dependentSchemas": {
+                    "pointing": {
+                        "required": [
+                            "shape"
+                        ],
+                        "properties": {
+                            "shape": {
+                                "const": "triangle"
+                            }
+                        }
+                    },
+                    "shape": {
+                        "if": {
+                            "properties": {
+                                "shape": {
+                                    "const": "custom"
+                                }
+                            }
+                        },
+                        "then": {
+                            "required": [
+                                "glyph"
+                            ]
+                        }
+                    }
+                }
+            },
+            "description": [
+                "<p>The default notehead design for a <a href=\"../kit-component/\">kit component</a>. It specifies a semantic shape family, an optional glyph, a triangle direction, and a duration variant. Hiding and parentheses are properties of individual <a href=\"../notehead/\">noteheads</a> and are not part of this design.</p>",
+                "",
+                "<p>Each kit note selects a duration-appropriate glyph from this design using its event's displayed duration unless \"durationVariant\" selects another form or an explicit glyph is supplied. A kit note whose shape is omitted or \"default\" uses this design. An explicit per-note shape such as \"oval\" replaces the design, including its glyph, triangle direction, and duration variant.</p>"
+            ]
+        },
         "kit": {
             "kind": "keyedDict",
             "values": "kit-component"
@@ -3018,6 +3117,12 @@
                         "A human-readable name for this kit component, e.g., for purposes of display in a UI."
                     ]
                 },
+                "notehead": {
+                    "type": "kit-notehead",
+                    "description": [
+                        "The default notehead design for this kit component. Each kit note uses this design unless it explicitly selects another shape. If omitted, consuming software determines the design."
+                    ]
+                },
                 "sound": {
                     "type": "id",
                     "description": [
@@ -3030,7 +3135,7 @@
                 }
             },
             "description": [
-                "<p>A kit component represents a single sound used by a kit, along with the position that should be used when the kit component is displayed on a staff. A kit is defined in the <a href=\"../part/\">part</a> \"kit\" attribute.</p>",
+                "<p>A kit component represents a single sound used by a kit, along with the staff position and default notehead design that should be used when the kit component is displayed on a staff. A kit is defined in the <a href=\"../part/\">part</a> \"kit\" attribute.</p>",
                 "",
                 "<p>This is generally used for unpitched percussion music, and some applications call it a \"percussion map.\" For example, one kit component might be \"Bass drum,\" with the staff position on the bottom staff line (staffPosition -4).</p>",
                 "",
@@ -4037,6 +4142,176 @@
                     ]
                 }
             }
+        },
+        "notehead": {
+            "title": "notehead",
+            "kind": "dict",
+            "properties": {
+                "durationVariant": {
+                    "type": "notehead-duration-variant",
+                    "description": [
+                        "The duration-related form of the notehead, selected independently of the event's duration. This changes only the head: stems, flags, beams, augmentation dots, rhythmic duration, and performance still follow the event. An explicit glyph overrides this selection.",
+                        "",
+                        "For a kit note using its component's head design, \"default\" retains the component's duration variant. An explicit non-default value overrides that variant. When the kit note explicitly selects a replacement shape, \"default\" follows its event's displayed duration.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                },
+                "glyph": {
+                    "type": "smufl-glyph",
+                    "description": [
+                        "An explicit SMuFL glyph for this notehead. An explicit shape is required when a glyph is supplied. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
+                        "",
+                        "The glyph overrides duration-dependent glyph selection, including \"durationVariant\". Parentheses and other display settings still apply. The glyph does not change pitch, duration, or performance."
+                    ]
+                },
+                "hide": {
+                    "type": "boolean",
+                    "description": [
+                        "Whether to suppress the notehead and its parentheses. The default is false. This setting does not affect stems, flags, beams, accidentals, augmentation dots, or other markings. The note retains its rhythmic space, pitch, duration, and performance."
+                    ]
+                },
+                "parentheses": {
+                    "type": "boolean",
+                    "description": [
+                        "Whether to enclose the notehead in parentheses. The default is false. This does not change performance."
+                    ]
+                },
+                "pointing": {
+                    "type": "up-down",
+                    "description": [
+                        "The direction in which the tip of a triangular notehead points, independently of stem direction. This property is only allowed when shape is \"triangle\".",
+                        "",
+                        "If omitted, the default value is \"up\" when shape is \"triangle\". When a kit note uses shape \"default\", the component's triangle direction is part of the selected design. An explicit glyph overrides the rendered appearance."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "up"
+                    }
+                },
+                "shape": {
+                    "type": "notehead-shape",
+                    "description": [
+                        "The semantic shape family of this notehead. Shape selection does not change pitch, duration, or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat. For a kit note, \"default\" uses its kit component's head design; an explicit shape such as \"oval\" replaces that design.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                }
+            },
+            "extraJSONSchema": {
+                "dependentRequired": {
+                    "glyph": [
+                        "shape"
+                    ]
+                },
+                "dependentSchemas": {
+                    "pointing": {
+                        "required": [
+                            "shape"
+                        ],
+                        "properties": {
+                            "shape": {
+                                "const": "triangle"
+                            }
+                        }
+                    },
+                    "shape": {
+                        "if": {
+                            "properties": {
+                                "shape": {
+                                    "const": "custom"
+                                }
+                            }
+                        },
+                        "then": {
+                            "required": [
+                                "glyph"
+                            ]
+                        }
+                    }
+                }
+            },
+            "description": [
+                "<p>Describes the semantic shape and display of a single notehead. The same object is used for pitched notes and kit notes. A <a href=\"../kit-component/\">kit component</a> uses the smaller <a href=\"../kit-notehead/\">kit notehead</a> object to define its default head design.</p>",
+                "",
+                "<p>An explicitly selected shape other than \"default\" or \"custom\" identifies a duration-aware family rather than a single glyph. Consuming software selects the filled, open, whole, or breve form appropriate to the event's displayed duration, where the family has such distinctions. In tuplets and multi-note tremolos, use the displayed note value rather than the elapsed performance duration. Shapes such as \"x\" or \"plus\" need not have a filled/open distinction. Use \"durationVariant\" to select a different duration-related head form. Where a family does not distinguish the requested forms, consuming software selects an appropriate available glyph.</p>",
+                "",
+                "<p>Shape, parentheses, and hiding are independent. These properties do not change pitch, duration, or performance.</p>",
+                "",
+                "<p>For a kit note, an omitted shape or \"default\" uses the kit component's head design, including its glyph, triangle direction, and duration variant. An explicit shape such as \"oval\" selects a replacement design using only this notehead object's \"glyph\", \"pointing\", and \"durationVariant\" settings. An explicit glyph on the kit note always overrides the selected design's appearance. Hiding and parentheses are settings of the individual note and default to false.</p>",
+                "",
+                "<p>MNX does not currently define staff settings that assign notehead shapes by pitch or staff position, such as shape-note notation. Applications may still encode such settings using <a href=\"../global-attrs/\">vendor extensions</a>. When no kit-component design applies and a notehead's shape is omitted or set to \"default\", consuming software may use those settings to choose its shape. An explicit shape, such as \"oval\" or \"diamond\", overrides that setting.</p>"
+            ]
+        },
+        "notehead-duration-variant": {
+            "title": "notehead duration variant",
+            "kind": "string",
+            "values": {
+                "default": [
+                    "Uses the normal duration-based selection for the applicable notehead design. For a kit note using its component's design, this retains the component's duration variant. Otherwise, the form follows the event's displayed duration."
+                ],
+                "closed": [
+                    "The closed form normally used for quarter notes and shorter values."
+                ],
+                "half": [
+                    "The form normally used for half notes."
+                ],
+                "whole": [
+                    "The form normally used for whole notes."
+                ],
+                "breve": [
+                    "The form normally used for breves."
+                ]
+            },
+            "description": [
+                "<p>A duration-related form within a semantic notehead shape family. Selecting a form does not change the event's duration or specify a playing technique. For example, a quarter-note event can use a half-note diamond head while retaining its quarter-note stem and rhythmic value.</p>",
+                "",
+                "<p>Not every family distinguishes all forms. Consuming software selects the applicable glyph within the family. An explicit glyph takes precedence over this selection.</p>"
+            ]
+        },
+        "notehead-shape": {
+            "title": "notehead shape",
+            "kind": "string",
+            "values": {
+                "default": [
+                    "For a kit note, uses the head design defined by its kit component. Otherwise, the notehead shape is determined by the consuming software. Normally it is an oval shape."
+                ],
+                "oval": [
+                    "Conventional oval notehead. Specify this to override a kit component's head design or the consuming software's default shape explicitly to force an oval notehead."
+                ],
+                "x": [
+                    "An X-shaped notehead."
+                ],
+                "diamond": [
+                    "A diamond-shaped notehead."
+                ],
+                "triangle": [
+                    "A triangular notehead. Its tip points in the direction set by the notehead object's \"pointing\" property."
+                ],
+                "slash": [
+                    "A rhythmic slash notehead."
+                ],
+                "plus": [
+                    "A plus-shaped notehead."
+                ],
+                "circleX": [
+                    "An X enclosed in a circle."
+                ],
+                "square": [
+                    "A square notehead, as used for La in shape-note notation. This does not by itself select a shape-note system."
+                ],
+                "custom": [
+                    "An otherwise unclassified notehead. Requires an explicit glyph on the notehead object."
+                ]
+            },
+            "description": [
+                "<p>A semantic notehead shape family. Each family may include notehead glyphs for filled, open, whole, breve, etc., all the way to duplex maxima. Unless overridden by \"glyph\", the consuming software determines the applicable glyph from each family based on \"durationVariant\" and the displayed duration of the event.</p>"
+            ]
         }
     },
     "pageCollections": [

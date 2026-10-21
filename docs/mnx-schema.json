@@ -1103,6 +1103,9 @@
         "name": {
           "$ref": "#/$defs/string"
         },
+        "notehead": {
+          "$ref": "#/$defs/kit-notehead"
+        },
         "sound": {
           "$ref": "#/$defs/id"
         },
@@ -1126,6 +1129,9 @@
         "kitComponent": {
           "$ref": "#/$defs/id"
         },
+        "notehead": {
+          "$ref": "#/$defs/notehead"
+        },
         "perform": {
           "$ref": "#/$defs/perform-options"
         },
@@ -1139,6 +1145,63 @@
       "required": [
         "kitComponent"
       ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "kit-notehead": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "dependentRequired": {
+        "glyph": [
+          "shape"
+        ]
+      },
+      "dependentSchemas": {
+        "pointing": {
+          "properties": {
+            "shape": {
+              "const": "triangle"
+            }
+          },
+          "required": [
+            "shape"
+          ]
+        },
+        "shape": {
+          "if": {
+            "properties": {
+              "shape": {
+                "const": "custom"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "glyph"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "durationVariant": {
+          "$ref": "#/$defs/notehead-duration-variant",
+          "default": "default"
+        },
+        "glyph": {
+          "$ref": "#/$defs/smufl-glyph"
+        },
+        "pointing": {
+          "$ref": "#/$defs/up-down",
+          "default": "up"
+        },
+        "shape": {
+          "$ref": "#/$defs/notehead-shape",
+          "default": "default"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1507,6 +1570,9 @@
         "markings": {
           "$ref": "#/$defs/note-markings"
         },
+        "notehead": {
+          "$ref": "#/$defs/notehead"
+        },
         "perform": {
           "$ref": "#/$defs/perform-options"
         },
@@ -1608,6 +1674,94 @@
       ],
       "type": "object",
       "unevaluatedProperties": false
+    },
+    "notehead": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "dependentRequired": {
+        "glyph": [
+          "shape"
+        ]
+      },
+      "dependentSchemas": {
+        "pointing": {
+          "properties": {
+            "shape": {
+              "const": "triangle"
+            }
+          },
+          "required": [
+            "shape"
+          ]
+        },
+        "shape": {
+          "if": {
+            "properties": {
+              "shape": {
+                "const": "custom"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "glyph"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "durationVariant": {
+          "$ref": "#/$defs/notehead-duration-variant",
+          "default": "default"
+        },
+        "glyph": {
+          "$ref": "#/$defs/smufl-glyph"
+        },
+        "hide": {
+          "type": "boolean"
+        },
+        "parentheses": {
+          "type": "boolean"
+        },
+        "pointing": {
+          "$ref": "#/$defs/up-down",
+          "default": "up"
+        },
+        "shape": {
+          "$ref": "#/$defs/notehead-shape",
+          "default": "default"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "notehead-duration-variant": {
+      "enum": [
+        "default",
+        "closed",
+        "half",
+        "whole",
+        "breve"
+      ],
+      "type": "string"
+    },
+    "notehead-shape": {
+      "enum": [
+        "default",
+        "oval",
+        "x",
+        "diamond",
+        "triangle",
+        "slash",
+        "plus",
+        "circleX",
+        "square",
+        "custom"
+      ],
+      "type": "string"
     },
     "octave": {
       "type": "integer"

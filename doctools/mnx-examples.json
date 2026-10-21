@@ -815,6 +815,17 @@
             "documentPath": "examples/json/measure-repeats-counter.json",
             "imagePath": "examples/measure-repeats-counter.png",
             "featured": false
+        },
+        {
+            "slug": "notehead-shapes",
+            "name": "Notehead shapes and display",
+            "blurb": [
+                "Semantic notehead shapes are independent of parentheses and hiding. Explicit glyphs refine known shapes or supply custom heads. The example also shows duration-aware diamonds, upward- and downward-pointing triangles, and a cymbal component with an X head. Its kit notes demonstrate the component design, parentheses, an explicit \"default\" selection, and an \"oval\" replacement.",
+                "The final measure uses four quarter-note events with diamond heads in the closed, half, whole, and breve forms. Only the notehead appearance changes; the rhythmic values remain quarter notes."
+            ],
+            "documentPath": "examples/json/notehead-shapes.json",
+            "featured": false,
+            "imagePath": "examples/notehead-shapes.png"
         }
     ]
 }

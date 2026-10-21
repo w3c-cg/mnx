@@ -537,6 +537,14 @@
                         "note"
                     ]
                 },
+                "noteheadClusters": {
+                    "items": [
+                        "notehead-cluster"
+                    ],
+                    "description": [
+                        "The notehead clusters in this event. Each cluster is bounded by two notes in this event."
+                    ]
+                },
                 "rest": {
                     "type": "rest"
                 },
@@ -3447,6 +3455,109 @@
                 "<p>Note an arpeggio marking might consist of notes across several staves. This is valid, as long as those staves are in the same <a href=\"../part/\">part</a>.</p>",
                 "",
                 "<p>See also: <a href=\"../non-arpeggio/\">non-arpeggios</a>.</p>"
+            ]
+        },
+        "notehead-cluster": {
+            "title": "notehead cluster",
+            "kind": "dict",
+            "properties": {
+                "hide": {
+                    "type": "boolean",
+                    "description": [
+                        "Whether to suppress the shared cluster head and its parentheses. This setting does not affect stems, flags, beams, accidentals, augmentation dots, or other markings. It does not change the cluster's rhythmic space, pitches, duration, or performance.",
+                        "",
+                        "If omitted, the value is false."
+                    ]
+                },
+                "parentheses": {
+                    "type": "boolean",
+                    "description": [
+                        "Whether to enclose the entire shared cluster head in one pair of parentheses.",
+                        "",
+                        "If omitted, the value is false."
+                    ]
+                },
+                "pitchSelection": {
+                    "type": "notehead-cluster-pitch-selection",
+                    "description": [
+                        "The selection of pitches within the cluster's span. Consuming software determines the notation used to communicate this selection, including any collective accidental signs beside the shared head. These signs apply to the cluster as a whole.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ]
+                },
+                "shape": {
+                    "type": "notehead-cluster-shape",
+                    "description": [
+                        "The shape family of the shared cluster head. The event's displayed duration determines the applicable closed or open form. Consuming software determines the geometry needed to span the endpoint notes.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                },
+                "span": {
+                    "type": "id-pair",
+                    "required": true,
+                    "description": [
+                        "The IDs of the two <a href=\"../note/\">notes</a> that bookend this cluster. The \"start\" ID identifies the note with the lower sounded pitch, and the \"end\" ID identifies the note with the higher sounded pitch. The IDs must identify distinct notes with different sounded pitches.",
+                        "",
+                        "Both notes must be in the containing event. They may be on different staves within the same <a href=\"../part/\">part</a>.",
+                        "",
+                        "The cluster includes the pitches selected by \"pitchSelection\" within the inclusive range bounded by the sounded pitches of its two endpoints. The endpoint pitches must belong to that selection. Only the bottom and top notes are encoded; the pitches between them are implied by \"pitchSelection\".",
+                        "",
+                        "An ordinary note in the containing event must lie outside the cluster's pitch range. Cluster spans in the same event must not overlap."
+                    ]
+                }
+            },
+            "description": [
+                "<p>A group of pitches represented by a shared notehead spanning its bottom and top notes in one event. The displayed duration of the containing event determines whether the cluster head is closed or open, and whether it has augmentation dots. The \"shape\" property selects the cluster head's shape family. Consuming software determines the head's geometry and its attachment to stems and other rhythmic notation.</p>",
+                "",
+                "<p>A cluster may span multiple staves within the same part, for example to represent an arm cluster. Consuming software determines how the shared head crosses the space between staves.</p>",
+                "",
+                "<p>An event may contain multiple disjoint clusters, with ordinary notes outside their spans, including between an upper and a lower cluster. Kit notes cannot serve as endpoints.</p>"
+            ]
+        },
+        "notehead-cluster-pitch-selection": {
+            "title": "notehead cluster pitch selection",
+            "kind": "string",
+            "values": {
+                "default": [
+                    "The cluster's pitch selection is determined by the consuming software."
+                ],
+                "whiteKeys": [
+                    "A cluster containing all white-key pitches within its span. White keys correspond to the natural pitches C, D, E, F, G, A, and B in each octave."
+                ],
+                "blackKeys": [
+                    "A cluster containing all black-key pitches within its span. Black keys correspond to C sharp, D sharp, F sharp, G sharp, and A sharp in each octave. Enharmonic spelling does not change which keys are selected."
+                ],
+                "chromatic": [
+                    "A cluster containing all white-key and black-key pitches within its span."
+                ]
+            },
+            "description": [
+                "<p>The semantic pitch selection for a notehead cluster. Keyboard key colors refer to sounded pitches, independent of their enharmonic spelling, key signature, or transposed display.</p>"
+            ]
+        },
+        "notehead-cluster-shape": {
+            "title": "notehead cluster shape",
+            "kind": "string",
+            "values": {
+                "default": [
+                    "The cluster shape is determined by the consuming software."
+                ],
+                "box": [
+                    "A rectangular block spanning the endpoint notes."
+                ],
+                "oval": [
+                    "Oval noteheads at the endpoint notes, joined by a thick line."
+                ],
+                "diamond": [
+                    "Diamond noteheads at the endpoint notes, joined by a thick line."
+                ]
+            },
+            "description": [
+                "<p>A shape family for a shared cluster head. The consuming software determines its proportions and construction for the cluster's span and the event's displayed duration. The shape does not change the pitches selected by \"pitchSelection\" or prescribe a performance technique.</p>"
             ]
         },
         "id-pair": {

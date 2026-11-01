@@ -1,5 +1,5 @@
 {
-    "version": 47,
+    "version": 48,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -1509,6 +1509,9 @@
             "kind": "string",
             "values": {
                 "bracket": [],
+                "square": [
+                    "A thin square bracket with short horizontal ends, commonly used to group staves for different players of the same instrument."
+                ],
                 "brace": [],
                 "noSymbol": []
             }

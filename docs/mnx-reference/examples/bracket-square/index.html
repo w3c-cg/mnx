@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MNX example: Bracket (square) | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+<style>
+.diff * { font-weight: bold; color: blue !important; }
+</style>
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../../objects/">Reference</a>
+    <ul>
+    <li><a href="../../objects/">Objects</a></li>
+    <li><a href="../">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Examples</a> &gt;
+    Bracket (square)
+</p>
+
+<h1>Bracket (square)</h1>
+
+
+<p><img src="../../../static/examples/bracket-square.png"></p>
+
+
+
+<p>Flute, Oboe 1, and Oboe 2 are grouped with a &quot;regular&quot; bracket. The two Oboe staves are grouped with a &quot;square&quot; bracket.</p>
+
+
+
+
+<div class="xmlmarkup">{
+   <a class="tag" href="../../objects/root/">"mnx"</a>: {
+      <a class="tag" href="../../objects/mnx/">"version"</a>: <a class="tag" href="../../objects/version-number/">1</a>
+   },
+   <a class="tag" href="../../objects/root/">"global"</a>: {
+      <a class="tag" href="../../objects/global/">"measures"</a>: [
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         }
+      ]
+   },
+   <a class="tag" href="../../objects/root/">"layouts"</a>: [
+      {
+         <a class="tag" href="../../objects/system-layout/">"id"</a>: <a class="tag" href="../../objects/id/">"squareBracket"</a>,
+         <a class="tag" href="../../objects/system-layout/">"content"</a>: [
+            {
+               <a class="tag" href="../../objects/staff-group/">"type"</a>: "group",
+               <a class="tag" href="../../objects/staff-group/">"content"</a>: [
+                  {
+                     <a class="tag" href="../../objects/staff/">"type"</a>: "staff",
+                     <a class="tag" href="../../objects/staff/">"labelref"</a>: <a class="tag" href="../../objects/staff-labelref/">"name"</a>,
+                     <a class="tag" href="../../objects/staff/">"sources"</a>: [
+                        {
+                           <a class="tag" href="../../objects/staff-source/">"part"</a>: <a class="tag" href="../../objects/id/">"flute"</a>
+                        }
+                     ]
+                  },
+                  {
+                     <a class="tag" href="../../objects/staff-group/">"type"</a>: "group",
+                     <a class="tag" href="../../objects/staff-group/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/staff/">"type"</a>: "staff",
+                           <a class="tag" href="../../objects/staff/">"labelref"</a>: <a class="tag" href="../../objects/staff-labelref/">"name"</a>,
+                           <a class="tag" href="../../objects/staff/">"sources"</a>: [
+                              {
+                                 <a class="tag" href="../../objects/staff-source/">"part"</a>: <a class="tag" href="../../objects/id/">"oboe1"</a>
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/staff/">"type"</a>: "staff",
+                           <a class="tag" href="../../objects/staff/">"labelref"</a>: <a class="tag" href="../../objects/staff-labelref/">"name"</a>,
+                           <a class="tag" href="../../objects/staff/">"sources"</a>: [
+                              {
+                                 <a class="tag" href="../../objects/staff-source/">"part"</a>: <a class="tag" href="../../objects/id/">"oboe2"</a>
+                              }
+                           ]
+                        }
+                     ],
+                     <b class="markuphl"><a class="tag" href="../../objects/staff-group/">"symbol"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/staff-symbol/">"square"</a></b>
+                  }
+               ],
+               <b class="markuphl"><a class="tag" href="../../objects/staff-group/">"symbol"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/staff-symbol/">"bracket"</a></b>
+            }
+         ]
+      }
+   ],
+   <a class="tag" href="../../objects/root/">"parts"</a>: [
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"flute"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [],
+                     <a class="tag" href="../../objects/sequence/">"fullMeasure"</a>: {}
+                  }
+               ]
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"Flute"</a>
+      },
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"oboe1"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [],
+                     <a class="tag" href="../../objects/sequence/">"fullMeasure"</a>: {}
+                  }
+               ]
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"Oboe 1"</a>
+      },
+      {
+         <a class="tag" href="../../objects/part/">"id"</a>: <a class="tag" href="../../objects/id/">"oboe2"</a>,
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [],
+                     <a class="tag" href="../../objects/sequence/">"fullMeasure"</a>: {}
+                  }
+               ]
+            }
+         ],
+         <a class="tag" href="../../objects/part/">"name"</a>: <a class="tag" href="../../objects/part-name/">"Oboe 2"</a>
+      }
+   ],
+   <a class="tag" href="../../objects/root/">"scores"</a>: [
+      {
+         <a class="tag" href="../../objects/score/">"layout"</a>: <a class="tag" href="../../objects/id/">"squareBracket"</a>,
+         <a class="tag" href="../../objects/score/">"name"</a>: <a class="tag" href="../../objects/score-name/">"Full score"</a>
+      }
+   ]
+}</div>
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

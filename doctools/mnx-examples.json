@@ -828,7 +828,7 @@
         },
         {
             "slug": "key-signature-flips",
-            "name": "Key signature flips",
+            "name": "Key signatures (transposed with flips)",
             "blurb": [
                 "When a part is transposed, its key signature may need to \"flip\" enharmonically to avoid an overly large number of sharps or flats. This is controlled by \"keyFifthsFlipAt\" on the part's transposition.",
                 "",
@@ -842,7 +842,7 @@
         },
         {
             "slug": "key-signature-flips-default",
-            "name": "Key signature flips (default behavior)",
+            "name": "Key signatures (transposed without flips)",
             "blurb": [
                 "If a part's transposition doesn't specify \"keyFifthsFlipAt\", the key signature never flips enharmonically, no matter how many sharps or flats result.",
                 "",

@@ -620,7 +620,7 @@
                 "notehead": {
                     "type": "notehead",
                     "description": [
-                        "The shape and display settings for this note's notehead. If omitted, the consuming software decides these using its own algorithms."
+                        "The shape and display settings for this note's notehead. If omitted, consuming software should determine this using its own algorithms."
                     ]
                 },
                 "perform": {
@@ -3103,7 +3103,7 @@
                 "notehead": {
                     "type": "notehead",
                     "description": [
-                        "The shape and display settings for this note's notehead. If omitted, the shape is taken from the kit component and the notehead is neither hidden nor parenthesized. See <a href=\"../notehead/\">notehead</a> for shape selection and overrides."
+                        "The shape and display settings for this kit note's notehead. If omitted, the shape is taken from the kit component and the notehead is neither hidden nor parenthesized."
                     ]
                 },
                 "perform": {
@@ -3212,7 +3212,7 @@
                 }
             },
             "description": [
-                "<p>The default notehead design for a <a href=\"../kit-component/\">kit component</a>. It specifies a semantic shape family, an optional glyph, a triangle direction, and a duration variant. Hiding and parentheses are properties of individual <a href=\"../notehead/\">noteheads</a> and are not part of this design.</p>",
+                "<p>The default notehead to use for a <a href=\"../kit-component/\">kit component</a>. Any individual <a href=\"../kit-note/\">kit note</a> can override this.</p>",
                 "",
                 "<p>Each kit note selects a duration-appropriate glyph from this design using its event's displayed duration unless \"durationVariant\" selects another form or an explicit glyph is supplied. A kit note whose shape is omitted or \"default\" uses this design. An explicit per-note shape such as \"oval\" replaces the design, including its glyph, triangle direction, and duration variant.</p>"
             ]

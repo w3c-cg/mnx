@@ -7,6 +7,16 @@
     ],
     "examples": [
         {
+            "slug": "bracket-square",
+            "name": "Bracket (square)",
+            "blurb": [
+                "Flute, Oboe 1, and Oboe 2 are grouped with a \"regular\" bracket. The two Oboe staves are grouped with a \"square\" bracket."
+            ],
+            "documentPath": "examples/json/bracket-square.json",
+            "imagePath": "examples/bracket-square.png",
+            "featured": false
+        },
+        {
             "slug": "hello-world",
             "name": "“Hello world”",
             "blurb": [

@@ -874,6 +874,20 @@
       "type": "object",
       "unevaluatedProperties": false
     },
+    "formatted-text": {
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/text-chunk-text"
+          },
+          {
+            "$ref": "#/$defs/text-chunk-smufl"
+          }
+        ]
+      },
+      "minItems": 1,
+      "type": "array"
+    },
     "fraction": {
       "items": {
         "$ref": "#/$defs/integer-unsigned"
@@ -1935,6 +1949,12 @@
             "$ref": "#/$defs/positioned-staff-config"
           },
           "type": "array"
+        },
+        "text": {
+          "items": {
+            "$ref": "#/$defs/positioned-text"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -2056,6 +2076,35 @@
       },
       "required": [
         "config"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "positioned-text": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "placement": {
+          "$ref": "#/$defs/placement"
+        },
+        "position": {
+          "$ref": "#/$defs/rhythmic-position"
+        },
+        "staff": {
+          "$ref": "#/$defs/staff-number"
+        },
+        "text": {
+          "$ref": "#/$defs/formatted-text"
+        },
+        "type": {
+          "$ref": "#/$defs/text-type"
+        }
+      },
+      "required": [
+        "text"
       ],
       "type": "object",
       "unevaluatedProperties": false
@@ -2803,6 +2852,57 @@
       "type": "object",
       "unevaluatedProperties": false
     },
+    "text-chunk-smufl": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "glyphs": {
+          "items": {
+            "$ref": "#/$defs/smufl-glyph"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "smufl",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "text-chunk-text": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/string"
+        },
+        "type": {
+          "const": "text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "text-type": {
+      "enum": [
+        "general"
+      ],
+      "type": "string"
+    },
     "tie": {
       "allOf": [
         {
@@ -3038,7 +3138,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/46",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/47",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

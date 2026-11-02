@@ -1,5 +1,5 @@
 {
-    "version": 48,
+    "version": 49,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -2225,6 +2225,10 @@
                     "items": [
                         "smufl-glyph"
                     ],
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "required": true,
                     "description": [
                         "List of SMuFL glyphs to display, in order."
                     ]

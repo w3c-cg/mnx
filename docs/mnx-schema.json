@@ -2710,6 +2710,7 @@
           "items": {
             "$ref": "#/$defs/smufl-glyph"
           },
+          "minItems": 1,
           "type": "array"
         },
         "type": {
@@ -2718,6 +2719,7 @@
         }
       },
       "required": [
+        "glyphs",
         "type"
       ],
       "type": "object",
@@ -2985,7 +2987,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/48",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/49",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

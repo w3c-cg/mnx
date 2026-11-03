@@ -1,5 +1,5 @@
 {
-    "version": 49,
+    "version": 50,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -2173,7 +2173,8 @@
             "title": "text type",
             "kind": "string",
             "values": {
-                "general": ["Text with no specified semantic meaning."]
+                "general": ["Text with no specified semantic meaning."],
+                "expression": ["Expression text."]
             }
         },
         "formatted-text": {

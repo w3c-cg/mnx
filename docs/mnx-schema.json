@@ -2748,7 +2748,8 @@
     },
     "text-type": {
       "enum": [
-        "general"
+        "general",
+        "expression"
       ],
       "type": "string"
     },
@@ -2987,7 +2988,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/49",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/50",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

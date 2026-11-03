@@ -81,12 +81,6 @@
           "count": 4,
           "unit": 4
         }
-      },
-      {
-        "time": {
-          "count": 4,
-          "unit": 4
-        }
       }
     ]
   },
@@ -279,8 +273,7 @@
                         "octave": 5
                       },
                       "notehead": {
-                        "shape": "triangle",
-                        "pointing": "down"
+                        "shape": "triangleDown"
                       },
                       "_x": {
                         "mnxdocs": {
@@ -512,53 +505,6 @@
                         "octave": 5
                       },
                       "notehead": {
-                        "shape": "diamond",
-                        "parentheses": true
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "notes": [
-                    {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
-                      "notehead": {
-                        "hide": true
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "notes": [
-                    {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
-                      "notehead": {
                         "shape": "x",
                         "glyph": "noteheadXOrnateEllipse"
                       },
@@ -595,6 +541,12 @@
                       }
                     }
                   ]
+                },
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "rest": {}
                 }
               ]
             }
@@ -615,26 +567,6 @@
                         "mnxdocs": {
                           "highlight": [
                             "kitComponent"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "kitNotes": [
-                    {
-                      "kitComponent": "cymbal",
-                      "notehead": {
-                        "parentheses": true
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
                           ]
                         }
                       }
@@ -680,100 +612,16 @@
                       }
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sequences": [
-            {
-              "content": [
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "notes": [
-                    {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
-                      "notehead": {
-                        "shape": "diamond",
-                        "durationVariant": "closed"
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
-                          ]
-                        }
-                      }
-                    }
-                  ]
                 },
                 {
                   "duration": {
                     "base": "quarter"
                   },
-                  "notes": [
+                  "kitNotes": [
                     {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
+                      "kitComponent": "cymbal",
                       "notehead": {
-                        "shape": "diamond",
-                        "durationVariant": "half"
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "notes": [
-                    {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
-                      "notehead": {
-                        "shape": "diamond",
-                        "durationVariant": "whole"
-                      },
-                      "_x": {
-                        "mnxdocs": {
-                          "highlight": [
-                            "notehead"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "duration": {
-                    "base": "quarter"
-                  },
-                  "notes": [
-                    {
-                      "pitch": {
-                        "step": "C",
-                        "octave": 5
-                      },
-                      "notehead": {
-                        "shape": "diamond",
-                        "durationVariant": "breve"
+                        "shape": "triangleDown"
                       },
                       "_x": {
                         "mnxdocs": {
@@ -795,8 +643,7 @@
           "name": "Cymbal",
           "staffPosition": 4,
           "notehead": {
-            "shape": "x",
-            "durationVariant": "closed"
+            "shape": "x"
           },
           "_x": {
             "mnxdocs": {

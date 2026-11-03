@@ -1118,7 +1118,7 @@
           "$ref": "#/$defs/string"
         },
         "notehead": {
-          "$ref": "#/$defs/kit-notehead"
+          "$ref": "#/$defs/notehead"
         },
         "sound": {
           "$ref": "#/$defs/id"
@@ -1159,63 +1159,6 @@
       "required": [
         "kitComponent"
       ],
-      "type": "object",
-      "unevaluatedProperties": false
-    },
-    "kit-notehead": {
-      "allOf": [
-        {
-          "$ref": "#/$defs/global-attrs"
-        }
-      ],
-      "dependentRequired": {
-        "glyph": [
-          "shape"
-        ]
-      },
-      "dependentSchemas": {
-        "pointing": {
-          "properties": {
-            "shape": {
-              "const": "triangle"
-            }
-          },
-          "required": [
-            "shape"
-          ]
-        },
-        "shape": {
-          "if": {
-            "properties": {
-              "shape": {
-                "const": "custom"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "glyph"
-            ]
-          }
-        }
-      },
-      "properties": {
-        "durationVariant": {
-          "$ref": "#/$defs/notehead-duration-variant",
-          "default": "default"
-        },
-        "glyph": {
-          "$ref": "#/$defs/smufl-glyph"
-        },
-        "pointing": {
-          "$ref": "#/$defs/up-down",
-          "default": "up"
-        },
-        "shape": {
-          "$ref": "#/$defs/notehead-shape",
-          "default": "default"
-        }
-      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1701,16 +1644,6 @@
         ]
       },
       "dependentSchemas": {
-        "pointing": {
-          "properties": {
-            "shape": {
-              "const": "triangle"
-            }
-          },
-          "required": [
-            "shape"
-          ]
-        },
         "shape": {
           "if": {
             "properties": {
@@ -1727,22 +1660,8 @@
         }
       },
       "properties": {
-        "durationVariant": {
-          "$ref": "#/$defs/notehead-duration-variant",
-          "default": "default"
-        },
         "glyph": {
           "$ref": "#/$defs/smufl-glyph"
-        },
-        "hide": {
-          "type": "boolean"
-        },
-        "parentheses": {
-          "type": "boolean"
-        },
-        "pointing": {
-          "$ref": "#/$defs/up-down",
-          "default": "up"
         },
         "shape": {
           "$ref": "#/$defs/notehead-shape",
@@ -1752,16 +1671,6 @@
       "type": "object",
       "unevaluatedProperties": false
     },
-    "notehead-duration-variant": {
-      "enum": [
-        "default",
-        "closed",
-        "half",
-        "whole",
-        "breve"
-      ],
-      "type": "string"
-    },
     "notehead-shape": {
       "enum": [
         "default",
@@ -1769,6 +1678,7 @@
         "x",
         "diamond",
         "triangle",
+        "triangleDown",
         "slash",
         "plus",
         "circleX",

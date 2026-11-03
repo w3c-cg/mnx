@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord suffix SMuFL run object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord suffix SMuFL run
+</p>
+
+<h1>The chord suffix SMuFL run object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>A run of SMuFL glyphs within a <a href="../chord-suffix/">chord suffix</a>, rendered in the music font.</p>
+
+<p>This is typically used for glyphs from the SMuFL chord-symbol range, such as <code>csymMajorSeventh</code>, <code>csymDiminished</code>, <code>csymHalfDiminished</code>, and <code>csymAugmented</code>, or for chord-symbol accidentals such as <code>csymAccidentalFlat</code>. For example, "7(♭9)" with a music-font flat:</p>
+<pre><code>{"content": [{"text": "7("}, {"type": "smufl", "glyphs": ["csymAccidentalFlat"]}, {"text": "9)"}]}</code></pre>
+
+<p>Enclosing parentheses and brackets for stacks, and the slash for diagonal stacks, should not be encoded as glyphs. They are implied by <a href="../chord-suffix-stack/">stack</a> attributes.</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>type</b></nobr></td>
+    <td>
+        
+            The string <code>"smufl"</code>
+        
+    </td>
+    <td>Yes</td>
+    <td>This disambiguates SMuFL runs from <a href="../chord-suffix-text/">text runs</a> and <a href="../chord-suffix-stack/">stacks</a>.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>glyphs</b></nobr></td>
+    <td>
+        
+            An array of
+            
+            <a href="../smufl-glyph/">smufl glyph objects</a>
+            
+        
+    </td>
+    <td>Yes</td>
+    <td>List of SMuFL glyphs to display, in order.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>level</b></nobr></td>
+    <td>
+        
+        <a href="../chord-suffix-level/">chord suffix level</a>
+        
+    </td>
+    <td>No</td>
+    <td>The vertical level of this run.<br><br>If omitted, the default value is "baseline".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../chord-suffix/">chord suffix</a>: "content"</li>
+
+<li><a href="../chord-suffix-row/">chord suffix row</a>: "content"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

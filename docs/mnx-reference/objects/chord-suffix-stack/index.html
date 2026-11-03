@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord suffix stack object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord suffix stack
+</p>
+
+<h1>The chord suffix stack object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>Two or more rows of a <a href="../chord-suffix/">chord suffix</a> arranged on top of one another, such as a stacked "6/9" or a column of alterations.</p>
+
+<p>Consuming software determines the size of the rows, the spacing between them, and how the stack is aligned with the baseline of the surrounding suffix. Normally the rows are drawn smaller than the baseline text and the stack is centered on the suffix's text.</p>
+
+<p>An enclosure is sized to the height of the whole stack. For example, a stack of two rows enclosed in parentheses might be drawn with the SMuFL glyphs <code>csymParensLeftTall</code> and <code>csymParensRightTall</code>, and a stack of three rows with <code>csymParensLeftVeryTall</code> and <code>csymParensRightVeryTall</code>.</p>
+
+<p>Stacks cannot contain other stacks.</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>type</b></nobr></td>
+    <td>
+        
+            The string <code>"stack"</code>
+        
+    </td>
+    <td>Yes</td>
+    <td>This disambiguates stacks from <a href="../chord-suffix-text/">text runs</a> and <a href="../chord-suffix-smufl/">SMuFL runs</a>.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>rows</b></nobr></td>
+    <td>
+        
+            An array of
+            
+            <a href="../chord-suffix-row/">chord suffix row objects</a>
+            
+        
+    </td>
+    <td>Yes</td>
+    <td>The rows of the stack, in order from top to bottom.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>arrangement</b></nobr></td>
+    <td>
+        
+        <a href="../chord-suffix-stack-arrangement/">chord suffix stack arrangement</a>
+        
+    </td>
+    <td>No</td>
+    <td>How the rows are arranged.<br><br>If omitted, the default value is "vertical".</td>
+</tr>
+
+<tr>
+    <td><nobr><b>enclosure</b></nobr></td>
+    <td>
+        
+        <a href="../chord-suffix-enclosure/">chord suffix enclosure</a>
+        
+    </td>
+    <td>No</td>
+    <td>The enclosure drawn around the whole stack.<br><br>If omitted, the default value is "none".</td>
+</tr>
+
+<tr>
+    <td><nobr><b>level</b></nobr></td>
+    <td>
+        
+        <a href="../chord-suffix-level/">chord suffix level</a>
+        
+    </td>
+    <td>No</td>
+    <td>The vertical level of the stack as a whole.<br><br>If omitted, the default value is "baseline".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../chord-suffix/">chord suffix</a>: "content"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord suffix level object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord suffix level
+</p>
+
+<h1>The chord suffix level object</h1>
+
+<p><b>Type:</b> String</p>
+
+
+
+
+<p>The semantic vertical level of part of a <a href="../chord-suffix/">chord suffix</a>. Consuming software determines the actual offset and size for each level.</p>
+
+
+
+
+
+<h2>Allowed values:</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Value</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+<tr>
+    <td><nobr><b>&quot;baseline&quot;</b></nobr></td>
+    <td>On the baseline of the chord symbol, at the normal size of the suffix.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;subscript&quot;</b></nobr></td>
+    <td>Lowered below the baseline and normally reduced in size.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>&quot;superscript&quot;</b></nobr></td>
+    <td>Raised above the baseline and normally reduced in size, as is common for extensions in jazz styles (for example, the 7 in "MA⁷").</td>
+</tr>
+
+</table>
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../chord-suffix-smufl/">chord suffix SMuFL run</a>: "level"</li>
+
+<li><a href="../chord-suffix-stack/">chord suffix stack</a>: "level"</li>
+
+<li><a href="../chord-suffix-text/">chord suffix text run</a>: "level"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

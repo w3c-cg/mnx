@@ -1,5 +1,5 @@
 {
-    "version": 50,
+    "version": 51,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -2160,6 +2160,12 @@
                         "Whether this text is displayed above or below the staff.",
                         "",
                         "If omitted, the default value is \"auto\"."
+                    ]
+                },
+                "voice": {
+                    "type": "voice-name",
+                    "description": [
+                        "The voice to which this text applies. If unspecified, the text applies to all voices."
                     ]
                 }
             },

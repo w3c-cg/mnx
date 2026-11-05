@@ -1,5 +1,5 @@
 {
-    "version": 51,
+    "version": 52,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -615,6 +615,12 @@
                     "type": "note-markings",
                     "description": [
                         "Various markings that apply to this note."
+                    ]
+                },
+                "notehead": {
+                    "type": "notehead",
+                    "description": [
+                        "The shape and glyph settings for this note's notehead. If omitted, consuming software should determine this using its own algorithms."
                     ]
                 },
                 "perform": {
@@ -3108,6 +3114,12 @@
                         "The ID of this note's <a href=\"../kit-component/\">kit component</a>."
                     ]
                 },
+                "notehead": {
+                    "type": "notehead",
+                    "description": [
+                        "The shape and glyph settings for this kit note's notehead. If omitted, the notehead is taken from the kit component."
+                    ]
+                },
                 "perform": {
                     "type": "perform-options",
                     "description": [
@@ -3146,6 +3158,12 @@
                         "A human-readable name for this kit component, e.g., for purposes of display in a UI."
                     ]
                 },
+                "notehead": {
+                    "type": "notehead",
+                    "description": [
+                        "The default notehead for this kit component. Each <a href=\"../kit-note/\">kit note</a> should use this unless it explicitly defines its own \"notehead\" attribute. If omitted, consuming software should determine the notehead based on its own algorithms."
+                    ]
+                },
                 "sound": {
                     "type": "id",
                     "description": [
@@ -3158,7 +3176,7 @@
                 }
             },
             "description": [
-                "<p>A kit component represents a single sound used by a kit, along with the position that should be used when the kit component is displayed on a staff. A kit is defined in the <a href=\"../part/\">part</a> \"kit\" attribute.</p>",
+                "<p>A kit component represents a single sound used by a kit, along with the staff position and default notehead design that should be used when the kit component is displayed on a staff. A kit is defined in the <a href=\"../part/\">part</a> \"kit\" attribute.</p>",
                 "",
                 "<p>This is generally used for unpitched percussion music, and some applications call it a \"percussion map.\" For example, one kit component might be \"Bass drum,\" with the staff position on the bottom staff line (staffPosition -4).</p>",
                 "",
@@ -4165,6 +4183,109 @@
                     ]
                 }
             }
+        },
+        "notehead": {
+            "title": "notehead",
+            "kind": "dict",
+            "properties": {
+                "glyph": {
+                    "type": "smufl-glyph",
+                    "description": [
+                        "An explicit SMuFL glyph for this notehead. An explicit shape is required when a glyph is supplied. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
+                        "",
+                        "The glyph overrides duration-dependent glyph selection. It does not change pitch, duration or performance."
+                    ]
+                },
+                "shape": {
+                    "type": "notehead-shape",
+                    "description": [
+                        "The semantic shape family of this notehead. Shape selection does not change pitch, duration, or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat. For a kit note, \"default\" uses its kit component's head design; an explicit shape such as \"oval\" replaces that design.",
+                        "",
+                        "If omitted, the value is \"default\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "default"
+                    }
+                }
+            },
+            "extraJSONSchema": {
+                "dependentRequired": {
+                    "glyph": [
+                        "shape"
+                    ]
+                },
+                "dependentSchemas": {
+                    "shape": {
+                        "if": {
+                            "properties": {
+                                "shape": {
+                                    "const": "custom"
+                                }
+                            }
+                        },
+                        "then": {
+                            "required": [
+                                "glyph"
+                            ]
+                        }
+                    }
+                }
+            },
+            "description": [
+                "<p>Describes the shape and glyph of a notehead. This is purely for visual purposes and doesn't in itself affect pitch, duration or performance.</p>",
+                "",
+                "<p>Generally it's better to encode \"shape\" instead of \"glyph\", because the former is a more general concept. For example, the notehead shape \"oval\" is typically represented as the SMuFL glyph \"noteheadHalf\" for half notes, \"noteheadBlack\" for smaller rhythmic values, etc. Encoding \"shape\" instead of a hard-coded \"glyph\" makes the document more flexible.</p>",
+                "",
+                "<p>In tuplets and multi-note tremolos, use the displayed note value rather than the elapsed performance duration.</p>",
+                "",
+                "<p>For a <a href=\"../kit-note/\">kit note</a>, an omitted shape or \"default\" uses the <a href=\"../kit-component/\">kit component</a>'s notehead, including its glyph. An explicit shape such as \"oval\" replaces the component's shape and glyph. An explicit glyph on the kit note overrides the selected notehead's appearance.</p>",
+                "",
+                "<p>MNX doesn't currently have a way to assign notehead shapes dynamically according to pitch or staff position, such as shape-note notation. Applications may still encode such settings using <a href=\"../global-attrs/\">vendor extensions</a>. When no kit-component notehead applies and a notehead's shape is omitted or set to \"default\", consuming software may use those settings to choose its shape. An explicit shape, such as \"oval\" or \"diamond\", should override that setting.</p>"
+            ]
+        },
+        "notehead-shape": {
+            "title": "notehead shape",
+            "kind": "string",
+            "values": {
+                "default": [
+                    "For a kit note, uses the head design defined by its kit component. Otherwise, the notehead shape is determined by the consuming software. Normally this is an oval shape."
+                ],
+                "oval": [
+                    "Conventional oval notehead."
+                ],
+                "x": [
+                    "An X-shaped notehead."
+                ],
+                "diamond": [
+                    "A diamond-shaped notehead."
+                ],
+                "triangle": [
+                    "A triangular notehead with its tip pointing up, irrespective of stem direction."
+                ],
+                "triangleDown": [
+                    "A triangular notehead with its tip pointing down, irrespective of stem direction."
+                ],
+                "slash": [
+                    "A rhythmic slash notehead."
+                ],
+                "plus": [
+                    "A plus-shaped notehead."
+                ],
+                "circleX": [
+                    "An X enclosed in a circle."
+                ],
+                "square": [
+                    "A square notehead, as used for La in shape-note notation. This does not by itself select a shape-note system."
+                ],
+                "custom": [
+                    "An otherwise unclassified notehead. Requires an explicit glyph on the notehead object."
+                ]
+            },
+            "description": [
+                "<p>A semantic notehead shape.</p>",
+                "",
+                "<p>This is a higher-level concept than individual SMuFL glyphs, because a single notehead shape may be represented by different SMuFL glyphs depending on rhythm. For example, the notehead shape \"oval\" is typically represented as the SMuFL glyph \"noteheadHalf\" for half notes, \"noteheadBlack\" for smaller rhythmic values, etc.</p>"
+            ]
         }
     },
     "pageCollections": [

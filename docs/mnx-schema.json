@@ -1117,6 +1117,9 @@
         "name": {
           "$ref": "#/$defs/string"
         },
+        "notehead": {
+          "$ref": "#/$defs/notehead"
+        },
         "sound": {
           "$ref": "#/$defs/id"
         },
@@ -1139,6 +1142,9 @@
       "properties": {
         "kitComponent": {
           "$ref": "#/$defs/id"
+        },
+        "notehead": {
+          "$ref": "#/$defs/notehead"
         },
         "perform": {
           "$ref": "#/$defs/perform-options"
@@ -1521,6 +1527,9 @@
         "markings": {
           "$ref": "#/$defs/note-markings"
         },
+        "notehead": {
+          "$ref": "#/$defs/notehead"
+        },
         "perform": {
           "$ref": "#/$defs/perform-options"
         },
@@ -1622,6 +1631,61 @@
       ],
       "type": "object",
       "unevaluatedProperties": false
+    },
+    "notehead": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "dependentRequired": {
+        "glyph": [
+          "shape"
+        ]
+      },
+      "dependentSchemas": {
+        "shape": {
+          "if": {
+            "properties": {
+              "shape": {
+                "const": "custom"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "glyph"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "glyph": {
+          "$ref": "#/$defs/smufl-glyph"
+        },
+        "shape": {
+          "$ref": "#/$defs/notehead-shape",
+          "default": "default"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "notehead-shape": {
+      "enum": [
+        "default",
+        "oval",
+        "x",
+        "diamond",
+        "triangle",
+        "triangleDown",
+        "slash",
+        "plus",
+        "circleX",
+        "square",
+        "custom"
+      ],
+      "type": "string"
     },
     "octave": {
       "type": "integer"
@@ -2991,7 +3055,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/51",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/52",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

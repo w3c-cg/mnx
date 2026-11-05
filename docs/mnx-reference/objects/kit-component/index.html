@@ -54,7 +54,7 @@
 
 
 
-<p>A kit component represents a single sound used by a kit, along with the position that should be used when the kit component is displayed on a staff. A kit is defined in the <a href="../part/">part</a> "kit" attribute.</p>
+<p>A kit component represents a single sound used by a kit, along with the staff position and default notehead design that should be used when the kit component is displayed on a staff. A kit is defined in the <a href="../part/">part</a> "kit" attribute.</p>
 
 <p>This is generally used for unpitched percussion music, and some applications call it a "percussion map." For example, one kit component might be "Bass drum," with the staff position on the bottom staff line (staffPosition -4).</p>
 
@@ -84,6 +84,17 @@
     </td>
     <td>No</td>
     <td>A human-readable name for this kit component, e.g., for purposes of display in a UI.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>notehead</b></nobr></td>
+    <td>
+        
+        <a href="../notehead/">notehead</a>
+        
+    </td>
+    <td>No</td>
+    <td>The default notehead for this kit component. Each <a href="../kit-note/">kit note</a> should use this unless it explicitly defines its own "notehead" attribute. If omitted, consuming software should determine the notehead based on its own algorithms.</td>
 </tr>
 
 <tr>
@@ -134,6 +145,15 @@
 
 
 
+
+<h2 id="examples">Examples</h2>
+
+<p>This object is used in the following examples:</p>
+<p>
+
+<nobr><a href="../../examples/notehead-shapes/">Notehead shapes</a></nobr>
+
+</p>
 
 
 

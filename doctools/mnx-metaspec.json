@@ -1,5 +1,5 @@
 {
-    "version": 47,
+    "version": 51,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -1515,6 +1515,9 @@
             "kind": "string",
             "values": {
                 "bracket": [],
+                "square": [
+                    "A thin square bracket with short horizontal ends, commonly used to group staves for different players of the same instrument."
+                ],
                 "brace": [],
                 "noSymbol": []
             }
@@ -2164,6 +2167,12 @@
                         "",
                         "If omitted, the default value is \"auto\"."
                     ]
+                },
+                "voice": {
+                    "type": "voice-name",
+                    "description": [
+                        "The voice to which this text applies. If unspecified, the text applies to all voices."
+                    ]
                 }
             },
             "description": [
@@ -2176,7 +2185,8 @@
             "title": "text type",
             "kind": "string",
             "values": {
-                "general": ["Text with no specified semantic meaning."]
+                "general": ["Text with no specified semantic meaning."],
+                "expression": ["Expression text."]
             }
         },
         "formatted-text": {
@@ -2228,6 +2238,10 @@
                     "items": [
                         "smufl-glyph"
                     ],
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "required": true,
                     "description": [
                         "List of SMuFL glyphs to display, in order."
                     ]

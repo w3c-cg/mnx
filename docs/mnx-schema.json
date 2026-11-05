@@ -2011,6 +2011,9 @@
         },
         "type": {
           "$ref": "#/$defs/text-type"
+        },
+        "voice": {
+          "$ref": "#/$defs/voice-name"
         }
       },
       "required": [
@@ -2590,6 +2593,7 @@
     "staff-symbol": {
       "enum": [
         "bracket",
+        "square",
         "brace",
         "noSymbol"
       ],
@@ -2773,6 +2777,7 @@
           "items": {
             "$ref": "#/$defs/smufl-glyph"
           },
+          "minItems": 1,
           "type": "array"
         },
         "type": {
@@ -2781,6 +2786,7 @@
         }
       },
       "required": [
+        "glyphs",
         "type"
       ],
       "type": "object",
@@ -2809,7 +2815,8 @@
     },
     "text-type": {
       "enum": [
-        "general"
+        "general",
+        "expression"
       ],
       "type": "string"
     },
@@ -3048,7 +3055,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/47",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/51",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

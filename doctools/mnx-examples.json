@@ -830,7 +830,9 @@
             "slug": "notehead-shapes",
             "name": "Notehead shapes",
             "blurb": [
-                "Semantic notehead shapes select duration-aware glyph families. Explicit glyphs refine known shapes or supply custom heads. The example shows upward- and downward-pointing triangles, duration-aware diamonds, and a cymbal component with an X head. Its kit notes use the component's default or explicitly select an oval or downward-pointing triangle."
+                "A note can encode a custom notehead in two ways: via a general \"shape\" or a specific SMuFL glyph. It's generally better to use a \"shape\": that's a more general concept and software can dynamically choose the appropriate SMuFL glyph for the combination of \"shape plus rhythmic duration.\"",
+                "",
+                "This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The kit notes here use the kit component's default or explicitly select an oval or downward-pointing triangle."
             ],
             "documentPath": "examples/json/notehead-shapes.json",
             "featured": false,

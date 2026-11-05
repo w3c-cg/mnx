@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MNX example: Notehead shapes | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+<style>
+.diff * { font-weight: bold; color: blue !important; }
+</style>
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../../objects/">Reference</a>
+    <ul>
+    <li><a href="../../objects/">Objects</a></li>
+    <li><a href="../">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Examples</a> &gt;
+    Notehead shapes
+</p>
+
+<h1>Notehead shapes</h1>
+
+
+<p><img src="../../../static/examples/notehead-shapes.png"></p>
+
+
+
+<p>A note can encode a custom notehead in two ways: via a general &quot;shape&quot; or a specific SMuFL glyph. It&#x27;s generally better to use a &quot;shape&quot;: that&#x27;s a more general concept and software can dynamically choose the appropriate SMuFL glyph for the combination of &quot;shape plus rhythmic duration.&quot;<br><br>This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The kit notes here use the kit component&#x27;s default or explicitly select an oval or downward-pointing triangle.</p>
+
+
+
+
+<div class="xmlmarkup">{
+   <a class="tag" href="../../objects/root/">"mnx"</a>: {
+      <a class="tag" href="../../objects/mnx/">"version"</a>: <a class="tag" href="../../objects/version-number/">1</a>
+   },
+   <a class="tag" href="../../objects/root/">"global"</a>: {
+      <a class="tag" href="../../objects/global/">"measures"</a>: [
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         },
+         {
+            <a class="tag" href="../../objects/measure-global/">"time"</a>: {
+               <a class="tag" href="../../objects/time/">"count"</a>: <a class="tag" href="../../objects/positive-integer/">4</a>,
+               <a class="tag" href="../../objects/time/">"unit"</a>: <a class="tag" href="../../objects/time-signature-unit/">4</a>
+            }
+         }
+      ]
+   },
+   <a class="tag" href="../../objects/root/">"parts"</a>: [
+      {
+         <a class="tag" href="../../objects/part/">"kit"</a>: {
+            "cymbal": {
+               <a class="tag" href="../../objects/kit-component/">"name"</a>: <a class="tag" href="../../objects/string/">"Cymbal"</a>,
+               <b class="markuphl"><a class="tag" href="../../objects/kit-component/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                  <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"x"</a></b>
+               <b class="markuphl">},</b>
+               <a class="tag" href="../../objects/kit-component/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">4</a>
+            }
+         },
+         <a class="tag" href="../../objects/part/">"measures"</a>: [
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"default"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"clefs"</a>: [
+                  {
+                     <a class="tag" href="../../objects/positioned-clef/">"clef"</a>: {
+                        <a class="tag" href="../../objects/clef/">"sign"</a>: <a class="tag" href="../../objects/clef-sign/">"G"</a>,
+                        <a class="tag" href="../../objects/clef/">"staffPosition"</a>: <a class="tag" href="../../objects/staff-position/">-2</a>
+                     }
+                  }
+               ],
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"oval"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"x"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"diamond"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"triangle"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"triangleDown"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"slash"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"plus"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"circleX"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"whole"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"square"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"half"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"diamond"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"diamond"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"diamond"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"glyph"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/smufl-glyph/">"noteheadXOrnateEllipse"</a>,</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"x"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"notes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"glyph"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/smufl-glyph/">"noteheadBlack"</a>,</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"custom"</a></b>
+                                 <b class="markuphl">},</b>
+                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
+                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
+                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"half"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"rest"</a>: {}
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               <a class="tag" href="../../objects/part-measure/">"sequences"</a>: [
+                  {
+                     <a class="tag" href="../../objects/sequence/">"content"</a>: [
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"kitNotes"</a>: [
+                              {
+                                 <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"kitComponent"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/id/">"cymbal"</a></b>
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"kitNotes"</a>: [
+                              {
+                                 <a class="tag" href="../../objects/kit-note/">"kitComponent"</a>: <a class="tag" href="../../objects/id/">"cymbal"</a>,
+                                 <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"default"</a></b>
+                                 <b class="markuphl">}</b>
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"kitNotes"</a>: [
+                              {
+                                 <a class="tag" href="../../objects/kit-note/">"kitComponent"</a>: <a class="tag" href="../../objects/id/">"cymbal"</a>,
+                                 <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"oval"</a></b>
+                                 <b class="markuphl">}</b>
+                              }
+                           ]
+                        },
+                        {
+                           <a class="tag" href="../../objects/event/">"duration"</a>: {
+                              <a class="tag" href="../../objects/note-value/">"base"</a>: <a class="tag" href="../../objects/note-value-base/">"quarter"</a>
+                           },
+                           <a class="tag" href="../../objects/event/">"kitNotes"</a>: [
+                              {
+                                 <a class="tag" href="../../objects/kit-note/">"kitComponent"</a>: <a class="tag" href="../../objects/id/">"cymbal"</a>,
+                                 <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"notehead"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"triangleDown"</a></b>
+                                 <b class="markuphl">}</b>
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}</div>
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

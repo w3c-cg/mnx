@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord suffix object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord suffix
+</p>
+
+<h1>The chord suffix object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p><strong>Draft.</strong> This object is a proposal for committee review and is not yet referenced from any other object in MNX.</p>
+
+<p>Represents the displayed suffix of a chord symbol: everything that follows the root, such as "m7", "maj7(add9)", or "7(♭9 ♯11)". The bass note of a slash chord is not part of the suffix.</p>
+
+<p>A suffix describes appearance only. It does not change the harmonic meaning of the chord, which is encoded separately (for example, by a chord kind). Two chords with the same meaning can have different suffixes, such as "maj7" and "Δ7".</p>
+
+<p>A suffix is a sequence of parts. Each part is one of:</p>
+<ul>
+<li>a <a href="../chord-suffix-text/">text run</a>, which is any Unicode text;</li>
+<li>a <a href="../chord-suffix-smufl/">SMuFL run</a>, which is one or more SMuFL glyphs from the music font; or</li>
+<li>a <a href="../chord-suffix-stack/">stack</a>, which arranges two or more rows of runs vertically or diagonally, optionally enclosed in parentheses or brackets.</li>
+</ul>
+
+<p>A suffix does not specify fonts, point sizes, text effects, or offsets. Consuming software chooses these from its own chord-symbol style. Parts may instead be given a semantic <a href="../chord-suffix-level/">level</a>, such as superscript, and stacks are drawn smaller than the baseline text, according to the consuming software's style. Consuming software is also responsible for optical adjustments, such as raising accidentals or parentheses slightly to align them with neighboring digits.</p>
+
+<p>Software that cannot draw stacks may flatten a suffix to a single line of text by concatenating its parts in order, joining the rows of each stack with "/" and keeping any enclosure as ordinary parentheses or brackets.</p>
+
+<p>Examples:</p>
+<p>"maj7(add9)" as plain text:</p>
+<pre><code>{"content": [{"text": "maj7(add9)"}]}</code></pre>
+<p>"Δ9", using the SMuFL major-seventh glyph:</p>
+<pre><code>{"content": [{"type": "smufl", "glyphs": ["csymMajorSeventh"]}, {"text": "9"}]}</code></pre>
+<p>"MA⁷", with a superscript extension:</p>
+<pre><code>{"content": [{"text": "MA"}, {"text": "7", "level": "superscript"}]}</code></pre>
+<p>"6/9", with the 6 stacked above the 9:</p>
+<pre><code>{"content": [{"type": "stack", "rows": [{"content": [{"text": "6"}]}, {"content": [{"text": "9"}]}]}]}</code></pre>
+<p>"6/9", arranged diagonally:</p>
+<pre><code>{"content": [{"type": "stack", "arrangement": "diagonal", "rows": [{"content": [{"text": "6"}]}, {"content": [{"text": "9"}]}]}]}</code></pre>
+<p>"7" followed by ♭9 stacked above ♯11, enclosed in tall parentheses:</p>
+<pre><code>{"content": [{"text": "7"}, {"type": "stack", "enclosure": "parentheses", "rows": [{"content": [{"text": "♭9"}]}, {"content": [{"text": "♯11"}]}]}]}</code></pre>
+<p>"add9" stacked above "omit3", enclosed in tall parentheses:</p>
+<pre><code>{"content": [{"type": "stack", "enclosure": "parentheses", "rows": [{"content": [{"text": "add9"}]}, {"content": [{"text": "omit3"}]}]}]}</code></pre>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>content</b></nobr></td>
+    <td>
+        
+            An array of
+            
+            <a href="../chord-suffix-text/">chord suffix text run objects</a>, 
+            
+            <a href="../chord-suffix-smufl/">chord suffix SMuFL run objects</a>, 
+            
+            <a href="../chord-suffix-stack/">chord suffix stack objects</a>
+            
+        
+    </td>
+    <td>Yes</td>
+    <td>The parts of the suffix, rendered left to right in the order provided, starting immediately after the chord's root.</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

@@ -2248,6 +2248,303 @@
                 }
             }
         },
+        "chord-suffix": {
+            "title": "chord suffix",
+            "kind": "dict",
+            "properties": {
+                "content": {
+                    "items": [
+                        "chord-suffix-text",
+                        "chord-suffix-smufl",
+                        "chord-suffix-stack"
+                    ],
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "description": [
+                        "The parts of the suffix, rendered left to right in the order provided, starting immediately after the chord's root."
+                    ]
+                }
+            },
+            "description": [
+                "<p><strong>Draft.</strong> This object is a proposal for committee review and is not yet referenced from any other object in MNX.</p>",
+                "",
+                "<p>Represents the displayed suffix of a chord symbol: everything that follows the root, such as \"m7\", \"maj7(add9)\", or \"7(♭9 ♯11)\". The bass note of a slash chord is not part of the suffix.</p>",
+                "",
+                "<p>A suffix describes appearance only. It does not change the harmonic meaning of the chord, which is encoded separately (for example, by a chord kind). Two chords with the same meaning can have different suffixes, such as \"maj7\" and \"Δ7\".</p>",
+                "",
+                "<p>A suffix is a sequence of parts. Each part is one of:</p>",
+                "<ul>",
+                "<li>a <a href=\"../chord-suffix-text/\">text run</a>, which is any Unicode text;</li>",
+                "<li>a <a href=\"../chord-suffix-smufl/\">SMuFL run</a>, which is one or more SMuFL glyphs from the music font; or</li>",
+                "<li>a <a href=\"../chord-suffix-stack/\">stack</a>, which arranges two or more rows of runs vertically or diagonally, optionally enclosed in parentheses or brackets.</li>",
+                "</ul>",
+                "",
+                "<p>A suffix does not specify fonts, point sizes, text effects, or offsets. Consuming software chooses these from its own chord-symbol style. Parts may instead be given a semantic <a href=\"../chord-suffix-level/\">level</a>, such as superscript, and stacks are drawn smaller than the baseline text, according to the consuming software's style. Consuming software is also responsible for optical adjustments, such as raising accidentals or parentheses slightly to align them with neighboring digits.</p>",
+                "",
+                "<p>Software that cannot draw stacks may flatten a suffix to a single line of text by concatenating its parts in order, joining the rows of each stack with \"/\" and keeping any enclosure as ordinary parentheses or brackets.</p>",
+                "",
+                "<p>Examples:</p>",
+                "<p>\"maj7(add9)\" as plain text:</p>",
+                "<pre><code>{\"content\": [{\"text\": \"maj7(add9)\"}]}</code></pre>",
+                "<p>\"Δ9\", using the SMuFL major-seventh glyph:</p>",
+                "<pre><code>{\"content\": [{\"type\": \"smufl\", \"glyphs\": [\"csymMajorSeventh\"]}, {\"text\": \"9\"}]}</code></pre>",
+                "<p>\"MA⁷\", with a superscript extension:</p>",
+                "<pre><code>{\"content\": [{\"text\": \"MA\"}, {\"text\": \"7\", \"level\": \"superscript\"}]}</code></pre>",
+                "<p>\"6/9\", with the 6 stacked above the 9:</p>",
+                "<pre><code>{\"content\": [{\"type\": \"stack\", \"rows\": [{\"content\": [{\"text\": \"6\"}]}, {\"content\": [{\"text\": \"9\"}]}]}]}</code></pre>",
+                "<p>\"6/9\", arranged diagonally:</p>",
+                "<pre><code>{\"content\": [{\"type\": \"stack\", \"arrangement\": \"diagonal\", \"rows\": [{\"content\": [{\"text\": \"6\"}]}, {\"content\": [{\"text\": \"9\"}]}]}]}</code></pre>",
+                "<p>\"7\" followed by ♭9 stacked above ♯11, enclosed in tall parentheses:</p>",
+                "<pre><code>{\"content\": [{\"text\": \"7\"}, {\"type\": \"stack\", \"enclosure\": \"parentheses\", \"rows\": [{\"content\": [{\"text\": \"♭9\"}]}, {\"content\": [{\"text\": \"♯11\"}]}]}]}</code></pre>",
+                "<p>\"add9\" stacked above \"omit3\", enclosed in tall parentheses:</p>",
+                "<pre><code>{\"content\": [{\"type\": \"stack\", \"enclosure\": \"parentheses\", \"rows\": [{\"content\": [{\"text\": \"add9\"}]}, {\"content\": [{\"text\": \"omit3\"}]}]}]}</code></pre>"
+            ]
+        },
+        "chord-suffix-text": {
+            "title": "chord suffix text run",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "const": "text",
+                    "description": [
+                        "Optional. This disambiguates text runs from <a href=\"../chord-suffix-smufl/\">SMuFL runs</a> and <a href=\"../chord-suffix-stack/\">stacks</a>. If a part has no type, applications should assume type=text."
+                    ]
+                },
+                "text": {
+                    "type": "string",
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minLength": 1
+                    },
+                    "description": [
+                        "The text of this run, which can be any Unicode text. Accidentals may be encoded with Unicode characters such as ♭ (U+266D), ♮ (U+266E), and ♯ (U+266F), and quality symbols with characters such as ° (U+00B0), ø (U+00F8), Δ (U+0394), + and − (U+2212).",
+                        "",
+                        "Consuming software renders this text in its chord-symbol text font."
+                    ]
+                },
+                "level": {
+                    "type": "chord-suffix-level",
+                    "description": [
+                        "The vertical level of this run.",
+                        "",
+                        "If omitted, the default value is \"baseline\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "baseline"
+                    }
+                }
+            },
+            "description": [
+                "<p>A run of Unicode text within a <a href=\"../chord-suffix/\">chord suffix</a>.</p>",
+                "",
+                "<p>A run may contain any number of characters. A suffix needs more than one run only where the level changes or where a SMuFL glyph or a stack appears.</p>"
+            ]
+        },
+        "chord-suffix-smufl": {
+            "title": "chord suffix SMuFL run",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "const": "smufl",
+                    "required": true,
+                    "description": [
+                        "This disambiguates SMuFL runs from <a href=\"../chord-suffix-text/\">text runs</a> and <a href=\"../chord-suffix-stack/\">stacks</a>."
+                    ]
+                },
+                "glyphs": {
+                    "items": [
+                        "smufl-glyph"
+                    ],
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "description": [
+                        "List of SMuFL glyphs to display, in order."
+                    ]
+                },
+                "level": {
+                    "type": "chord-suffix-level",
+                    "description": [
+                        "The vertical level of this run.",
+                        "",
+                        "If omitted, the default value is \"baseline\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "baseline"
+                    }
+                }
+            },
+            "description": [
+                "<p>A run of SMuFL glyphs within a <a href=\"../chord-suffix/\">chord suffix</a>, rendered in the music font.</p>",
+                "",
+                "<p>This is typically used for glyphs from the SMuFL chord-symbol range, such as <code>csymMajorSeventh</code>, <code>csymDiminished</code>, <code>csymHalfDiminished</code>, and <code>csymAugmented</code>, or for chord-symbol accidentals such as <code>csymAccidentalFlat</code>. For example, \"7(♭9)\" with a music-font flat:</p>",
+                "<pre><code>{\"content\": [{\"text\": \"7(\"}, {\"type\": \"smufl\", \"glyphs\": [\"csymAccidentalFlat\"]}, {\"text\": \"9)\"}]}</code></pre>",
+                "",
+                "<p>Enclosing parentheses and brackets for stacks, and the slash for diagonal stacks, should not be encoded as glyphs. They are implied by <a href=\"../chord-suffix-stack/\">stack</a> attributes.</p>"
+            ]
+        },
+        "chord-suffix-stack": {
+            "title": "chord suffix stack",
+            "kind": "dict",
+            "properties": {
+                "type": {
+                    "const": "stack",
+                    "required": true,
+                    "description": [
+                        "This disambiguates stacks from <a href=\"../chord-suffix-text/\">text runs</a> and <a href=\"../chord-suffix-smufl/\">SMuFL runs</a>."
+                    ]
+                },
+                "rows": {
+                    "items": [
+                        "chord-suffix-row"
+                    ],
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minItems": 2
+                    },
+                    "description": [
+                        "The rows of the stack, in order from top to bottom."
+                    ]
+                },
+                "arrangement": {
+                    "type": "chord-suffix-stack-arrangement",
+                    "description": [
+                        "How the rows are arranged.",
+                        "",
+                        "If omitted, the default value is \"vertical\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "vertical"
+                    }
+                },
+                "enclosure": {
+                    "type": "chord-suffix-enclosure",
+                    "description": [
+                        "The enclosure drawn around the whole stack.",
+                        "",
+                        "If omitted, the default value is \"none\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "none"
+                    }
+                },
+                "level": {
+                    "type": "chord-suffix-level",
+                    "description": [
+                        "The vertical level of the stack as a whole.",
+                        "",
+                        "If omitted, the default value is \"baseline\"."
+                    ],
+                    "extraJSONSchema": {
+                        "default": "baseline"
+                    }
+                }
+            },
+            "extraJSONSchema": {
+                "if": {
+                    "properties": {
+                        "arrangement": {
+                            "const": "diagonal"
+                        }
+                    },
+                    "required": [
+                        "arrangement"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "rows": {
+                            "maxItems": 2
+                        }
+                    }
+                }
+            },
+            "description": [
+                "<p>Two or more rows of a <a href=\"../chord-suffix/\">chord suffix</a> arranged on top of one another, such as a stacked \"6/9\" or a column of alterations.</p>",
+                "",
+                "<p>Consuming software determines the size of the rows, the spacing between them, and how the stack is aligned with the baseline of the surrounding suffix. Normally the rows are drawn smaller than the baseline text and the stack is centered on the suffix's text.</p>",
+                "",
+                "<p>An enclosure is sized to the height of the whole stack. For example, a stack of two rows enclosed in parentheses might be drawn with the SMuFL glyphs <code>csymParensLeftTall</code> and <code>csymParensRightTall</code>, and a stack of three rows with <code>csymParensLeftVeryTall</code> and <code>csymParensRightVeryTall</code>.</p>",
+                "",
+                "<p>Stacks cannot contain other stacks.</p>"
+            ]
+        },
+        "chord-suffix-row": {
+            "title": "chord suffix row",
+            "kind": "dict",
+            "properties": {
+                "content": {
+                    "items": [
+                        "chord-suffix-text",
+                        "chord-suffix-smufl"
+                    ],
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "description": [
+                        "The text runs and SMuFL runs of this row, rendered left to right in the order provided."
+                    ]
+                }
+            },
+            "description": [
+                "<p>One row of a <a href=\"../chord-suffix-stack/\">chord suffix stack</a>.</p>"
+            ]
+        },
+        "chord-suffix-level": {
+            "title": "chord suffix level",
+            "kind": "string",
+            "values": {
+                "baseline": [
+                    "On the baseline of the chord symbol, at the normal size of the suffix."
+                ],
+                "superscript": [
+                    "Raised above the baseline and normally reduced in size, as is common for extensions in jazz styles (for example, the 7 in \"MA⁷\")."
+                ],
+                "subscript": [
+                    "Lowered below the baseline and normally reduced in size."
+                ]
+            },
+            "description": [
+                "<p>The semantic vertical level of part of a <a href=\"../chord-suffix/\">chord suffix</a>. Consuming software determines the actual offset and size for each level.</p>"
+            ]
+        },
+        "chord-suffix-stack-arrangement": {
+            "title": "chord suffix stack arrangement",
+            "kind": "string",
+            "values": {
+                "vertical": [
+                    "Rows are placed directly above one another, with no separator."
+                ],
+                "diagonal": [
+                    "Exactly two rows. The first row is placed above and to the left of the second, separated by a diagonal slash drawn by the consuming software (for example, the SMuFL glyph <code>csymDiagonalArrangementSlash</code>). This is commonly used for \"6/9\"."
+                ]
+            },
+            "description": [
+                "<p>How the rows of a <a href=\"../chord-suffix-stack/\">chord suffix stack</a> are arranged.</p>"
+            ]
+        },
+        "chord-suffix-enclosure": {
+            "title": "chord suffix enclosure",
+            "kind": "string",
+            "values": {
+                "none": [
+                    "No enclosure."
+                ],
+                "parentheses": [
+                    "The stack is enclosed in parentheses sized to its height."
+                ],
+                "brackets": [
+                    "The stack is enclosed in square brackets sized to its height."
+                ]
+            },
+            "description": [
+                "<p>The enclosure drawn around a <a href=\"../chord-suffix-stack/\">chord suffix stack</a>.</p>"
+            ]
+        },
         "rhythmic-position": {
             "title": "rhythmic position",
             "kind": "dict",

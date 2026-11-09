@@ -313,7 +313,7 @@
     "note-notehead-plus": {"level": 1, "text": "notehead.shape=plus", "link": "/docs/mnx-reference/objects/notehead-shape/"},
     "note-notehead-circle-x": {"level": 1, "text": "notehead.shape=circleX", "link": "/docs/mnx-reference/objects/notehead-shape/"},
     "note-notehead-square": {"level": 1, "text": "notehead.shape=square", "link": "/docs/mnx-reference/objects/notehead-shape/"},
-    "note-notehead-parenthesized": {"level": 3, "text": "Not implemented yet; planned for 1.0"},
+    "note-notehead-parenthesized": {"level": 1, "text": "note.markings.enclosure and kit-note.markings.enclosure", "link": "/docs/mnx-reference/objects/bracket-enclosure/"},
     "note-notehead-cluster-second": {"level": 3, "text": "Not implemented yet; planned for 1.0"},
     "note-notehead-smufl": {"level": 1, "text": "note.notehead, kit-note.notehead, and kit-component.notehead: glyph", "link": "/docs/mnx-reference/objects/notehead/"},
     "note-notehead-shape-4": {"level": 3, "text": "Not implemented yet"},

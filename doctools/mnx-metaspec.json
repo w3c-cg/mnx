@@ -2080,7 +2080,7 @@
             "kind": "dict",
             "properties": {
                 "enclosure": {
-                    "type": "accidental-enclosure",
+                    "type": "bracket-enclosure",
                     "description": [
                         "Describes the symbol that visually encloses the accidental, such as a square bracket or parentheses. If this data isn't specified, the accidental is assumed not to have a visual enclosure."
                     ]
@@ -2318,6 +2318,14 @@
             "title": "note markings",
             "kind": "dict",
             "properties": {
+                "enclosure": {
+                    "type": "bracket-enclosure",
+                    "description": [
+                        "A pair of parentheses or square brackets enclosing this note's notehead, augmentation dots, and any displayed accidentals. Any parentheses or brackets around the accidentals are inside the note's enclosure. Stems, flags, beams, and other markings are outside it.",
+                        "",
+                        "In a chord, only the marked note is enclosed. The enclosure does not change pitch, duration, or playback. If omitted, the note has no enclosure."
+                    ]
+                },
                 "slideIn": {
                     "type": "slide-into-note"
                 },
@@ -2711,29 +2719,29 @@
                 "<p>The specific symbol to use for a caesura mark.</p>"
             ]
         },
-        "accidental-enclosure-symbol": {
-            "title": "accidental enclosure symbol",
+        "bracket-enclosure-symbol": {
+            "title": "bracket enclosure symbol",
             "kind": "string",
             "values": {
                 "parentheses": [
-                    "The accidental is enclosed in parentheses."
+                    "Enclose the notation in parentheses."
                 ],
                 "brackets": [
-                    "The accidental is enclosed in square brackets."
+                    "Enclose the notation in square brackets."
                 ]
             }
         },
-        "accidental-enclosure": {
-            "title": "accidental enclosure",
+        "bracket-enclosure": {
+            "title": "bracket enclosure",
             "kind": "dict",
             "properties": {
                 "symbol": {
-                    "type": "accidental-enclosure-symbol",
+                    "type": "bracket-enclosure-symbol",
                     "required": true
                 }
             },
             "description": [
-                "<p>Describes the symbol that encloses a specific accidental, such as a square bracket or parentheses.</p>"
+                "<p>A pair of parentheses or square brackets enclosing notation. The property using this object defines which notation is enclosed.</p>"
             ]
         },
         "measure-rhythmic-position": {
@@ -3114,6 +3122,12 @@
                         "The ID of this note's <a href=\"../kit-component/\">kit component</a>."
                     ]
                 },
+                "markings": {
+                    "type": "kit-note-markings",
+                    "description": [
+                        "Various markings that apply to this kit note."
+                    ]
+                },
                 "notehead": {
                     "type": "notehead",
                     "description": [
@@ -3143,6 +3157,23 @@
                     ]
                 }
             }
+        },
+        "kit-note-markings": {
+            "title": "kit note markings",
+            "kind": "dict",
+            "properties": {
+                "enclosure": {
+                    "type": "bracket-enclosure",
+                    "description": [
+                        "A pair of parentheses or square brackets enclosing this note's notehead, augmentation dots, and any displayed accidentals. Any parentheses or brackets around the accidentals are inside the note's enclosure. Stems, flags, beams, and other markings are outside it.",
+                        "",
+                        "In a chord, only the marked note is enclosed. The enclosure does not change sound, duration, or playback. If omitted, the note has no enclosure."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Notations that apply to a specific <a href=\"../kit-note/\">kit note</a>.</p>"
+            ]
         },
         "kit": {
             "kind": "keyedDict",

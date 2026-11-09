@@ -22,7 +22,7 @@
       ],
       "properties": {
         "enclosure": {
-          "$ref": "#/$defs/accidental-enclosure"
+          "$ref": "#/$defs/bracket-enclosure"
         },
         "force": {
           "type": "boolean"
@@ -36,30 +36,6 @@
       ],
       "type": "object",
       "unevaluatedProperties": false
-    },
-    "accidental-enclosure": {
-      "allOf": [
-        {
-          "$ref": "#/$defs/global-attrs"
-        }
-      ],
-      "properties": {
-        "symbol": {
-          "$ref": "#/$defs/accidental-enclosure-symbol"
-        }
-      },
-      "required": [
-        "symbol"
-      ],
-      "type": "object",
-      "unevaluatedProperties": false
-    },
-    "accidental-enclosure-symbol": {
-      "enum": [
-        "parentheses",
-        "brackets"
-      ],
-      "type": "string"
     },
     "alter": {
       "type": "integer"
@@ -187,6 +163,30 @@
     "bpm": {
       "exclusiveMinimum": 0,
       "type": "number"
+    },
+    "bracket-enclosure": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "symbol": {
+          "$ref": "#/$defs/bracket-enclosure-symbol"
+        }
+      },
+      "required": [
+        "symbol"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "bracket-enclosure-symbol": {
+      "enum": [
+        "parentheses",
+        "brackets"
+      ],
+      "type": "string"
     },
     "breath-mark": {
       "allOf": [
@@ -1143,6 +1143,9 @@
         "kitComponent": {
           "$ref": "#/$defs/id"
         },
+        "markings": {
+          "$ref": "#/$defs/kit-note-markings"
+        },
         "notehead": {
           "$ref": "#/$defs/notehead"
         },
@@ -1159,6 +1162,20 @@
       "required": [
         "kitComponent"
       ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "kit-note-markings": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "enclosure": {
+          "$ref": "#/$defs/bracket-enclosure"
+        }
+      },
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1559,6 +1576,9 @@
         }
       ],
       "properties": {
+        "enclosure": {
+          "$ref": "#/$defs/bracket-enclosure"
+        },
         "slideIn": {
           "$ref": "#/$defs/slide-into-note"
         },

@@ -1,0 +1,306 @@
+{
+  "mnx": {
+    "version": 1,
+    "support": {
+      "useAccidentalDisplay": true
+    }
+  },
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ]
+  },
+  "parts": [
+    {
+      "kit": {
+        "cymbal": {
+          "name": "Cymbal",
+          "staffPosition": 4,
+          "notehead": {
+            "shape": "x"
+          }
+        }
+      },
+      "measures": [
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "C",
+                        "octave": 5
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "parentheses"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "clefs": [
+            {
+              "clef": {
+                "sign": "G",
+                "staffPosition": -2
+              }
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "C",
+                        "octave": 5
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "brackets"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "F",
+                        "octave": 4,
+                        "alter": 1
+                      },
+                      "accidentalDisplay": {
+                        "show": true
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "parentheses"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "F",
+                        "octave": 4,
+                        "alter": 1
+                      },
+                      "accidentalDisplay": {
+                        "show": true,
+                        "enclosure": {
+                          "symbol": "parentheses"
+                        }
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "brackets"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "half",
+                    "dots": 1
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "F",
+                        "octave": 4,
+                        "alter": 1
+                      },
+                      "accidentalDisplay": {
+                        "show": true,
+                        "enclosure": {
+                          "symbol": "brackets"
+                        }
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "parentheses"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "rest": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "step": "C",
+                        "octave": 4
+                      }
+                    },
+                    {
+                      "pitch": {
+                        "step": "G",
+                        "octave": 4
+                      },
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "brackets"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "kitNotes": [
+                    {
+                      "kitComponent": "cymbal",
+                      "markings": {
+                        "enclosure": {
+                          "symbol": "parentheses"
+                        }
+                      },
+                      "_x": {
+                        "mnxdocs": {
+                          "highlight": [
+                            "markings"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -134,44 +134,27 @@
           "symbol": "brace",
           "content": [
             {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["id"]
+                }
+              },
               "type": "staff",
+              "id": "organUpper",
               "sources": [
                 {"part": "organ", "staff": 1}
               ]
             },
             {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["id"]
+                }
+              },
               "type": "staff",
+              "id": "organMiddle",
               "sources": [
                 {"part": "organ", "staff": 2}
-              ]
-            }
-          ]
-        },
-        {
-          "type": "staff",
-          "sources": [
-            {"part": "organ", "staff": 3}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organ3StaffSplitOber",
-      "content": [
-        {
-          "type": "group",
-          "content": [
-            {
-              "type": "staff",
-              "sources": [
-                {"part": "organ", "voice": "Main", "stem": "up"},
-                {"part": "organ", "voice": "Oberwerk", "stem": "down"}
-              ]
-            },
-            {
-              "type": "staff",
-              "sources": [
-                {"part": "organ", "voice": "Hauptwerk"}
               ]
             }
           ]
@@ -191,10 +174,40 @@
       "pages": [
         {
           "systems": [
-            {"layout": "organ3Staff", "measure": "m1", "layoutChanges": [
-              {"layout": "organ3StaffSplitOber", "location": {"measure": "m1", "position": {"fraction": [3, 8]}}}
+            {"_x": {"mnxdocs": {"highlight": ["staffChanges"]}}, "layout": "organ3Staff", "measure": "m1", "staffChanges": [
+              {
+                "staff": "organUpper",
+                "start": {"measure": "m1", "position": {"fraction": [3, 8]}},
+                "sources": [
+                  {"part": "organ", "voice": "Main", "stem": "up"},
+                  {"part": "organ", "voice": "Oberwerk", "stem": "down"}
+                ]
+              },
+              {
+                "staff": "organMiddle",
+                "start": {"measure": "m1", "position": {"fraction": [3, 8]}},
+                "sources": [
+                  {"part": "organ", "voice": "Hauptwerk"}
+                ]
+              }
             ]},
-            {"layout": "organ3StaffSplitOber", "measure": "m6"}
+            {"_x": {"mnxdocs": {"highlight": ["staffChanges"]}}, "layout": "organ3Staff", "measure": "m6", "staffChanges": [
+              {
+                "staff": "organUpper",
+                "start": {"measure": "m6", "position": {"fraction": [0, 1]}},
+                "sources": [
+                  {"part": "organ", "voice": "Main", "stem": "up"},
+                  {"part": "organ", "voice": "Oberwerk", "stem": "down"}
+                ]
+              },
+              {
+                "staff": "organMiddle",
+                "start": {"measure": "m6", "position": {"fraction": [0, 1]}},
+                "sources": [
+                  {"part": "organ", "voice": "Hauptwerk"}
+                ]
+              }
+            ]}
           ]
         }
       ]

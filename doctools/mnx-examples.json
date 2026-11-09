@@ -618,7 +618,9 @@
                 "",
                 "This can be encoded entirely within a single MNX document. The underlying music (the notes, barlines, etc.) is encoded only once, within the \"global\" and \"part\" objects. But there are three separate score objects — one for each visual representation of the music.",
                 "",
-                "A score references a particular layout. The layout object is where the style information is contained: which parts, in which order."
+                "A score references a particular layout. The layout object is where the style information is contained: which parts, in which order.",
+                "",
+                "In the \"TwoStaffChord\" score, the tenor and bass switch from chords to separate stem directions at measure 2. This is encoded as a single staff change targeting the TB staff."
             ],
             "documentPath": "examples/json/multiple-layouts.json",
             "imagePath": "examples/multiple-layouts.png",
@@ -636,10 +638,22 @@
             "slug": "organ-layout",
             "name": "Organ layout",
             "blurb": [
-                "Note only the music in the first measure is encoded here."
+                "Note only the music in the first measure is encoded here.",
+                "",
+                "Partway through the first measure, the Oberwerk voice moves onto the top staff (stems down, below the main voice) and the middle staff carries only the Hauptwerk voice. This is encoded with one layout plus two staff changes, targeting just the two staves that change."
             ],
             "documentPath": "examples/json/organ-layout.json",
             "imagePath": "examples/organ-layout.png",
+            "featured": false
+        },
+        {
+            "slug": "cutaway-staff",
+            "name": "Cutaway staff",
+            "blurb": [
+                "The oboe staff is cut away from the start of measure 2 to the end of the system. The staff keeps its place in the layout. A staff change with \"cutaway\" set to true simply stops it from being drawn."
+            ],
+            "documentPath": "examples/json/cutaway-staff.json",
+            "imagePath": "examples/cutaway-staff.png",
             "featured": false
         },
         {

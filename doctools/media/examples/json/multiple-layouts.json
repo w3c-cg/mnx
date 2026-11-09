@@ -375,39 +375,17 @@
               ]
             },
             {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["id"]
+                }
+              },
               "type": "staff",
+              "id": "chordedTB",
               "label": "TB",
               "sources": [
                 {"part": "tenor"},
                 {"part": "bass"}
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Choral2StaffMenSplit",
-      "content": [
-        {
-          "barlineStyle": "individual",
-          "type": "group",
-          "symbol": "bracket",
-          "content": [
-            {
-              "type": "staff",
-              "label": "SA",
-              "sources": [
-                {"part": "soprano"},
-                {"part": "alto"}
-              ]
-            },
-            {
-              "type": "staff",
-              "label": "TB",
-              "sources": [
-                {"part": "tenor", "stem": "up"},
-                {"part": "bass", "stem": "down"}
               ]
             }
           ]
@@ -442,10 +420,22 @@
         {
           "systems": [
             {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["staffChanges"]
+                }
+              },
               "layout": "Choral2StaffChorded",
               "measure": "m1",
-              "layoutChanges": [
-                {"layout": "Choral2StaffMenSplit", "location": {"measure": "m2", "position": {"fraction": [0, 1]}}}
+              "staffChanges": [
+                {
+                  "staff": "chordedTB",
+                  "start": {"measure": "m2", "position": {"fraction": [0, 1]}},
+                  "sources": [
+                    {"part": "tenor", "stem": "up"},
+                    {"part": "bass", "stem": "down"}
+                  ]
+                }
               ]
             }
           ]

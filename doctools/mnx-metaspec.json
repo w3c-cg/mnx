@@ -1,5 +1,5 @@
 {
-    "version": 52,
+    "version": 53,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -1435,9 +1435,14 @@
                         "This overrides any layout specified by the parent <a href=\"../page/\">page</a> or <a href=\"../score/\">score</a> objects."
                     ]
                 },
-                "layoutChanges": {
+                "staffChanges": {
                     "items": [
-                        "layout-change"
+                        "staff-change"
+                    ],
+                    "description": [
+                        "Optional changes to individual staves within this system. Each <a href=\"../staff-change/\">staff change</a> overrides a single staff of this system's layout for a range of rhythmic positions, leaving every other staff unchanged.",
+                        "",
+                        "For a given staff, the ranges of its staff changes must not overlap."
                     ]
                 },
                 "measure": {
@@ -1451,7 +1456,9 @@
             "description": [
                 "<p>The system object describes a system of notation — that is, a collection of staves that represent one or more measures across one or more parts.</p>",
                 "",
-                "<p>This element is used in context of a <a href=\"../page/\">page</a>. Each system specifies its starting measure number and can optionally specify a layout.</p>"
+                "<p>This element is used in context of a <a href=\"../page/\">page</a>. Each system specifies its starting measure number and can optionally specify a layout.</p>",
+                "",
+                "<p>A system has a single fixed layout, including the number and order of staves, their groups, symbols, and barline connections. Changes within the system, such as stem directions, which sources feed a staff, or cutaways, are expressed per staff via \"staffChanges\".</p>"
             ]
         },
         "measure-number": {
@@ -1637,24 +1644,91 @@
                 "exclusiveMinimum": 0
             }
         },
-        "layout-change": {
-            "title": "layout change",
+        "staff-change": {
+            "title": "staff change",
             "kind": "dict",
             "properties": {
-                "layout": {
-                    "type": "id",
-                    "required": true
+                "cutaway": {
+                    "type": "boolean",
+                    "description": [
+                        "If true, the staff is cut away for the range of this change: its staff lines, its own barlines and its contents are not drawn, but its vertical space in the system is kept. When the staff resumes, its clef and key signature (and time signature, if appropriate) may be drawn as they would be at the start of a system. The same applies to the staff's label: it may be drawn at the point where the staff resumes, taken from the staff's \"label\"/\"labelref\" or from those of the sources in effect at that point. This lets a staff re-enter with a different instrument, by giving the resumed range new sources.",
+                        "",
+                        "How group barlines and group symbols (brackets, braces) are drawn across a cut-away staff is left to the consumer. For example, when string divisi staves enter mid-system, a consumer may draw the divisi group's bracket at the point where the staves enter rather than at the start of the system.",
+                        "",
+                        "If cutaway is true, \"sources\" must not be provided. If cutaway is not true, \"sources\" is required.",
+                        "",
+                        "If not provided, the default value is false."
+                    ]
                 },
-                "location": {
+                "end": {
+                    "type": "measure-rhythmic-position",
+                    "description": [
+                        "The position where this change ends (exclusive). Starting at this position, the staff reverts to its definition in the layout. It must be later than \"start\" and must be within this system.",
+                        "",
+                        "If not provided, the change lasts until the end of the system."
+                    ]
+                },
+                "sources": {
+                    "items": [
+                        "staff-source"
+                    ],
+                    "extraJSONSchema": {
+                        "minItems": 1
+                    },
+                    "description": [
+                        "The staff sources to use for this staff within the range of this change. These replace the staff's \"sources\" from the layout.",
+                        "",
+                        "Required unless \"cutaway\" is true, in which case it must not be provided."
+                    ]
+                },
+                "staff": {
+                    "type": "id",
+                    "required": true,
+                    "description": [
+                        "The ID of the <a href=\"../staff/\">staff</a> to change. This must be a staff within the layout used by the containing system."
+                    ]
+                },
+                "start": {
                     "type": "measure-rhythmic-position",
                     "required": true,
                     "description": [
-                        "The position of the layout change, with respect to the full document."
+                        "The position at which this change begins (inclusive). It must be within the containing system."
                     ]
                 }
             },
+            "extraJSONSchema": {
+                "oneOf": [
+                    {
+                        "required": [
+                            "sources"
+                        ],
+                        "properties": {
+                            "cutaway": {
+                                "const": false
+                            }
+                        }
+                    },
+                    {
+                        "required": [
+                            "cutaway"
+                        ],
+                        "properties": {
+                            "cutaway": {
+                                "const": true
+                            }
+                        },
+                        "not": {
+                            "required": [
+                                "sources"
+                            ]
+                        }
+                    }
+                ]
+            },
             "description": [
-                "<p>The layout change object lets you indicate a change in layout in the middle of a system — usually, but not necessarily, due to changes in stemming.</p>"
+                "<p>The staff change object changes a single <a href=\"../staff/\">staff</a> of a <a href=\"../system/\">system</a>'s layout for a range of rhythmic positions within that system. Only the staff that changes is specified. All other staves continue to follow the layout, and the number and order of staves, and their groups, symbols and barline connections, are fixed for the entire system.</p>",
+                "",
+                "<p>A staff change can either replace the staff's sources (for example, to change stem directions, or to split a part's voices onto different staves) or cut the staff away (for cutaway scores, where a staff starts or ends in the middle of a system).</p>"
             ]
         },
         "voice-name": {
@@ -1836,7 +1910,9 @@
             "description": [
                 "<p>The staff object describes the visual display of a single staff within a layout.</p>",
                 "",
-                "<p>Generally this corresponds to a single part (from the <a href=\"../root/\">top-level parts array</a>), but MNX supports encoding multiple parts in the same staff — as might be used, for example, when combining soprano and alto vocal parts into a single staff.</p>"
+                "<p>Generally this corresponds to a single part (from the <a href=\"../root/\">top-level parts array</a>), but MNX supports encoding multiple parts in the same staff — as might be used, for example, when combining soprano and alto vocal parts into a single staff.</p>",
+                "",
+                "<p>If a staff is targeted by a <a href=\"../staff-change/\">staff change</a> it must have an \"id\".</p>"
             ]
         },
         "placement": {

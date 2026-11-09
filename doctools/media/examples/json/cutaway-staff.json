@@ -1,0 +1,182 @@
+{
+  "mnx": {"version": 1},
+  "global": {
+    "measures": [
+      {
+        "id": "m1",
+        "time": {"count": 4, "unit": 4}
+      },
+      {
+        "id": "m2"
+      },
+      {
+        "id": "m3",
+        "barline": {"type": "final"}
+      }
+    ]
+  },
+  "parts": [
+    {
+      "id": "flute",
+      "name": "Flute",
+      "measures": [
+        {
+          "clefs": [
+            {"clef": {"sign": "G", "staffPosition": -2}}
+          ],
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "notes": [
+                    {"pitch": {"step": "G", "octave": 5}}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "notes": [
+                    {"pitch": {"step": "F", "octave": 5}}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "notes": [
+                    {"pitch": {"step": "E", "octave": 5}}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe",
+      "name": "Oboe",
+      "measures": [
+        {
+          "clefs": [
+            {"clef": {"sign": "G", "staffPosition": -2}}
+          ],
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "half"},
+                  "notes": [
+                    {"pitch": {"step": "C", "octave": 5}}
+                  ]
+                },
+                {
+                  "duration": {"base": "half"},
+                  "rest": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "rest": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sequences": [
+            {
+              "content": [
+                {
+                  "duration": {"base": "whole"},
+                  "rest": {}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "id": "fluteOboe",
+      "content": [
+        {
+          "type": "group",
+          "symbol": "bracket",
+          "content": [
+            {
+              "type": "staff",
+              "labelref": "name",
+              "sources": [
+                {"part": "flute"}
+              ]
+            },
+            {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["id"]
+                }
+              },
+              "type": "staff",
+              "id": "oboeStaff",
+              "labelref": "name",
+              "sources": [
+                {"part": "oboe"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scores": [
+    {
+      "name": "Score",
+      "layout": "fluteOboe",
+      "pages": [
+        {
+          "systems": [
+            {
+              "_x": {
+                "mnxdocs": {
+                  "highlight": ["staffChanges"]
+                }
+              },
+              "measure": "m1",
+              "staffChanges": [
+                {
+                  "staff": "oboeStaff",
+                  "start": {"measure": "m2", "position": {"fraction": [0, 1]}},
+                  "cutaway": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

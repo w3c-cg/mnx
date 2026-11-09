@@ -654,7 +654,7 @@
     "instrument-name": {"level": 1, "text": "part.name", "link": "/docs/mnx-reference/objects/part/"},
     "instrument-abbrev": {"level": 1, "text": "part.shortName", "link": "/docs/mnx-reference/objects/part/"},
     "instrument-name-display": {"level": 1, "text": "staff.label, staff.labelRef", "link": "/docs/mnx-reference/objects/staff/"},
-    "instrument-change": {"level": 1, "text": "layout-change object", "link": "/docs/mnx-reference/objects/layout-change/"},
+    "instrument-change": {"level": 1, "text": "system.staffChanges (route a different part onto the staff)", "link": "/docs/mnx-reference/objects/staff-change/"},
     "instrument-transposition": {"level": 1, "text": "part.transposition", "link": "/docs/mnx-reference/objects/part/"},
     "instrument-midi-program": {"level": 3, "text": "Not implemented yet; planned for 1.0", "link": ""},
     "instrument-midi-channel": {"level": 3, "text": "Not implemented yet; planned for 1.0", "link": ""},

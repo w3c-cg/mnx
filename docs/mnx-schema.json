@@ -1638,11 +1638,6 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "dependentRequired": {
-        "glyph": [
-          "shape"
-        ]
-      },
       "dependentSchemas": {
         "shape": {
           "if": {
@@ -1664,16 +1659,17 @@
           "$ref": "#/$defs/smufl-glyph"
         },
         "shape": {
-          "$ref": "#/$defs/notehead-shape",
-          "default": "default"
+          "$ref": "#/$defs/notehead-shape"
         }
       },
+      "required": [
+        "shape"
+      ],
       "type": "object",
       "unevaluatedProperties": false
     },
     "notehead-shape": {
       "enum": [
-        "default",
         "oval",
         "x",
         "diamond",

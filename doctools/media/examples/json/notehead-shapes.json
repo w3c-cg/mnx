@@ -101,13 +101,10 @@
                         "step": "C",
                         "octave": 5
                       },
-                      "notehead": {
-                        "shape": "default"
-                      },
                       "_x": {
                         "mnxdocs": {
                           "highlight": [
-                            "notehead"
+                            "pitch"
                           ]
                         }
                       }
@@ -581,7 +578,7 @@
                     {
                       "kitComponent": "cymbal",
                       "notehead": {
-                        "shape": "default"
+                        "shape": "oval"
                       },
                       "_x": {
                         "mnxdocs": {
@@ -601,7 +598,7 @@
                     {
                       "kitComponent": "cymbal",
                       "notehead": {
-                        "shape": "oval"
+                        "shape": "diamond"
                       },
                       "_x": {
                         "mnxdocs": {

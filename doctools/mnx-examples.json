@@ -832,7 +832,7 @@
             "blurb": [
                 "A note can encode a custom notehead in two ways: via a general \"shape\" or a specific SMuFL glyph. It's generally better to use a \"shape\": that's a more general concept and software can dynamically choose the appropriate SMuFL glyph for the combination of \"shape plus rhythmic duration.\"",
                 "",
-                "This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The kit notes here use the kit component's default or explicitly select an oval or downward-pointing triangle."
+                "This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The first note omits the notehead object so consuming software chooses its head. The kit notes inherit the component's X head or explicitly select oval, diamond, and downward-pointing triangle heads."
             ],
             "documentPath": "examples/json/notehead-shapes.json",
             "featured": false,

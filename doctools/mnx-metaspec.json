@@ -4191,7 +4191,7 @@
                 "glyph": {
                     "type": "smufl-glyph",
                     "description": [
-                        "An explicit SMuFL glyph for this notehead. An explicit shape is required when a glyph is supplied. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
+                        "An explicit SMuFL glyph for this notehead. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
                         "",
                         "The glyph overrides duration-dependent glyph selection. It does not change pitch, duration or performance."
                     ]
@@ -4199,21 +4199,12 @@
                 "shape": {
                     "type": "notehead-shape",
                     "description": [
-                        "The semantic shape family of this notehead. Shape selection does not change pitch, duration, or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat. For a kit note, \"default\" uses its kit component's head design; an explicit shape such as \"oval\" replaces that design.",
-                        "",
-                        "If omitted, the value is \"default\"."
+                        "The semantic shape family of this notehead. Shape selection does not change pitch, duration, or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat."
                     ],
-                    "extraJSONSchema": {
-                        "default": "default"
-                    }
+                    "required": true
                 }
             },
             "extraJSONSchema": {
-                "dependentRequired": {
-                    "glyph": [
-                        "shape"
-                    ]
-                },
                 "dependentSchemas": {
                     "shape": {
                         "if": {
@@ -4238,18 +4229,15 @@
                 "",
                 "<p>In tuplets and multi-note tremolos, use the displayed note value rather than the elapsed performance duration.</p>",
                 "",
-                "<p>For a <a href=\"../kit-note/\">kit note</a>, an omitted shape or \"default\" uses the <a href=\"../kit-component/\">kit component</a>'s notehead, including its glyph. An explicit shape such as \"oval\" replaces the component's shape and glyph. An explicit glyph on the kit note overrides the selected notehead's appearance.</p>",
+                "<p>For a <a href=\"../kit-note/\">kit note</a>, omitting the notehead object uses the <a href=\"../kit-component/\">kit component</a>'s notehead, including its glyph. An explicit notehead object replaces the component's shape and glyph.</p>",
                 "",
-                "<p>MNX doesn't currently have a way to assign notehead shapes dynamically according to pitch or staff position, such as shape-note notation. Applications may still encode such settings using <a href=\"../global-attrs/\">vendor extensions</a>. When no kit-component notehead applies and a notehead's shape is omitted or set to \"default\", consuming software may use those settings to choose its shape. An explicit shape, such as \"oval\" or \"diamond\", should override that setting.</p>"
+                "<p>MNX doesn't currently have a way to assign notehead shapes dynamically according to pitch or staff position, such as shape-note notation. Applications may still encode such settings using <a href=\"../global-attrs/\">vendor extensions</a>. When no kit-component notehead applies and the notehead object is omitted, consuming software may use those settings to choose its shape. An explicit shape, such as \"oval\" or \"diamond\", should override that setting.</p>"
             ]
         },
         "notehead-shape": {
             "title": "notehead shape",
             "kind": "string",
             "values": {
-                "default": [
-                    "For a kit note, uses the head design defined by its kit component. Otherwise, the notehead shape is determined by the consuming software. Normally this is an oval shape."
-                ],
                 "oval": [
                     "Conventional oval notehead."
                 ],

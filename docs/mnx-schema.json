@@ -1162,6 +1162,31 @@
       "type": "object",
       "unevaluatedProperties": false
     },
+    "label-ref": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/label-ref-type"
+        },
+        "target": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "label-ref-type": {
+      "enum": [
+        "auto",
+        "name",
+        "shortName"
+      ],
+      "type": "string"
+    },
     "language-code": {
       "type": "string"
     },
@@ -2459,8 +2484,8 @@
         "label": {
           "$ref": "#/$defs/staff-label"
         },
-        "labelref": {
-          "$ref": "#/$defs/staff-labelref"
+        "labelRef": {
+          "$ref": "#/$defs/label-ref"
         },
         "sources": {
           "items": {
@@ -2517,6 +2542,9 @@
         "label": {
           "$ref": "#/$defs/staff-label"
         },
+        "labelRef": {
+          "$ref": "#/$defs/label-ref"
+        },
         "symbol": {
           "$ref": "#/$defs/staff-symbol"
         },
@@ -2544,13 +2572,6 @@
     "staff-label": {
       "type": "string"
     },
-    "staff-labelref": {
-      "enum": [
-        "name",
-        "shortName"
-      ],
-      "type": "string"
-    },
     "staff-number": {
       "minimum": 1,
       "type": "integer"
@@ -2568,8 +2589,8 @@
         "label": {
           "$ref": "#/$defs/staff-label"
         },
-        "labelref": {
-          "$ref": "#/$defs/staff-labelref"
+        "labelRef": {
+          "$ref": "#/$defs/label-ref"
         },
         "part": {
           "$ref": "#/$defs/id"

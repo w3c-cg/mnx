@@ -300,28 +300,28 @@
           "content": [
             {
               "type": "staff",
-              "labelref": "name",
+              "labelRef": {"ref": "name"},
               "sources": [
                 {"part": "soprano"}
               ]
             },
             {
               "type": "staff",
-              "labelref": "name",
+              "labelRef": {"ref": "name"},
               "sources": [
                 {"part": "alto"}
               ]
             },
             {
               "type": "staff",
-              "labelref": "name",
+              "labelRef": {"ref": "name"},
               "sources": [
                 {"part": "tenor"}
               ]
             },
             {
               "type": "staff",
-              "labelref": "name",
+              "labelRef": {"ref": "name"},
               "sources": [
                 {"part": "bass"}
               ]

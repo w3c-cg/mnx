@@ -1491,6 +1491,14 @@
                         "An optional name for this group of staves. If provided, this should be rendered to the left of the staff group."
                     ]
                 },
+                "labelRef": {
+                    "type": "label-ref",
+                    "description": [
+                        "If provided, the referenced name should be rendered to the left of the staff group. We recommend always supplying its \"target\".",
+                        "",
+                        "By using this instead of the \"label\" attribute, you can avoid needing to duplicate a part's name in an MNX document."
+                    ]
+                },
                 "symbol": {
                     "type": "staff-symbol",
                     "description": [
@@ -1526,20 +1534,47 @@
             "title": "staff label",
             "kind": "string"
         },
-        "staff-labelref": {
-            "title": "staff labelref",
+        "label-ref": {
+            "title": "label ref",
+            "kind": "dict",
+            "properties": {
+                "ref": {
+                    "type": "label-ref-type",
+                    "description": [
+                        "Which name to display. If omitted, the default value is \"auto\"."
+                    ]
+                },
+                "target": {
+                    "type": "id",
+                    "description": [
+                        "The ID of the <a href=\"../part/\">part</a> whose name is displayed.",
+                        "",
+                        "If omitted on a staff source, the target is the source's own part. If omitted on a staff, the target is the part of the staff's first source. If omitted on a staff group, consuming software determines the target.",
+                        "",
+                        "We recommend always supplying the target for staff group objects."
+                    ]
+                }
+            },
+            "description": [
+                "<p>The label ref object displays a part's name or shortName as the label for a staff, staff source or staff group, so the name doesn't need to be duplicated in the layout.</p>",
+                "",
+                "<p>As with the \"label\" attribute of <a href=\"../staff/\">staff</a>, <a href=\"../staff-group/\">staff group</a> and <a href=\"../staff-source/\">staff source</a>, any label ref that is provided should be displayed, and consuming software decides how best to position it.</p>"
+            ]
+        },
+        "label-ref-type": {
+            "title": "label ref type",
             "kind": "string",
             "values": {
+                "auto": [
+                    "Consuming software chooses between the part's \"name\" and \"shortName\". Typically the \"name\" is used on the first system and the \"shortName\" on subsequent systems."
+                ],
                 "name": [
                     "Use the <a href=\"../part/\">part</a>'s \"name\" attribute."
                 ],
                 "shortName": [
                     "Use the <a href=\"../part/\">part</a>'s \"shortName\" attribute."
                 ]
-            },
-            "description": [
-                "<p>This data encodes the answer to the question: \"should we display the part's name or the part's shortName\"?</p>"
-            ]
+            }
         },
         "staff-source": {
             "title": "staff source",
@@ -1553,10 +1588,10 @@
                         "This should only be used in cases where a single staff is sourced from more than one staff source and you want to more than one label for that staff. Otherwise, use a label on the staff object instead."
                     ]
                 },
-                "labelref": {
-                    "type": "staff-labelref",
+                "labelRef": {
+                    "type": "label-ref",
                     "description": [
-                        "If provided, this specifies that the corresponding part's name (or shortName) should be rendered to the left of the staff. See the documentation for \"label\".",
+                        "If provided, the referenced name should be rendered to the left of the staff, positioned as described for \"label\". If its \"target\" is omitted, it refers to this source's part.",
                         "",
                         "By using this instead of the \"label\" attribute, you can avoid needing to duplicate a part's name in an MNX document."
                     ]
@@ -1803,13 +1838,13 @@
                     "description": [
                         "An optional name for this staff. If provided, this should be rendered to the left of the staff.",
                         "",
-                        "Generally we recommend using \"labelref\" instead of \"label\", to avoid duplication of data within an MNX document."
+                        "Generally we recommend using \"labelRef\" instead of \"label\", to avoid duplication of data within an MNX document."
                     ]
                 },
-                "labelref": {
-                    "type": "staff-labelref",
+                "labelRef": {
+                    "type": "label-ref",
                     "description": [
-                        "If provided, this specifies that the corresponding part's name (or shortName) should be rendered to the left of the staff.",
+                        "If provided, the referenced name should be rendered to the left of the staff. If its \"target\" is omitted, it refers to the part of this staff's first source.",
                         "",
                         "By using this instead of the \"label\" attribute, you can avoid needing to duplicate a part's name in an MNX document."
                     ]

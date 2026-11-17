@@ -95,7 +95,7 @@
           "content": [
             {
               "type": "staff",
-              "labelref": "name",
+              "labelRef": {},
               "sources": [
                 {
                   "part": "flute"
@@ -113,7 +113,7 @@
               "content": [
                 {
                   "type": "staff",
-                  "labelref": "name",
+                  "labelRef": {},
                   "sources": [
                     {
                       "part": "oboe1"
@@ -122,7 +122,7 @@
                 },
                 {
                   "type": "staff",
-                  "labelref": "name",
+                  "labelRef": {},
                   "sources": [
                     {
                       "part": "oboe2"

@@ -1255,9 +1255,14 @@
           "items": {
             "$ref": "#/$defs/lyric-line-id"
           },
-          "type": "array"
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
         }
       },
+      "required": [
+        "lineOrder"
+      ],
       "type": "object",
       "unevaluatedProperties": false
     },

@@ -2812,9 +2812,9 @@
                 "lines": {
                     "type": "event-lyric-lines",
                     "description": [
-                        "A data structure representing all of the event's lyric lines (e.g., for multiple verses). This is encoded as an object in which the keys are user-defined strings (such as \"1\", \"2\" or \"A\") and the values are event lyric line objects.",
+                        "A data structure representing all of the event's lyric lines (e.g., for multiple verses). This is encoded as an object in which the keys are lyric line IDs (user-defined strings such as \"1\", \"2\" or \"A\") and the values are event lyric line objects.",
                         "",
-                        "These user-defined strings are effectively document-scoped IDs of the lyric lines. All lyric lines that appear together should have the same ID in the document."
+                        "Each key must be listed in <code>global.lyrics.lineOrder</code>, which determines the display order of the lines. The order of keys in this object has no meaning."
                     ]
                 }
             },
@@ -2919,18 +2919,26 @@
                 "lineMetadata": {
                     "type": "lyric-lines-metadata",
                     "description": [
-                        "An object mapping lyric line IDs (which are user-defined) to lyric metadata objects. This encodes global metadata on a per-lyric-line basis."
+                        "An object mapping lyric line IDs to lyric metadata objects. This encodes global metadata on a per-lyric-line basis. Each key must be an ID listed in <code>lineOrder</code>."
                     ]
                 },
                 "lineOrder": {
                     "items": [
                         "lyric-line-id"
                     ],
+                    "required": true,
+                    "extraJSONSchema": {
+                        "minItems": 1,
+                        "uniqueItems": true
+                    },
                     "description": [
-                        "An array of all lyric line IDs used in this MNX document, in the order in which they should be visually displayed (from top to bottom)."
+                        "An array of all lyric line IDs used in this MNX document, in the order in which they should be visually displayed (from top to bottom). Each ID appears exactly once. Every key used in any event's <code>lyrics.lines</code> and in <code>lineMetadata</code> must appear in this array."
                     ]
                 }
-            }
+            },
+            "description": [
+                "<p>Document-wide lyric data. This is required if any event in the document has lyrics.</p>"
+            ]
         },
         "lyric-lines-metadata": {
             "title": "lyric lines metadata",

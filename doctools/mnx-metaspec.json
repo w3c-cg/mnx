@@ -2814,7 +2814,7 @@
                     "description": [
                         "A data structure representing all of the event's lyric lines (e.g., for multiple verses). This is encoded as an object in which the keys are lyric line IDs (user-defined strings such as \"1\", \"2\" or \"A\") and the values are event lyric line objects.",
                         "",
-                        "Each key must be listed in <code>global.lyrics.lineOrder</code>, which determines the display order of the lines. The order of keys in this object has no meaning."
+                        "Each key must be listed in <a href=\"../lyrics-global/\">lyrics-global.lineOrder</a>, which determines the display order of the lines."
                     ]
                 }
             },
@@ -2932,12 +2932,14 @@
                         "uniqueItems": true
                     },
                     "description": [
-                        "An array of all lyric line IDs used in this MNX document, in the order in which they should be visually displayed (from top to bottom). Each ID appears exactly once. Every key used in any event's <code>lyrics.lines</code> and in <code>lineMetadata</code> must appear in this array."
+                        "An array of all lyric line IDs used in this MNX document (i.e., keys used by \"lineMetadata\" and <a href=\"../lyrics/\">lyrics.lines</a>), in the order in which they should be visually displayed (from top to bottom).",
+                        "",
+                        "Each ID must appear exactly once in this array."
                     ]
                 }
             },
             "description": [
-                "<p>Document-wide lyric data. This is required if any event in the document has lyrics.</p>"
+                "<p>Document-wide lyric data. This is required if any <a href=\"../event/\">event</a> in the document has <a href=\"../lyrics/\">lyrics</a>.</p>"
             ]
         },
         "lyric-lines-metadata": {

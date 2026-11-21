@@ -58,7 +58,7 @@
 
 
 
-<p>A note can encode a custom notehead in two ways: via a general &quot;shape&quot; or a specific SMuFL glyph. It&#x27;s generally better to use a &quot;shape&quot;: that&#x27;s a more general concept and software can dynamically choose the appropriate SMuFL glyph for the combination of &quot;shape plus rhythmic duration.&quot;<br><br>This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The kit notes here use the kit component&#x27;s default or explicitly select an oval or downward-pointing triangle.</p>
+<p>A note can encode a custom notehead in two ways: via a general &quot;shape&quot; or a specific SMuFL glyph. In most cases, it&#x27;s better to use a &quot;shape&quot;: that&#x27;s a more general concept and software can dynamically choose the appropriate SMuFL glyph for the combination of &quot;shape plus rhythmic duration.&quot;<br><br>This example shows upward- and downward-pointing triangles, duration-aware diamonds and a cymbal component with an X head. The first note doesn&#x27;t encode an explicit notehead, so consuming software determines the notehead automatically. Each kit note inherits its kit component&#x27;s X head or explicitly selects an oval, diamond or downward-pointing triangle notehead.</p>
 
 
 
@@ -179,13 +179,10 @@
                            },
                            <a class="tag" href="../../objects/event/">"notes"</a>: [
                               {
-                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"notehead"</a>:</b> <b class="markuphl">{</b>
-                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"default"</a></b>
-                                 <b class="markuphl">},</b>
-                                 <a class="tag" href="../../objects/note/">"pitch"</a>: {
-                                    <a class="tag" href="../../objects/pitch/">"octave"</a>: <a class="tag" href="../../objects/octave/">5</a>,
-                                    <a class="tag" href="../../objects/pitch/">"step"</a>: <a class="tag" href="../../objects/step/">"C"</a>
-                                 }
+                                 <b class="markuphl"><a class="tag" href="../../objects/note/">"pitch"</a>:</b> <b class="markuphl">{</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/pitch/">"octave"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/octave/">5</a>,</b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/pitch/">"step"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/step/">"C"</a></b>
+                                 <b class="markuphl">}</b>
                               }
                            ]
                         }
@@ -543,7 +540,7 @@
                               {
                                  <a class="tag" href="../../objects/kit-note/">"kitComponent"</a>: <a class="tag" href="../../objects/id/">"cymbal"</a>,
                                  <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"notehead"</a>:</b> <b class="markuphl">{</b>
-                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"default"</a></b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"oval"</a></b>
                                  <b class="markuphl">}</b>
                               }
                            ]
@@ -556,7 +553,7 @@
                               {
                                  <a class="tag" href="../../objects/kit-note/">"kitComponent"</a>: <a class="tag" href="../../objects/id/">"cymbal"</a>,
                                  <b class="markuphl"><a class="tag" href="../../objects/kit-note/">"notehead"</a>:</b> <b class="markuphl">{</b>
-                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"oval"</a></b>
+                                    <b class="markuphl"><a class="tag" href="../../objects/notehead/">"shape"</a>:</b> <b class="markuphl"><a class="tag" href="../../objects/notehead-shape/">"diamond"</a></b>
                                  <b class="markuphl">}</b>
                               }
                            ]

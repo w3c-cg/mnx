@@ -3,6 +3,9 @@
       "version": 1
    },
    "global": {
+      "lyrics": {
+         "lineOrder": ["1"]
+      },
       "measures": [
          {
             "time": {

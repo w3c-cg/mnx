@@ -4191,15 +4191,19 @@
                 "glyph": {
                     "type": "smufl-glyph",
                     "description": [
-                        "An explicit SMuFL glyph for this notehead. Use a known shape to retain its semantics while refining its appearance, or (\"custom\") for an otherwise unclassified head.",
+                        "An explicit SMuFL glyph for this notehead. This overrides the glyph that a rendering engine would otherwise select.",
                         "",
-                        "The glyph overrides duration-dependent glyph selection. It does not change pitch, duration or performance."
+                        "Generally we recommend using \"shape\" instead of this, because \"shape\" retains semantics.",
+                        "",
+                        "The presence of \"smufl-glyph\" has no effect on note pitch, duration or performance. It's purely visual."
                     ]
                 },
                 "shape": {
                     "type": "notehead-shape",
                     "description": [
-                        "The semantic shape family of this notehead. Shape selection does not change pitch, duration, or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat."
+                        "The semantic shape family of this notehead.",
+                        "",
+                        "As with \"glyph\", the presence of \"shape\" has no effect on note pitch, duration or performance. For example, \"diamond\" does not by itself specify an artificial harmonic, and \"slash\" does not specify pitchless notation or a beat repeat."
                     ],
                     "required": true
                 }
@@ -4229,7 +4233,7 @@
                 "",
                 "<p>In tuplets and multi-note tremolos, use the displayed note value rather than the elapsed performance duration.</p>",
                 "",
-                "<p>For a <a href=\"../kit-note/\">kit note</a>, omitting the notehead object uses the <a href=\"../kit-component/\">kit component</a>'s notehead, including its glyph. An explicit notehead object replaces the component's shape and glyph.</p>",
+                "<p>For a <a href=\"../kit-note/\">kit note</a>, if the notehead isn't explicitly encoded, consuming software should use the <a href=\"../kit-component/\">kit component</a>'s notehead instead, including its glyph.</p>",
                 "",
                 "<p>MNX doesn't currently have a way to assign notehead shapes dynamically according to pitch or staff position, such as shape-note notation. Applications may still encode such settings using <a href=\"../global-attrs/\">vendor extensions</a>. When no kit-component notehead applies and the notehead object is omitted, consuming software may use those settings to choose its shape. An explicit shape, such as \"oval\" or \"diamond\", should override that setting.</p>"
             ]

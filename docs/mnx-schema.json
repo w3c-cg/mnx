@@ -1003,6 +1003,7 @@
       "type": "string"
     },
     "id-pair": {
+      "additionalProperties": false,
       "properties": {
         "end": {
           "$ref": "#/$defs/id"
@@ -3056,7 +3057,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/54",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/55",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

@@ -1,5 +1,5 @@
 {
-    "version": 54,
+    "version": 55,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -3264,6 +3264,7 @@
             "title": "vendor dict",
             "kind": "dict",
             "globalAttributes": false,
+            "allowOtherProperties": true,
             "properties": {},
             "description": [
                 "<p>A dictionary with vendor-specific data. See <a href=\"../global-attrs/\">the \"_x\" global attribute</a> for more.</p>"

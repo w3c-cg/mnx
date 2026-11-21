@@ -182,6 +182,20 @@ defined once (see "Special objects"). To exempt an object, set:
 
 This is rare; only a handful of objects do it.
 
+### Other properties
+
+A `dict` object only accepts the attributes it defines (plus the global
+attributes, if it uses them); the generated JSON Schema rejects anything
+else. To accept arbitrary other properties, set:
+
+```json
+"allowOtherProperties": true
+```
+
+This is for objects whose contents are deliberately open-ended, such as
+`vendor-dict`. The global attributes object (see "Special objects") is
+always left open, as it's only ever combined into other objects.
+
 ### Allowed values
 
 Objects of kind `string`, `integer` and `float` may enumerate their allowed

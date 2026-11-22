@@ -1684,6 +1684,9 @@
         "slash",
         "plus",
         "circleX",
+        "circled",
+        "slashed",
+        "backSlashed",
         "square",
         "custom"
       ],

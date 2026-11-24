@@ -2093,8 +2093,25 @@
         }
       ],
       "properties": {
+        "markings": {
+          "$ref": "#/$defs/rest-markings"
+        },
         "staffPosition": {
           "$ref": "#/$defs/staff-position"
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "rest-markings": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "enclosure": {
+          "$ref": "#/$defs/bracket-enclosure"
         }
       },
       "type": "object",
@@ -3080,7 +3097,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/56",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/57",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

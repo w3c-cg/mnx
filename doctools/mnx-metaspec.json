@@ -1,5 +1,5 @@
 {
-    "version": 56,
+    "version": 57,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -698,6 +698,12 @@
         "rest": {
             "kind": "dict",
             "properties": {
+                "markings": {
+                    "type": "rest-markings",
+                    "description": [
+                        "Various markings that apply to this rest."
+                    ]
+                },
                 "staffPosition": {
                     "type": "staff-position",
                     "description": [
@@ -713,6 +719,23 @@
             },
             "description": [
                 "<p>The rest object defines a rest within an event, along with other information pertaining to the rest rather than to its containing event.</p>"
+            ]
+        },
+        "rest-markings": {
+            "title": "rest markings",
+            "kind": "dict",
+            "properties": {
+                "enclosure": {
+                    "type": "bracket-enclosure",
+                    "description": [
+                        "A pair of parentheses or square brackets enclosing this rest and its augmentation dots.",
+                        "",
+                        "The enclosure does not change duration or playback. If omitted, the rest has no enclosure."
+                    ]
+                }
+            },
+            "description": [
+                "<p>Notations that apply to a specific <a href=\"../rest/\">rest</a>. See also <a href=\"../event-markings/\">event markings</a>.</p>"
             ]
         },
         "tie": {

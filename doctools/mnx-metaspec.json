@@ -1,5 +1,5 @@
 {
-    "version": 55,
+    "version": 56,
     "format": {
         "name": "MNX",
         "slug": "mnx"
@@ -4276,6 +4276,15 @@
                 ],
                 "circleX": [
                     "An X enclosed in a circle."
+                ],
+                "circled": [
+                    "A notehead enclosed in a circle."
+                ],
+                "slashed": [
+                    "A conventional oval notehead with a slash through it, from bottom left to top right."
+                ],
+                "backSlashed": [
+                    "A conventional oval notehead with a slash through it, from top left to bottom right."
                 ],
                 "square": [
                     "A square notehead, as used for La in shape-note notation. This does not by itself select a shape-note system."

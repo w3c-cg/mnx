@@ -863,6 +863,16 @@
             "documentPath": "examples/json/keyfifths-flip-2.json",
             "imagePath": "examples/keyfifths-flip-2.png",
             "featured": false
+        },
+        {
+            "slug": "note-enclosures",
+            "name": "Note enclosures",
+            "blurb": [
+                "Parentheses and square brackets enclose the marked notehead, augmentation dots, and any displayed accidentals. The example includes accidentals with their own enclosures, a single enclosed member of a chord, and a kit note. The labels explain the notation and are not part of the MNX document."
+            ],
+            "documentPath": "examples/json/note-enclosures.json",
+            "imagePath": "examples/note-enclosures.png",
+            "featured": false
         }
     ]
 }

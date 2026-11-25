@@ -1003,6 +1003,7 @@
       "type": "string"
     },
     "id-pair": {
+      "additionalProperties": false,
       "properties": {
         "end": {
           "$ref": "#/$defs/id"
@@ -1280,9 +1281,14 @@
           "items": {
             "$ref": "#/$defs/lyric-line-id"
           },
-          "type": "array"
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
         }
       },
+      "required": [
+        "lineOrder"
+      ],
       "type": "object",
       "unevaluatedProperties": false
     },
@@ -1663,11 +1669,6 @@
           "$ref": "#/$defs/global-attrs"
         }
       ],
-      "dependentRequired": {
-        "glyph": [
-          "shape"
-        ]
-      },
       "dependentSchemas": {
         "shape": {
           "if": {
@@ -1689,16 +1690,17 @@
           "$ref": "#/$defs/smufl-glyph"
         },
         "shape": {
-          "$ref": "#/$defs/notehead-shape",
-          "default": "default"
+          "$ref": "#/$defs/notehead-shape"
         }
       },
+      "required": [
+        "shape"
+      ],
       "type": "object",
       "unevaluatedProperties": false
     },
     "notehead-shape": {
       "enum": [
-        "default",
         "oval",
         "x",
         "diamond",
@@ -1707,6 +1709,9 @@
         "slash",
         "plus",
         "circleX",
+        "circled",
+        "slashed",
+        "backSlashed",
         "square",
         "custom"
       ],
@@ -3076,7 +3081,7 @@
       "type": "string"
     }
   },
-  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/52",
+  "$id": "https://w3c-cg.github.io/mnx/docs/mnx-schema.json/version/56",
   "$ref": "#/$defs/root",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "An encoding of Common Western Music Notation.",

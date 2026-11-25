@@ -64,13 +64,13 @@
                 {
                   "type": "staff",
                   "sources": [
-                    {"part": "fl1", "stem": "up", "labelref": "shortName"},
-                    {"part": "fl2", "stem": "down", "labelref": "shortName"}
+                    {"part": "fl1", "stem": "up", "labelRef": {"ref": "shortName"}},
+                    {"part": "fl2", "stem": "down", "labelRef": {"ref": "shortName"}}
                   ]
                 },
                 {
                   "type": "staff",
-                  "labelref": "shortName",
+                  "labelRef": {"ref": "shortName"},
                   "sources": [
                     {"part": "fl3"}
                   ]
@@ -81,8 +81,8 @@
               "type": "staff",
               "label": "Oboes",
               "sources": [
-                {"part": "ob1", "stem": "up", "labelref": "shortName"},
-                {"part": "ob2", "stem": "down", "labelref": "shortName"}
+                {"part": "ob1", "stem": "up", "labelRef": {"ref": "shortName"}},
+                {"part": "ob2", "stem": "down", "labelRef": {"ref": "shortName"}}
               ]
             }
           ]
@@ -119,21 +119,21 @@
               "content": [
                 {
                   "type": "staff",
-                  "labelref": "shortName",
+                  "labelRef": {"ref": "shortName"},
                   "sources": [
                     {"part": "fl1"}
                   ]
                 },
                 {
                   "type": "staff",
-                  "labelref": "shortName",
+                  "labelRef": {"ref": "shortName"},
                   "sources": [
                     {"part": "fl2"}
                   ]
                 },
                 {
                   "type": "staff",
-                  "labelref": "shortName",
+                  "labelRef": {"ref": "shortName"},
                   "sources": [
                     {"part": "fl3"}
                   ]
@@ -144,8 +144,8 @@
               "type": "staff",
               "label": "Ob.",
               "sources": [
-                {"part": "ob1", "stem": "up", "labelref": "shortName"},
-                {"part": "ob2", "stem": "down", "labelref": "shortName"}
+                {"part": "ob1", "stem": "up", "labelRef": {"ref": "shortName"}},
+                {"part": "ob2", "stem": "down", "labelRef": {"ref": "shortName"}}
               ]
             }
           ]

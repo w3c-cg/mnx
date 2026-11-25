@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The label ref object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    label ref
+</p>
+
+<h1>The label ref object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>The label ref object displays a part's name or shortName as the label for a <a href="../staff/">staff</a>, <a href="../staff-source/">staff source</a> or <a href="../staff-group/">staff group</a>, so the name doesn't need to be duplicated in the layout.</p>
+
+<p>As with the "label" attribute of <a href="../staff/">staff</a>, <a href="../staff-group/">staff group</a> and <a href="../staff-source/">staff source</a>, any label ref that is provided should be displayed, and consuming software is responsible for deciding how best to position it.</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>ref</b></nobr></td>
+    <td>
+        
+        <a href="../label-ref-type/">label ref type</a>
+        
+    </td>
+    <td>No</td>
+    <td>Which name to display. If omitted, the default value is "auto".</td>
+</tr>
+
+<tr>
+    <td><nobr><b>target</b></nobr></td>
+    <td>
+        
+        <a href="../id/">ID</a>
+        
+    </td>
+    <td>No</td>
+    <td>The ID of the <a href="../part/">part</a> whose name is displayed.<br><br>If this is omitted on a <a href="../staff-source/">staff source</a>, consuming software should use the source's own part. If omitted on a <a href="../staff/">staff</a>, software should use the part of the staff's first source. If omitted on a <a href="../staff-group/">staff group</a>, software should determine the target according to its own algorithm.<br><br>We recommend always supplying the target for staff group objects.</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../staff/">staff</a>: "labelRef"</li>
+
+<li><a href="../staff-group/">staff group</a>: "labelRef"</li>
+
+<li><a href="../staff-source/">staff source</a>: "labelRef"</li>
+
+</ul>
+
+
+
+
+<h2 id="examples">Examples</h2>
+
+<p>This object is used in the following examples:</p>
+<p>
+
+<nobr><a href="../../examples/bracket-square/">Bracket (square)</a></nobr>,
+
+<nobr><a href="../../examples/multiple-layouts/">Multiple layouts</a></nobr>,
+
+<nobr><a href="../../examples/system-layouts/">System layouts</a></nobr>
+
+</p>
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>

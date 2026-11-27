@@ -243,6 +243,199 @@
       ],
       "type": "string"
     },
+    "chord-suffix": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "content": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/chord-suffix-text"
+              },
+              {
+                "$ref": "#/$defs/chord-suffix-smufl"
+              },
+              {
+                "$ref": "#/$defs/chord-suffix-stack"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "chord-suffix-enclosure": {
+      "enum": [
+        "none",
+        "parentheses",
+        "brackets"
+      ],
+      "type": "string"
+    },
+    "chord-suffix-level": {
+      "enum": [
+        "baseline",
+        "superscript",
+        "subscript"
+      ],
+      "type": "string"
+    },
+    "chord-suffix-row": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "content": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/chord-suffix-text"
+              },
+              {
+                "$ref": "#/$defs/chord-suffix-smufl"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "chord-suffix-smufl": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "glyphs": {
+          "items": {
+            "$ref": "#/$defs/smufl-glyph"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "level": {
+          "$ref": "#/$defs/chord-suffix-level",
+          "default": "baseline"
+        },
+        "type": {
+          "const": "smufl",
+          "type": "string"
+        }
+      },
+      "required": [
+        "glyphs",
+        "type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "chord-suffix-stack": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "if": {
+        "properties": {
+          "arrangement": {
+            "const": "diagonal"
+          }
+        },
+        "required": [
+          "arrangement"
+        ]
+      },
+      "properties": {
+        "arrangement": {
+          "$ref": "#/$defs/chord-suffix-stack-arrangement",
+          "default": "vertical"
+        },
+        "enclosure": {
+          "$ref": "#/$defs/chord-suffix-enclosure",
+          "default": "none"
+        },
+        "level": {
+          "$ref": "#/$defs/chord-suffix-level",
+          "default": "baseline"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/chord-suffix-row"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "type": {
+          "const": "stack",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rows",
+        "type"
+      ],
+      "then": {
+        "properties": {
+          "rows": {
+            "maxItems": 2
+          }
+        }
+      },
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "chord-suffix-stack-arrangement": {
+      "enum": [
+        "vertical",
+        "diagonal"
+      ],
+      "type": "string"
+    },
+    "chord-suffix-text": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/global-attrs"
+        }
+      ],
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/chord-suffix-level",
+          "default": "baseline"
+        },
+        "text": {
+          "$ref": "#/$defs/string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
     "clef": {
       "allOf": [
         {

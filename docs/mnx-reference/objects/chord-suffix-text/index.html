@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The chord suffix text run object | MNX specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../../static/styles.css">
+
+</head>
+
+<body class="has-sidenav">
+<div class="topnav">
+    <button id="toggle" class="toggle">
+        <svg viewBox="0 0 100 80" width="16" height="16" fill="currentColor">
+          <rect width="100" height="20" rx="8"></rect>
+          <rect y="30" width="100" height="20" rx="8"></rect>
+          <rect y="60" width="100" height="20" rx="8"></rect>
+        </svg>
+    </button>
+    <a class="logo" href="../../../">
+        <span class="logo-text">MNX specification</span>
+    </a>
+</div>
+
+
+<div class="content">
+    <nav class="sidenav">
+        <ul>
+<li><a href="../../../">Home</a></li>
+<li><a href="../">Reference</a>
+    <ul>
+    <li><a href="../">Objects</a></li>
+    <li><a href="../../examples/">Example documents</a></li>
+    <li><a href="../../../mnx-schema.json">Raw JSON Schema</a></li>
+    </ul>
+</li>
+<li><a href="../../../comparisons/musicxml/">MNX and MusicXML</a></li>
+</ul>
+    </nav>
+    <main>
+    
+<p class="breadcrumb">
+    <a href="../../../">MNX specification</a> &gt;
+    <a href="../../">MNX reference</a> &gt;
+    <a href="../">Objects</a> &gt;
+    chord suffix text run
+</p>
+
+<h1>The chord suffix text run object</h1>
+
+<p><b>Type:</b> Dictionary</p>
+
+
+
+
+<p>A run of Unicode text within a <a href="../chord-suffix/">chord suffix</a>.</p>
+
+<p>A run may contain any number of characters. A suffix needs more than one run only where the level changes or where a SMuFL glyph or a stack appears.</p>
+
+
+
+<h2>Attributes</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required?</th>
+    <th>Description</th>
+</tr>
+</thead>
+
+
+<tr>
+    <td><nobr><b>type</b></nobr></td>
+    <td>
+        
+            The string <code>"text"</code>
+        
+    </td>
+    <td>No</td>
+    <td>Optional. This disambiguates text runs from <a href="../chord-suffix-smufl/">SMuFL runs</a> and <a href="../chord-suffix-stack/">stacks</a>. If a part has no type, applications should assume type=text.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>text</b></nobr></td>
+    <td>
+        
+        <a href="../string/">string</a>
+        
+    </td>
+    <td>Yes</td>
+    <td>The text of this run, which can be any Unicode text. Accidentals may be encoded with Unicode characters such as ♭ (U+266D), ♮ (U+266E), and ♯ (U+266F), and quality symbols with characters such as ° (U+00B0), ø (U+00F8), Δ (U+0394), + and − (U+2212).<br><br>Consuming software renders this text in its chord-symbol text font.</td>
+</tr>
+
+<tr>
+    <td><nobr><b>level</b></nobr></td>
+    <td>
+        
+        <a href="../chord-suffix-level/">chord suffix level</a>
+        
+    </td>
+    <td>No</td>
+    <td>The vertical level of this run.<br><br>If omitted, the default value is "baseline".</td>
+</tr>
+
+
+</table>
+
+
+<p>Plus <a href="../global-attrs/">globally available attributes</a>:
+<b>_c</b>, <b>_x</b>, <b>id</b>
+</p>
+
+
+
+
+
+
+
+<h2>Parent objects</h2>
+
+<p>This object is used by the following parent objects:</p>
+
+<ul>
+
+<li><a href="../chord-suffix/">chord suffix</a>: "content"</li>
+
+<li><a href="../chord-suffix-row/">chord suffix row</a>: "content"</li>
+
+</ul>
+
+
+
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript" src="../../../static/global.js"></script>
+
+</body>
+</html>
